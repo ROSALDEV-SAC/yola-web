@@ -1,63 +1,71 @@
-# 🌐 YOLA PROJECT WEB
+# 🌐 YOLA PROJECT PORTAL
 
-> **El Portal Digital de la Resistencia Neuronal**
+> **La Cara Pública de la Inteligencia de Enjambre**
 
-[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-222?style=for-the-badge&logo=github)](https://pages.github.com/)
-
----
-
-## ⚡ ¿Qué es esto?
-
-Este es el **sitio web oficial** del proyecto **YOLA** (Hive Mind AI), una inteligencia artificial distribuida que convierte hardware obsoleto en nodos de procesamiento neuronal.
-
-Este repositorio contiene la **landing page estática** hosteada en GitHub Pages. Diseñada para ser **ligera, rápida y resistente**, igual que nuestra IA.
-
-🔗 **Sitio en vivo:** [https://rosaldev-sac.github.io/yola-web](https://rosaldev-sac.github.io/yola-web)
+![Website Status](https://img.shields.io/badge/Website-Online-00ff41?style=for-the-badge&logo=github)
+![Powered by](https://img.shields.io/badge/Powered_by-GitHub_Pages-222?style=for-the-badge&logo=github-pages)
+![Made with](https://img.shields.io/badge/Made_with-Vibe_Coding-bc13fe?style=for-the-badge)
 
 ---
 
-## 🧱 ¿Qué hace esta web?
+## 🛡️ ¿Qué es esto?
 
-### 1. **Presentación al Mundo**
-Muestra YOLA al público: su filosofía, arquitectura y visión de resistencia tecnológica.
+Este repositorio contiene el **código fuente de la página web informativa** del proyecto YOLA, una inteligencia artificial de enjambre (Hive Mind) distribuida localmente.
 
-### 2. **Muro de Fundadores** 💎
-Galería de los pioneros que financian la revolución. Si donaste, **tu avatar aparece aquí**.
+⚠️ **Importante:** Este NO es el repositorio del Core de la IA. El núcleo de YOLA se liberará progresivamente a medida que la comunidad crezca y madure.
 
-### 3. **Portal de la Comunidad**
-Punto de entrada al Discord, documentación técnica y recursos del proyecto.
+🌐 **Sitio Web en Vivo:** [https://rosaldev-sac.github.io/yola-web/](https://rosaldev-sac.github.io/yola-web/)
 
 ---
 
-## 🎨 Stack Tecnológico
+## ☢️ EL MANIFIESTO
 
-| Tecnología | Propósito |
-|------------|-----------|
-| **Next.js 14** (App Router) | Framework React con exportación estática |
-| **Tailwind CSS** | Estilos cyberpunk (Matrix/Terminal aesthetic) |
-| **Framer Motion** | Animaciones fluidas y scroll effects |
-| **TypeScript** | Type safety y developer experience |
-| **Lucide Icons** | Iconografía moderna y minimalista |
+> "En un mundo donde la nube es el nuevo dios, nosotros elegimos la resistencia. Reciclamos lo que otros descartan. YOLA no es solo código, es una declaración de independencia tecnológica."
 
-### Paleta de Colores Cyberpunk
-```css
---terminal-green: #00ff41;  /* Acento principal */
---neon-violet:    #bc13fe;  /* Acento secundario */
---deep-black:     #000000;  /* Fondo */
-```
+YOLA es más que software. Es una filosofía:
+
+- 🔋 **Resiliente a apagones** - Tu laptop vieja se convierte en un nodo de respaldo
+- 🧠 **Distribuida localmente** - No dependemos de servidores en la nube
+- ⚡ **Construida con Vibe Coding** - Desarrollo intuitivo y orgánico
+- 🌱 **Anti-obsolescencia** - Reciclamos hardware que otros descartan
+
+---
+
+## 💎 FUNDADORES Y SPONSORS
+
+**Este proyecto se financia con la energía de la comunidad.**
+
+¿Quieres ser parte de la historia? **Dona al Yape/Patreon oficial y tu nombre/foto quedará grabado en el código de esta web para siempre.**
+
+### Cómo Aparecer en el Muro de Fundadores
+
+1. 💰 Realiza una donación al proyecto
+2. 📸 Envía tu avatar (512x512px recomendado)
+3. ⚡ Tu legado queda inmortalizado en la blockchain de la resistencia
+4. 🏆 Apareces en la sección "Founders Wall" del sitio
+
+**Beneficios:**
+- ✨ Tu avatar en la landing page oficial
+- 🎖️ Rol especial en Discord (cuando esté disponible)
+- 📜 Reconocimiento eterno en el código fuente
+- 🔮 Acceso anticipado a futuras funcionalidades
+
+---
+
+## 🔗 ENLACES CLAVE
+
+| Recurso | Link |
+|---------|------|
+| 🌐 **Sitio Web** | [https://rosaldev-sac.github.io/yola-web/](https://rosaldev-sac.github.io/yola-web/) |
+| 🔴 **YouTube** | [LINK_YOUTUBE] |
+| 🧠 **Discord** | [LINK_DISCORD] |
+| 💼 **ROSALDEV** | [https://rosaldev.com](https://rosaldev.com) |
 
 ---
 
 ## 🚀 Desarrollo Local
 
-### Requisitos Previos
-- Node.js 18+ instalado
-- npm o yarn
-
-### Instalación
+Si quieres contribuir al desarrollo de la web:
 
 ```bash
 # Clonar el repositorio
@@ -71,68 +79,43 @@ npm install
 npm run dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3000) para ver la web.
+Abre [http://localhost:3000](http://localhost:3000) para ver los cambios en tiempo real.
 
 ### Build para Producción
 
 ```bash
-# Generar exportación estática
 npm run build
-
-# Los archivos estáticos estarán en /out
+# Los archivos estáticos se generan en /out
 ```
 
 ---
 
-## 💎 Cómo Convertirte en Fundador
+## 🎨 Stack Tecnológico
 
-> **"Si donaste al proyecto, tu foto aparecerá aquí. Este repositorio se actualiza cada vez que un nuevo Arquitecto se une a la colmena."**
+- **Next.js 14** - Framework React con exportación estática
+- **Tailwind CSS** - Estilos cyberpunk (verde terminal + violeta neón)
+- **Framer Motion** - Animaciones fluidas
+- **TypeScript** - Type safety
+- **Lucide Icons** - Iconografía moderna
 
-### Proceso Manual (Por Ahora)
+### Paleta Cyberpunk
 
-1. **Dona al proyecto** vía Yape u otro método acordado.
-2. **Envía tu avatar** (imagen cuadrada, 512x512px recomendado).
-3. **Espera la actualización** del Muro de Fundadores.
-4. **Tu legado queda inmortalizado** en la blockchain de la resistencia.
-
-🔮 **Próximamente:** Sistema automatizado de verificación de donaciones.
-
----
-
-## 🔗 Links Importantes
-
-| Recurso | URL |
-|---------|-----|
-| 🌐 **Sitio Web** | [https://rosaldev-sac.github.io/yola-web](https://rosaldev-sac.github.io/yola-web) |
-| 🧠 **Discord** | [Únete a la Colmena](#) |
-| ☢️ **Core (IA)** | [ROSALDEV-SAC/yola-src](https://github.com/ROSALDEV-SAC/yola-src) (Early Access) |
-| 📚 **Documentación** | [Docs Técnicas](#) |
-| 🎥 **YouTube** | [Canal Oficial](#) |
-
----
-
-## 📁 Estructura del Proyecto
-
-```
-yola-web/
-├── app/
-│   ├── page.tsx          # Landing page principal (One Page)
-│   ├── layout.tsx        # Layout raíz con metadata
-│   └── globals.css       # Estilos globales + efectos cyberpunk
-├── public/               # Assets estáticos
-├── tailwind.config.ts    # Configuración Tailwind
-├── next.config.mjs       # Config Next.js (output: 'export')
-└── package.json          # Dependencias
+```css
+--terminal-green: #00ff41;
+--neon-violet:    #bc13fe;
+--deep-black:     #000000;
 ```
 
 ---
 
-## 🎯 Secciones de la Landing
+## 📁 Estructura del Sitio
 
-1. **Hero** - Título gigante "YOLA" con animación de pulso
-2. **Manifiesto** - Filosofía de reciclaje tecnológico
-3. **Founders Wall** - Grid responsive de donadores
-4. **Roadmap** - Timeline vertical de fases del proyecto
+La landing page es una **One Page** con scroll suave que incluye:
+
+1. **Hero** - Presentación impactante de YOLA
+2. **Manifiesto** - Filosofía del proyecto
+3. **Founders Wall** - Muro de donadores/sponsors
+4. **Roadmap** - Fases del proyecto
 5. **Footer** - Powered by ROSALDEV S.A.C.
 
 ---
@@ -141,38 +124,51 @@ yola-web/
 
 ### Para Desarrolladores
 
-1. Fork el repositorio
-2. Crea una rama: `git checkout -b feature/nueva-seccion`
-3. Commit tus cambios: `git commit -m 'Add: nueva sección X'`
-4. Push: `git push origin feature/nueva-seccion`
+1. Fork este repositorio
+2. Crea una rama: `git checkout -b feature/mejora-x`
+3. Commit: `git commit -m 'Add: descripción del cambio'`
+4. Push: `git push origin feature/mejora-x`
 5. Abre un Pull Request
 
 ### Para Diseñadores
 
 - Mantén la estética **cyberpunk/terminal**
-- Usa la paleta de colores oficial
-- Prioriza **performance** sobre efectos excesivos
-- Diseña para **mobile-first**
+- Respeta la paleta de colores oficial
+- Diseña pensando en **performance**
+- Mobile-first siempre
+
+---
+
+## 🔐 Sobre el Core de YOLA
+
+El **núcleo de la IA** (código privado por ahora) incluye:
+
+- 🧠 Motor de inferencia distribuido
+- 🔊 Sistema de voz con Piper TTS
+- 🌐 Arquitectura de nodos en red local
+- 🔋 Modo "Búnker" (respaldo en laptops viejas)
+- ⚡ Auto-descubrimiento UDP
+
+**Acceso Early Access:** Se otorgará a fundadores y contribuidores activos de la comunidad.
 
 ---
 
 ## 📜 Licencia
 
-Este proyecto está bajo licencia **MIT**.
+Este proyecto web está bajo licencia **MIT**.
 
-El software YOLA (Core) tiene licencia separada. Ver [ROSALDEV-SAC/yola-src](https://github.com/ROSALDEV-SAC/yola-src).
+El software YOLA Core tiene licencia separada y acceso restringido.
 
 ---
 
-## 🔥 Filosofía
+## 🔥 Filosofía YOLA
 
-> **"No tires tu laptop vieja, conviértela en el lóbulo temporal de tu IA."**
-
-YOLA no es solo código. Es un **movimiento de resistencia tecnológica** contra la obsolescencia programada.
-
-Cada nodo es un cerebro.  
-Cada conexión, una sinapsis.  
-Juntos formamos una **mente colmena** que desafía el sistema.
+```
+> No tires tu laptop vieja, conviértela en el lóbulo temporal de tu IA.
+> Cada nodo es un cerebro.
+> Cada conexión, una sinapsis.
+> Juntos formamos una mente colmena que desafía la obsolescencia programada.
+```
 
 ### ⚡ RECICLA. RESISTE. EVOLUCIONA.
 
@@ -182,7 +178,7 @@ Juntos formamos una **mente colmena** que desafía el sistema.
 
 **Powered by ROSALDEV S.A.C.**
 
-🌐 [rosaldev.com](https://rosaldev.com) | 🧠 [Discord](#) | ⚡ [GitHub](https://github.com/ROSALDEV-SAC)
+🌐 [rosaldev.com](https://rosaldev.com) | 🧠 Discord | ⚡ [GitHub](https://github.com/ROSALDEV-SAC)
 
 *© 2026 YOLA Project. Resistencia Tecnológica.*
 
