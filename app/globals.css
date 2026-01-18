@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-mono: 'Courier New', monospace;
+  }
+  
+  * {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-black text-white font-mono;
+  }
+}
+
+@layer utilities {
+  .text-glow-terminal {
+    text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41;
+  }
+  
+  .text-glow-neon {
+    text-shadow: 0 0 10px #bc13fe, 0 0 20px #bc13fe, 0 0 30px #bc13fe;
+  }
+  
+  .border-glow-terminal {
+    box-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
+  }
+  
+  .border-glow-neon {
+    box-shadow: 0 0 10px #bc13fe, 0 0 20px #bc13fe;
+  }
+}
