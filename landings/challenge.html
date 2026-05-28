@@ -7,8 +7,6 @@
     <meta name="description" content="Todo está hecho con vibe coding y seguridad mínima. Si lográs penetrar la web, ganás hasta participación ×11. Reto abierto.">
     <meta property="og:title" content="YOLA Challenge — hasta ×11 para quien lo logre">
     <meta property="og:description" content="Vibe coding. Seguridad mínima. Reto máximo. Hackeá YOLA y ganá hasta ×11.">
-    <meta property="og:url" content="challenge.html">
-    <meta property="og:image" content="index.html">
     <meta name="theme-color" content="#050505">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'none';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -80,6 +78,9 @@
 
         .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}.rv.in{opacity:1;transform:translateY(0)}
         @media(max-width:900px){nav{padding:.8rem 1rem}.vibe-grid,.proof-grid{grid-template-columns:1fr}footer{flex-direction:column;gap:1rem;text-align:center}.mult-big{flex-direction:column;text-align:center}}
+        .wa-float{position:fixed;bottom:1.5rem;left:1.5rem;z-index:99999;display:flex;align-items:center;gap:.6rem;background:#25d366;color:#fff;font-family:'DM Mono',monospace;font-size:.65rem;font-weight:500;padding:.7rem 1.2rem;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;animation:waPulse 2s infinite}.wa-float:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(37,211,102,.5)}.wa-float .wa-dot{width:8px;height:8px;background:#fff;border-radius:50%;animation:blink 1.5s infinite}
+        @keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 30px rgba(37,211,102,.6)}}
+
     </style>
 </head>
 <body>
@@ -235,6 +236,9 @@
         <a href="feedback.html" class="btn btn-red">Enviar hallazgo →</a>
         <a href="countdown.html" class="btn btn-outline">Origin ×3.75 normal</a>
     </div>
+    <div style="display:flex;gap:.8rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap;position:relative">
+        <a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" style="font-family:'DM Mono',monospace;font-size:.6rem;color:#25d366;text-decoration:none;padding:.5rem 1rem;border:1px solid rgba(37,211,102,.3);transition:all .2s;display:flex;align-items:center;gap:.5rem;border-radius:2px">💬 Unirme a la comunidad</a>
+    </div>
 </section>
 </div>
 
@@ -259,5 +263,7 @@ document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
 console.log('%c YOLA %c CHALLENGE ×11 ','background:#c04040;color:#fff;font-weight:bold;padding:4px 8px;font-family:monospace;','background:#111;color:#c04040;padding:4px 8px;font-family:monospace;');
 console.log('%cSi encontrás algo, reportalo. Si es válido, ganás hasta ×11. Si no, nos ayudás a mejorar.');
 </script>
+<a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="wa-float"><span class="wa-dot"></span> Unite a la comunidad</a>
+
 </body>
 </html>

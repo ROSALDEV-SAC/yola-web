@@ -7,8 +7,6 @@
     <meta name="description" content="Los Guardianes guían el curso de YOLA desde el día cero. Proponé, votá, decidí. Tu opinión construye esta IA.">
     <meta property="og:title" content="YOLA Feedback Global — Voz de los Guardianes">
     <meta property="og:description" content="Cada opinión cuenta. Los Guardianes deciden qué se construye primero.">
-    <meta property="og:url" content="feedback.html">
-    <meta property="og:image" content="index.html">
     <meta name="theme-color" content="#050505">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://script.google.com https://script.googleusercontent.com;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -73,6 +71,9 @@
             .form-row{flex-direction:column}
             footer{flex-direction:column;gap:1rem;text-align:center}
         }
+        .wa-float{position:fixed;bottom:1.5rem;left:1.5rem;z-index:99999;display:flex;align-items:center;gap:.6rem;background:#25d366;color:#fff;font-family:'DM Mono',monospace;font-size:.65rem;font-weight:500;padding:.7rem 1.2rem;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;animation:waPulse 2s infinite}.wa-float:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(37,211,102,.5)}.wa-float .wa-dot{width:8px;height:8px;background:#fff;border-radius:50%;animation:blink 1.5s infinite}
+        @keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 30px rgba(37,211,102,.6)}}
+
     </style>
 </head>
 <body>
@@ -214,7 +215,7 @@
             <div class="rp-title">Compartí el feedback</div>
             <div style="display:flex;gap:.5rem;flex-wrap:wrap">
                 <span class="filter-btn" onclick="copyLink()" style="cursor:pointer">🔗 Copiar enlace</span>
-                <a class="filter-btn" href="https://twitter.com/intent/tweet?text=Los%20Guardianes%20de%20YOLA%20deciden%20que%20se%20construye.%20Tu%20opinion%20cuenta.%20feedback.html" target="_blank">𝕏 Tweetear</a>
+                <a class="filter-btn" href="https://twitter.com/intent/tweet?text=Los%20Guardianes%20de%20YOLA%20deciden%20qu%C3%A9%20se%20construye.%20Tu%20opini%C3%B3n%20cuenta.%20%F0%9F%92%AC%F0%9F%9A%80" target="_blank">𝕏 Tweetear</a>
             </div>
         </div>
     </div>
@@ -223,6 +224,9 @@
 </div>
 
 <!-- FOOTER -->
+<div style="text-align:center;padding:1.5rem 2rem;position:relative;z-index:2">
+    <a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" style="font-family:'DM Mono',monospace;font-size:.6rem;color:#25d366;text-decoration:none;padding:.5rem 1rem;border:1px solid rgba(37,211,102,.3);transition:all .2s;display:inline-flex;align-items:center;gap:.5rem;border-radius:2px">💬 Unirme a la comunidad</a>
+</div>
 <footer class="z">
     <div class="ft-logo">YOLA<b>.</b>FEEDBACK</div>
     <p class="ft-meta">SAYRIDEVS · Lima, Perú · 2026</p>
@@ -556,5 +560,7 @@ function copyLink(){navigator.clipboard&&navigator.clipboard.writeText(window.lo
 // ─── INIT ───────────────────────────────────────────────────
 loadFromSheets();
 </script>
+<a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="wa-float"><span class="wa-dot"></span> Unite a la comunidad</a>
+
 </body>
 </html>

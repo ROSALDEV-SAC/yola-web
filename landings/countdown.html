@@ -7,8 +7,6 @@
     <meta name="description" content="YOLA OS se activa el 5 de junio. Los que se registren antes obtienen participación ×3.75. Gratis. Sin suscripción. Sin compromiso.">
     <meta property="og:title" content="YOLA Origin ×3.75 — Solo quedan X días">
     <meta property="og:description" content="La IA soberana se activa el 5 de junio. Multiplicador ×3.75 para los que creyeron primero.">
-    <meta property="og:url" content="countdown.html">
-    <meta property="og:image" content="index.html">
     <meta name="theme-color" content="#050505">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'none';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -171,6 +169,9 @@
             footer{flex-direction:column;gap:1rem;text-align:center}
             .share-row{flex-direction:column;align-items:center}
         }
+        .wa-float{position:fixed;bottom:1.5rem;left:1.5rem;z-index:99999;display:flex;align-items:center;gap:.6rem;background:#25d366;color:#fff;font-family:'DM Mono',monospace;font-size:.65rem;font-weight:500;padding:.7rem 1.2rem;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;animation:waPulse 2s infinite}.wa-float:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(37,211,102,.5)}.wa-float .wa-dot{width:8px;height:8px;background:#fff;border-radius:50%;animation:blink 1.5s infinite}
+        @keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 30px rgba(37,211,102,.6)}}
+
     </style>
 </head>
 <body>
@@ -238,8 +239,9 @@
         <!-- SHARE -->
         <div class="share-row">
             <span class="share-btn" onclick="copyLink()">🔗 Copiar enlace</span>
-            <a class="share-btn" href="https://twitter.com/intent/tweet?text=La%20era%20de%20la%20IA%20soberana%20empieza%20el%205%20de%20junio.%20Multiplicador%20%C3%973.75%20para%20los%20que%20creyeron%20primero.%20Gratis.%20countdown.html" target="_blank">𝕏 Tweetear</a>
-            <a class="share-btn" href="https://wa.me/?text=La%20IA%20soberana%20se%20activa%20el%205%20de%20junio.%20Multiplicador%20%C3%973.75.%20Gratis.%20countdown.html" target="_blank">💬 WhatsApp</a>
+            <a class="share-btn" href="https://twitter.com/intent/tweet?text=La%20era%20de%20la%20IA%20soberana%20empieza%20el%205%20de%20junio.%20Multiplicador%20%C3%973.75%20para%20los%20que%20creyeron%20primero.%20Gratis.%20%F0%9F%A7%A0%F0%9F%94%B5" target="_blank">𝕏 Tweetear</a>
+            <a class="share-btn" href="https://wa.me/?text=La%20IA%20soberana%20se%20activa%20el%205%20de%20junio.%20Multiplicador%20%C3%973.75%20para%20los%20primeros.%20Gratis.%20Sin%20nube.%20%F0%9F%A7%A0" target="_blank">💬 WhatsApp</a>
+            <a class="share-btn" href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" style="border-color:rgba(37,211,102,.3);color:#25d366">💬 Comunidad</a>
         </div>
 
     </div>
@@ -592,11 +594,13 @@ function copyLink(){
 })();
 
 // ─── Console ────────────────────────────────────────────────
-console.log('%c YOLA %c Origin ×3.75 ', 
+console.log('%c YOLA %c Origin ×3.75 ',
     'background:#b8932a;color:#050505;font-weight:bold;padding:4px 8px;font-family:monospace;',
     'background:#111;color:#d4ab47;padding:4px 8px;font-family:monospace;'
 );
 console.log('%cLa IA soberana empieza el 5 de junio. ×3.75 para los que creyeron primero.');
 </script>
+<a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="wa-float"><span class="wa-dot"></span> Unite a la comunidad</a>
+
 </body>
 </html>

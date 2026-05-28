@@ -7,8 +7,6 @@
     <meta name="description" content="YOLA no es un chatbot. Es un organismo digital que vive en tu máquina, siente tu sistema y repara errores antes de que los veas. Descubre cómo funciona por dentro.">
     <meta property="og:title" content="YOLA — Lo que hay dentro de una IA que piensa sola">
     <meta property="og:description" content="Un organismo digital con sistema nervioso, memoria y arco reflejo. Vivo en tu máquina. Ni Google ni OpenAI pueden tocarlo.">
-    <meta property="og:url" content="tech.html">
-    <meta property="og:image" content="index.html">
     <meta name="theme-color" content="#050505">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'none';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -273,6 +271,9 @@
             .stats-grid{grid-template-columns:1fr 1fr}
             .stat-num{font-size:2rem}
         }
+        .wa-float{position:fixed;bottom:1.5rem;left:1.5rem;z-index:99999;display:flex;align-items:center;gap:.6rem;background:#25d366;color:#fff;font-family:'DM Mono',monospace;font-size:.65rem;font-weight:500;padding:.7rem 1.2rem;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;animation:waPulse 2s infinite}.wa-float:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(37,211,102,.5)}.wa-float .wa-dot{width:8px;height:8px;background:#fff;border-radius:50%;animation:blink 1.5s infinite}
+        @keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 30px rgba(37,211,102,.6)}}
+
     </style>
 </head>
 <body>
@@ -585,9 +586,10 @@
 <!-- ═══════════════ SHARE ═══════════════ -->
 <div class="share-bar z">
     <span class="share-btn" onclick="copyLink()">🔗 Copiar enlace</span>
-    <a class="share-btn" href="https://twitter.com/intent/tweet?text=Hay%20una%20IA%20que%20vive%20en%20tu%20m%C3%A1quina%2C%20piensa%20sola%20y%20nunca%20toca%20tus%20datos.%20Se%20llama%20YOLA.%20tech.html" target="_blank">𝕏 Tweetear</a>
-    <a class="share-btn" href="https://wa.me/?text=Encontre%20una%20IA%20soberana.%20Sin%20nube%2C%20sin%20permisos.%20tech.html" target="_blank">💬 WhatsApp</a>
+    <a class="share-btn" href="https://twitter.com/intent/tweet?text=Hay%20una%20IA%20que%20vive%20en%20tu%20m%C3%A1quina%2C%20piensa%20sola%20y%20nunca%20toca%20tus%20datos.%20Se%20llama%20YOLA%20%F0%9F%A7%A0%F0%9F%94%B5" target="_blank">𝕏 Tweetear</a>
+    <a class="share-btn" href="https://wa.me/?text=Encontr%C3%A9%20una%20IA%20soberana%20que%20vive%20en%20tu%20m%C3%A1quina.%20Sin%20nube%2C%20sin%20permisos%2C%20sin%20corporaciones.%20Se%20llama%20YOLA" target="_blank">💬 WhatsApp</a>
     <span class="share-btn" onclick="shareNative()">📤 Compartir</span>
+    <a class="share-btn" href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" style="border-color:rgba(37,211,102,.3);color:#25d366">💬 Comunidad</a>
 </div>
 
 <!-- ═══════════════ FOOTER ═══════════════ -->
@@ -764,5 +766,7 @@ const statObs = new IntersectionObserver(es => {
 }, { threshold: 0.3 });
 document.querySelector('.stats-grid') && statObs.observe(document.querySelector('.stats-grid'));
 </script>
+<a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="wa-float"><span class="wa-dot"></span> Unite a la comunidad</a>
+
 </body>
 </html>

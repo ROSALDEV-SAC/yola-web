@@ -75,6 +75,9 @@
 
         .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}.rv.in{opacity:1;transform:translateY(0)}
         @media(max-width:900px){nav{padding:.8rem 1rem}.values-grid,.invest-grid{grid-template-columns:1fr}footer{flex-direction:column;gap:1rem;text-align:center}}
+        .wa-float{position:fixed;bottom:1.5rem;left:1.5rem;z-index:99999;display:flex;align-items:center;gap:.6rem;background:#25d366;color:#fff;font-family:'DM Mono',monospace;font-size:.65rem;font-weight:500;padding:.7rem 1.2rem;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;animation:waPulse 2s infinite}.wa-float:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(37,211,102,.5)}.wa-float .wa-dot{width:8px;height:8px;background:#fff;border-radius:50%;animation:blink 1.5s infinite}
+        @keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 30px rgba(37,211,102,.6)}}
+
     </style>
 </head>
 <body>
@@ -222,6 +225,9 @@
         <a href="countdown.html" class="btn btn-gold">Registrarme como Origin ×3.75 →</a>
         <a href="feedback.html" class="btn btn-outline">Dejar mi feedback</a>
     </div>
+    <div style="display:flex;gap:.8rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap;position:relative">
+        <a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" style="font-family:'DM Mono',monospace;font-size:.6rem;color:#25d366;text-decoration:none;padding:.5rem 1rem;border:1px solid rgba(37,211,102,.3);transition:all .2s;display:flex;align-items:center;gap:.5rem;border-radius:2px">💬 Unirme a la comunidad</a>
+    </div>
 </section>
 </div>
 
@@ -238,5 +244,7 @@
 var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
 </script>
+<a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="wa-float"><span class="wa-dot"></span> Unite a la comunidad</a>
+
 </body>
 </html>
