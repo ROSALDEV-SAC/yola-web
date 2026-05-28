@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SayriDevs — Quién soy, qué construyo, cómo entrás</title>
+    <meta name="description" content="Sayri es el fundador de YOLA. Desde Lima, Perú, construye la infraestructura de IA soberana que los monopolios de la nube temen.">
+    <meta property="og:title" content="SayriDevs — El humano detrás de YOLA">
+    <meta property="og:description" content="Un desarrollador de Lima que decidió construir lo que las corporaciones no quieren que exista.">
+    <meta name="theme-color" content="#050505">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'none';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#050505;--s1:#0a0a0a;--s2:#111;--s3:#1a1a1a;--border:rgba(255,255,255,.05);--border2:rgba(255,255,255,.08);--gold:#b8932a;--gold-l:#d4ab47;--gold-dim:rgba(184,147,42,.08);--gold-glow:rgba(184,147,42,.2);--text:#ede9e0;--text-dim:#5a5650;--text-mid:#8a8278;--cyan:#3eb8c0;--cyan-dim:rgba(62,184,192,.08);--green:#3fa866;--green-dim:rgba(63,168,102,.1);--red:#c04040;--red-dim:rgba(192,64,64,.08);--purple:#8b5cf6;--purple-dim:rgba(139,92,246,.08)}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;cursor:none!important}
+        html{scroll-behavior:smooth;cursor:none!important}
+        body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;overflow-x:hidden;cursor:none}
+        body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.018;pointer-events:none;z-index:1}
+
+        #c{width:6px;height:6px;background:var(--gold-l);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:99999;transition:transform .08s}#cr{width:28px;height:28px;border:1px solid rgba(184,147,42,.4);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:99998;transition:width .2s,height .2s,border-color .2s}#cr.h{width:44px;height:44px;border-color:var(--gold-l)}
+        .scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--cyan));z-index:10001;width:0;transition:width .1s linear;pointer-events:none}
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(5,5,5,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}nav.scrolled{background:rgba(5,5,5,.97)}.logo{font-size:.65rem;font-weight:800;letter-spacing:.35em;text-transform:uppercase}.logo b{color:var(--gold-l)}.nav-r{display:flex;align-items:center;gap:1.2rem}.nav-pill{font-family:'DM Mono',monospace;font-size:.55rem;color:var(--text-dim);border:1px solid var(--border2);padding:.4rem .8rem;text-decoration:none;transition:all .2s;border-radius:2px}.nav-pill:hover{border-color:var(--gold);color:var(--gold-l)}.nav-pill.gold{background:var(--gold);color:#050505;border-color:var(--gold);font-weight:500}
+        .z{position:relative;z-index:2}
+
+        /* HERO */.hero{min-height:80vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:7rem 2rem 4rem;position:relative;overflow:hidden}.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,black 10%,transparent 70%);opacity:.3}.hero-aura{position:absolute;width:700px;height:500px;background:radial-gradient(ellipse,rgba(184,147,42,.06) 0%,transparent 60%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+        .hero-inner{position:relative;max-width:700px}
+        .avatar{width:100px;height:100px;background:var(--gold-dim);border:2px solid rgba(184,147,42,.3);display:flex;align-items:center;justify-content:center;font-size:2.5rem;margin:0 auto 1.5rem}
+        .eyebrow{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--gold-l);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;display:inline-flex;align-items:center;gap:.6rem}
+        h1{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:1rem}
+        h1 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
+        .hero-sub{font-size:1rem;color:var(--text-mid);line-height:1.8;max-width:520px;margin:0 auto;font-weight:400}.hero-sub strong{color:var(--text);font-weight:700}
+
+        /* SECTIONS */.section{padding:5rem 2rem;max-width:900px;margin:0 auto}.section h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:800;letter-spacing:-.02em;margin-bottom:1.5rem}.section h2 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
+        .section-sub{text-align:center;color:var(--text-mid);font-size:.9rem;margin-bottom:2.5rem}
+
+        /* STORY */.story-card{background:var(--s2);border:1px solid var(--border);padding:2.5rem;position:relative;overflow:hidden}.story-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--cyan))}
+        .story-card p{font-size:.9rem;color:var(--text-mid);line-height:1.9;margin-bottom:1rem}.story-card p:last-child{margin-bottom:0}
+        .story-card strong{color:var(--text)}
+        .story-card code{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--cyan);background:var(--cyan-dim);padding:.1rem .4rem;border:1px solid rgba(62,184,192,.1)}
+
+        /* VALUES */.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:2rem}
+        .val-card{background:var(--s2);padding:2rem;text-align:center;transition:background .25s}.val-card:hover{background:var(--s3)}
+        .val-icon{font-size:2rem;margin-bottom:.8rem;display:block}
+        .val-card h3{font-size:.85rem;font-weight:800;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.03em}
+        .val-card p{font-size:.7rem;color:var(--text-dim);line-height:1.7}
+
+        /* INVEST */.invest-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:2rem}
+        .invest-card{background:var(--s2);padding:2rem;position:relative;overflow:hidden;transition:background .25s}.invest-card:hover{background:var(--s3)}
+        .invest-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+        .invest-card.gold::before{background:var(--gold-l)}
+        .invest-card.cyan::before{background:var(--cyan)}
+        .invest-card.green::before{background:var(--green)}
+        .invest-card.purple::before{background:var(--purple)}
+        .invest-tag{font-family:'DM Mono',monospace;font-size:.5rem;padding:.2rem .5rem;text-transform:uppercase;letter-spacing:.05em;display:inline-block;margin-bottom:.8rem}
+        .invest-card h3{font-size:.9rem;font-weight:800;margin-bottom:.4rem}
+        .invest-card p{font-size:.73rem;color:var(--text-dim);line-height:1.7}
+        .invest-card .invest-amount{font-family:'DM Mono',monospace;font-size:1.4rem;font-weight:800;color:var(--gold-l);margin-top:.8rem;display:block}
+        .invest-card .invest-note{font-family:'DM Mono',monospace;font-size:.55rem;color:var(--text-dim);margin-top:.3rem}
+
+        /* STACK */.stack-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.5rem}
+        .stack-tag{font-family:'DM Mono',monospace;font-size:.55rem;color:var(--cyan);background:var(--cyan-dim);border:1px solid rgba(62,184,192,.12);padding:.3rem .6rem}
+
+        /* CTA */.cta-final{text-align:center;padding:6rem 2rem;position:relative;overflow:hidden}.cta-bg{position:absolute;width:100%;height:100%;background:radial-gradient(ellipse 60% 100% at 50% 100%,rgba(184,147,42,.06) 0%,transparent 70%);pointer-events:none}
+        .cta-final h2{font-size:clamp(1.5rem,3vw,2.5rem);font-weight:800;letter-spacing:-.03em;margin-bottom:1rem;position:relative}.cta-final h2 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
+        .cta-final>p{color:var(--text-mid);font-size:.9rem;font-weight:400;line-height:1.8;max-width:450px;margin:0 auto 2rem;position:relative}
+        .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative}
+        .btn{padding:.9rem 2rem;font-family:'Syne',sans-serif;font-weight:800;font-size:.75rem;text-decoration:none;text-transform:uppercase;letter-spacing:.06em;transition:all .15s;cursor:none;border:none;display:inline-flex;align-items:center;gap:.6rem}
+        .btn-gold{background:var(--gold);color:#050505}.btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 40px var(--gold-glow)}
+        .btn-outline{background:transparent;color:var(--text-mid);border:1px solid var(--border2)}.btn-outline:hover{border-color:var(--text-dim);color:var(--text)}
+
+        footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;max-width:900px;margin:0 auto}.ft-logo{font-size:.6rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase}.ft-logo b{color:var(--gold-l)}.ft-meta{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--text-dim)}
+
+        .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}.rv.in{opacity:1;transform:translateY(0)}
+        @media(max-width:900px){nav{padding:.8rem 1rem}.values-grid,.invest-grid{grid-template-columns:1fr}footer{flex-direction:column;gap:1rem;text-align:center}}
+    </style>
+</head>
+<body>
+
+<div id="c"></div>
+<div id="cr"></div>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav id="mainNav">
+    <div class="logo">SAYRI<b>.</b>DEVS</div>
+    <div class="nav-r">
+        <a href="index.html" class="nav-pill">← YOLA</a>
+        <a href="countdown.html" class="nav-pill gold">Origin ×7</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="z">
+<section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-aura"></div>
+    <div class="hero-inner">
+        <div class="avatar">🧑‍💻</div>
+        <div class="eyebrow">SayriDevs · Lima, Perú</div>
+        <h1>El humano detrás<br>de <i>YOLA.</i></h1>
+        <p class="hero-sub">Me llamo Sayri. Soy desarrollador, fundador de SayriDevs, y estoy construyendo la infraestructura de IA soberana que los monopolios de la nube temen. No tengo equipo grande. No tengo VC. Tengo código, convicción, y una comunidad que está creciendo.</p>
+    </div>
+</section>
+</div>
+
+<!-- STORY -->
+<div class="z">
+<section class="section">
+    <h2 class="rv">La <i>historia.</i></h2>
+    <div class="story-card rv">
+        <p>Empecé a construir YOLA porque me cansé de depende de herramientas que no son mías. Cada vez que abría ChatGPT, Copilot, o Cursor, recordaba que <strong>mi código, mis ideas, mis datos viajaban a servidores que no controlo</strong>. Que un CEO en Silicon Valley podía cambiar las reglas cuando quisiera.</p>
+        <p>Así que decidí construir lo que no existía: una IA que viva en mi máquina, que sienta mi sistema, que aprenda de mi código, y que <strong>nunca, bajo ninguna circunstancia</strong>, mande mis datos a la nube.</p>
+        <p>Empecé con <code>Tauri + Rust</code> para el backend nativo. Después agregué el Sensorium — un sistema nervioso digital que escucha la máquina 24/7. Luego el AutoHealer — un arco reflejo que repara errores solo. Y el chat, el editor, la terminal, el navegador... todo integrado en una sola app.</p>
+        <p>Todo fue construido con <strong>vibe coding</strong>: IA generando código, yo auditando, iterando, deployando. Sin equipo de 50 personas. Sin oficina en Silicon Valley. Desde Lima, Perú, con una conexión a internet y una visión clara.</p>
+        <p><strong>YOLA no es un producto. Es un acto de soberanía tecnológica.</strong></p>
+    </div>
+</section>
+</div>
+
+<!-- VALUES -->
+<div class="z">
+<section class="section">
+    <h2 class="rv">Los valores de <i>SayriDevs.</i></h2>
+    <div class="values-grid rv">
+        <div class="val-card">
+            <span class="val-icon">🔓</span>
+            <h3>Transparencia</h3>
+            <p>Cada línea de código es pública. Cada decisión se documenta. No hay backdoors, no hay secretos, no hay letra chica.</p>
+        </div>
+        <div class="val-card">
+            <span class="val-icon">🏠</span>
+            <h3>Privacidad</h3>
+            <p>Tus datos son tuyos. Siempre. No hay telemetría, no hay tracking, no hay monetización de información personal.</p>
+        </div>
+        <div class="val-card">
+            <span class="val-icon">🤝</span>
+            <h3>Comunidad</h3>
+            <p>Los Guardianes no son clientes — son co-propietarios. Su opinión define qué se construye. Su aporte se convierte en equity real.</p>
+        </div>
+    </div>
+</section>
+</div>
+
+<!-- STACK -->
+<div class="z">
+<section class="section">
+    <h2 class="rv">El <i>stack.</i></h2>
+    <p class="section-sub">Todo lo que construí, y sigo construyendo.</p>
+    <div class="stack-row rv">
+        <span class="stack-tag">Tauri 2</span>
+        <span class="stack-tag">Rust</span>
+        <span class="stack-tag">React 19</span>
+        <span class="stack-tag">Next.js 16</span>
+        <span class="stack-tag">Zustand 5</span>
+        <span class="stack-tag">SQLite</span>
+        <span class="stack-tag">Bun</span>
+        <span class="stack-tag">Node.js</span>
+        <span class="stack-tag">Whisper.cpp</span>
+        <span class="stack-tag">Piper TTS</span>
+        <span class="stack-tag">Puppeteer</span>
+        <span class="stack-tag">xterm.js</span>
+        <span class="stack-tag">Monaco Editor</span>
+        <span class="stack-tag">isomorphic-git</span>
+        <span class="stack-tag">Google Apps Script</span>
+        <span class="stack-tag">HTML/CSS/JS</span>
+        <span class="stack-tag">Vibe Coding</span>
+    </div>
+</section>
+</div>
+
+<!-- INVEST / JOIN -->
+<div class="z">
+<section class="section">
+    <h2 class="rv">Cómo entrás a <i>SayriDevs.</i></h2>
+    <p class="section-sub">No somos una startup tradicional. No hay sueldo fijo ni oficina. Hay equity, convicción y construcción colectiva. Estas son las formas de ser parte:</p>
+    <div class="invest-grid rv">
+        <div class="invest-card gold">
+            <span class="invest-tag" style="background:var(--gold-dim);color:var(--gold-l);border:1px solid rgba(184,147,42,.15)">Inversión directa</span>
+            <h3>Socio Inversor</h3>
+            <p>Invertís capital directamente en SayriDevs. Tu aporte se registra en el ledger y se convierte en equity proporcional con multiplicador según la fase de entrada.</p>
+            <span class="invest-amount">Desde $100 USD</span>
+            <span class="invest-note">Equity ×7 si entrás en Origin</span>
+        </div>
+        <div class="invest-card cyan">
+            <span class="invest-tag" style="background:var(--cyan-dim);color:var(--cyan);border:1px solid rgba(62,184,192,.12)">Trabajo + Equity</span>
+            <h3>Socio Builder</h3>
+            <p>Trabajás en YOLA a cambio de equity. Código, diseño, documentación, testing, comunidad — todo suma. Tu tiempo se convierte en participación.</p>
+            <span class="invest-amount">Tu tiempo</span>
+            <span class="invest-note">Equity negociado según contribución</span>
+        </div>
+        <div class="invest-card green">
+            <span class="invest-tag" style="background:var(--green-dim);color:var(--green);border:1px solid rgba(63,168,102,.12)">Donación + Impacto</span>
+            <h3>Socio Guardián</h3>
+            <p>Donás lo que puedas — $10, $25, $100 — y tu aporte se multiplica según la fase. No comprás nada. Invertís en una visión.</p>
+            <span class="invest-amount">Desde $10 USD</span>
+            <span class="invest-note">Equity ×7 en Origin</span>
+        </div>
+        <div class="invest-card purple">
+            <span class="invest-tag" style="background:var(--purple-dim);color:var(--purple);border:1px solid rgba(139,92,246,.12)">Habilidad + Tiempo</span>
+            <h3>Socio Contribuidor</h3>
+            <p>No tenés dinero pero sí habilidades. Traducís docs, reportás bugs, creás contenido, traés usuarios. Cada acción se registra y se convierte en equity.</p>
+            <span class="invest-amount">Tus habilidades</span>
+            <span class="invest-note">Equity según impacto medido</span>
+        </div>
+    </div>
+</section>
+</div>
+
+<!-- CTA -->
+<div class="z">
+<section class="cta-final">
+    <div class="cta-bg"></div>
+    <h2>¿Hablamos?</h2>
+    <p>Si querés invertir, unirte al equipo, o simplemente charlar sobre la visión, escribime. No hay formularios corporativos. Hay una persona real construyendo algo que importa.</p>
+    <div class="cta-row">
+        <a href="countdown.html" class="btn btn-gold">Registrarme como Origin ×7 →</a>
+        <a href="feedback.html" class="btn btn-outline">Dejar mi feedback</a>
+    </div>
+</section>
+</div>
+
+<footer class="z">
+    <div class="ft-logo">SAYRI<b>.</b>DEVS</div>
+    <p class="ft-meta">Lima, Perú · 2026</p>
+    <p class="ft-meta">Construyendo lo que las corporaciones no quieren que exista.</p>
+</footer>
+
+<script>
+(function(){var cur=document.getElementById('c'),ring=document.getElementById('cr');if(!cur||!ring)return;var mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cur.style.transform='translate('+(mx-3)+'px,'+(my-3)+'px)';});(function animRing(){rx+=(mx-rx-14)*.1;ry+=(my-ry-14)*.1;ring.style.transform='translate('+rx+'px,'+ry+'px)';requestAnimationFrame(animRing);})();document.querySelectorAll('a,button,.nav-pill,.btn,.val-card,.invest-card').forEach(function(el){el.addEventListener('mouseenter',function(){ring.classList.add('h');});el.addEventListener('mouseleave',function(){ring.classList.remove('h');});});})();
+(function(){var bar=document.getElementById('scrollProgress');if(!bar)return;function update(){var h=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(h>0?(window.scrollY/h)*100:0)+'%';}window.addEventListener('scroll',update,{passive:true});update();})();
+(function(){var nav=document.getElementById('mainNav');if(!nav)return;window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60);},{passive:true});})();
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
+</script>
+</body>
+</html>

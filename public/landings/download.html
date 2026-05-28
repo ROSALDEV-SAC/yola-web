@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLA — Descargar · Tu IA, tu máquina</title>
+    <meta name="description" content="Descargá YOLA gratis. Windows, Linux o Mac. Sin suscripciones. Sin datos a la nube. Solo vos y tu IA soberana.">
+    <meta property="og:title" content="YOLA — Descargar gratis">
+    <meta property="og:description" content="La IA que vive en tu máquina. Sin nube. Sin permisos. Sin corporaciones.">
+    <meta name="theme-color" content="#050505">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'none';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#050505;--s1:#0a0a0a;--s2:#111;--s3:#1a1a1a;--border:rgba(255,255,255,.05);--border2:rgba(255,255,255,.08);--gold:#b8932a;--gold-l:#d4ab47;--gold-dim:rgba(184,147,42,.08);--gold-glow:rgba(184,147,42,.2);--text:#ede9e0;--text-dim:#5a5650;--text-mid:#8a8278;--cyan:#3eb8c0;--cyan-dim:rgba(62,184,192,.08);--green:#3fa866;--green-dim:rgba(63,168,102,.1)}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;cursor:none!important}
+        html{scroll-behavior:smooth;cursor:none!important}
+        body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;overflow-x:hidden;cursor:none}
+        body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.018;pointer-events:none;z-index:1}
+
+        /* ─── CURSOR ──────────────────────────────── */
+        #c{width:6px;height:6px;background:var(--gold-l);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:99999;transition:transform .08s}
+        #cr{width:28px;height:28px;border:1px solid rgba(184,147,42,.4);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:99998;transition:width .2s,height .2s,border-color .2s}
+        #cr.h{width:44px;height:44px;border-color:var(--gold-l)}
+
+        /* ─── SCROLL PROGRESS ─────────────────────── */
+        .scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--cyan));z-index:10001;width:0;transition:width .1s linear;pointer-events:none}
+
+        /* ─── NAV ─────────────────────────────────── */
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(5,5,5,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        nav.scrolled{background:rgba(5,5,5,.97);border-bottom-color:rgba(255,255,255,.1)}
+        .logo{font-size:.65rem;font-weight:800;letter-spacing:.35em;text-transform:uppercase}
+        .logo b{color:var(--gold-l)}
+        .nav-r{display:flex;align-items:center;gap:1.2rem}
+        .nav-pill{font-family:'DM Mono',monospace;font-size:.55rem;color:var(--text-dim);border:1px solid var(--border2);padding:.4rem .8rem;text-decoration:none;transition:all .2s;border-radius:2px}
+        .nav-pill:hover{border-color:var(--gold);color:var(--gold-l)}
+
+        /* ─── Z-LAYER ─────────────────────────────── */
+        .z{position:relative;z-index:2}
+
+        /* ─── HERO ────────────────────────────────── */
+        .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden}
+        .hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 60% 60% at 50% 40%,black 10%,transparent 70%);opacity:.5}
+        .hero-aura{position:absolute;width:700px;height:500px;background:radial-gradient(ellipse,rgba(184,147,42,.06) 0%,transparent 65%);top:40%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+        .hero-inner{position:relative;max-width:700px}
+        .eyebrow{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--green);letter-spacing:.25em;text-transform:uppercase;margin-bottom:1.5rem;display:inline-flex;align-items:center;gap:.8rem;border:1px solid rgba(63,168,102,.15);padding:.5rem 1rem}
+        .eyebrow::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+        h1{font-size:clamp(2.4rem,5.5vw,4.5rem);font-weight:800;line-height:1.0;letter-spacing:-.04em;margin-bottom:1.2rem}
+        h1 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
+        .hero-sub{font-size:1.1rem;color:var(--text-mid);line-height:1.8;max-width:520px;margin:0 auto 2.5rem;font-weight:400}
+        .hero-sub strong{color:var(--text);font-weight:700}
+
+        /* ─── OS DETECTION CARD ───────────────────── */
+        .detect-card{background:var(--s2);border:1px solid var(--border);padding:3rem;max-width:500px;width:100%;margin:0 auto 2rem;position:relative;overflow:hidden;transition:border-color .3s}
+        .detect-card:hover{border-color:rgba(184,147,42,.2)}
+        .detect-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--cyan));opacity:.6}
+        .detect-os-icon{font-size:3.5rem;margin-bottom:1rem;display:block}
+        .detect-label{font-family:'DM Mono',monospace;font-size:.55rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.5rem}
+        .detect-name{font-size:1.6rem;font-weight:800;margin-bottom:.3rem}
+        .detect-name b{color:var(--gold-l)}
+        .detect-version{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--text-mid);margin-bottom:1.5rem}
+        .detect-btn{display:flex;align-items:center;justify-content:center;gap:.8rem;width:100%;padding:1.1rem 2rem;background:var(--gold);color:#050505;font-family:'Syne',sans-serif;font-weight:800;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;transition:all .15s;border:none;cursor:none}
+        .detect-btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px var(--gold-glow)}
+        .detect-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
+        .detect-size{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--text-dim);text-align:center;margin-top:.8rem}
+        .detect-alt{font-family:'DM Mono',monospace;font-size:.55rem;color:var(--text-dim);text-align:center;margin-top:.5rem}
+        .detect-alt a{color:var(--cyan);text-decoration:none;border-bottom:1px solid var(--cyan-dim)}
+        .detect-alt a:hover{border-color:var(--cyan)}
+
+        /* ─── ALL PLATFORMS ───────────────────────── */
+        .platforms{padding:5rem 2rem;max-width:900px;margin:0 auto}
+        .plat-title{text-align:center;margin-bottom:3rem}
+        .plat-title h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.6rem}
+        .plat-title h2 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
+        .plat-title p{font-size:.9rem;color:var(--text-mid)}
+        .plat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+        .plat-card{background:var(--s2);padding:2rem;text-align:center;transition:background .25s;position:relative}
+        .plat-card:hover{background:var(--s3)}
+        .plat-card.detected{border:1px solid var(--gold);background:var(--gold-dim)}
+        .plat-card .detected-badge{position:absolute;top:.8rem;right:.8rem;font-family:'DM Mono',monospace;font-size:.45rem;color:var(--green);background:var(--green-dim);border:1px solid rgba(63,168,102,.15);padding:.15rem .4rem;text-transform:uppercase;letter-spacing:.05em}
+        .plat-icon{font-size:2.2rem;margin-bottom:.8rem;display:block}
+        .plat-name{font-size:.9rem;font-weight:800;margin-bottom:.2rem}
+        .plat-format{font-family:'DM Mono',monospace;font-size:.55rem;color:var(--text-dim);margin-bottom:.8rem}
+        .plat-link{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--cyan);text-decoration:none;border-bottom:1px solid var(--cyan-dim);transition:all .2s}
+        .plat-link:hover{color:var(--gold-l);border-color:var(--gold-l)}
+
+        /* ─── REQUIREMENTS ────────────────────────── */
+        .reqs{background:var(--s1);padding:5rem 2rem}
+        .reqs-inner{max-width:800px;margin:0 auto}
+        .reqs h2{font-size:clamp(1.2rem,2vw,1.6rem);font-weight:800;text-align:center;margin-bottom:2.5rem;letter-spacing:-.02em}
+        .req-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+        .req-item{background:var(--s2);padding:1.4rem 1.6rem;display:flex;align-items:flex-start;gap:1rem}
+        .req-icon{font-size:1rem;flex-shrink:0;margin-top:.1rem}
+        .req-text h4{font-size:.78rem;font-weight:700;margin-bottom:.2rem}
+        .req-text p{font-size:.68rem;color:var(--text-dim);line-height:1.6}
+
+        /* ─── STEPS ───────────────────────────────── */
+        .steps{padding:5rem 2rem;max-width:800px;margin:0 auto}
+        .steps h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:800;text-align:center;margin-bottom:3rem;letter-spacing:-.02em}
+        .steps h2 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
+        .step-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border)}
+        .step{background:var(--s2);padding:1.8rem 2rem;display:flex;gap:1.5rem;align-items:flex-start;position:relative}
+        .step-num{font-size:1.8rem;font-weight:800;color:var(--gold-l);line-height:1;flex-shrink:0;width:2.5rem;text-align:center;opacity:.6}
+        .step-content h3{font-size:.88rem;font-weight:700;margin-bottom:.3rem}
+        .step-content p{font-size:.75rem;color:var(--text-dim);line-height:1.8}
+        .step-content code{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--cyan);background:var(--cyan-dim);padding:.1rem .4rem;border:1px solid rgba(62,184,192,.1)}
+
+        /* ─── GUARANTEE ───────────────────────────── */
+        .guarantee{padding:5rem 2rem;text-align:center}
+        .guarantee h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:800;margin-bottom:2rem;letter-spacing:-.02em}
+        .guarantee h2 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
+        .g-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);max-width:800px;margin:0 auto}
+        .g-card{background:var(--s2);padding:2rem 1.5rem;text-align:center}
+        .g-icon{font-size:1.5rem;margin-bottom:.6rem;display:block}
+        .g-card h4{font-size:.8rem;font-weight:800;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.03em}
+        .g-card p{font-size:.68rem;color:var(--text-dim);line-height:1.6}
+
+        /* ─── CTA FINAL ───────────────────────────── */
+        .cta-final{text-align:center;padding:6rem 2rem;position:relative;overflow:hidden}
+        .cta-bg{position:absolute;width:100%;height:100%;background:radial-gradient(ellipse 60% 100% at 50% 100%,rgba(184,147,42,.07) 0%,transparent 70%);pointer-events:none}
+        .cta-final h2{font-size:clamp(1.8rem,3.5vw,3rem);font-weight:800;letter-spacing:-.03em;margin-bottom:1rem;position:relative}
+        .cta-final h2 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
+        .cta-final>p{color:var(--text-mid);font-size:.95rem;font-weight:400;line-height:1.8;max-width:450px;margin:0 auto 2rem;position:relative}
+        .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative}
+        .btn{padding:.9rem 2rem;font-family:'Syne',sans-serif;font-weight:800;font-size:.75rem;text-decoration:none;text-transform:uppercase;letter-spacing:.06em;transition:all .15s;cursor:none;border:none;display:inline-flex;align-items:center;gap:.6rem}
+        .btn-gold{background:var(--gold);color:#050505}
+        .btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 40px var(--gold-glow)}
+        .btn-outline{background:transparent;color:var(--text-mid);border:1px solid var(--border2)}
+        .btn-outline:hover{border-color:var(--text-dim);color:var(--text)}
+
+        /* ─── FOOTER ──────────────────────────────── */
+        footer{padding:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;max-width:900px;margin:0 auto}
+        .ft-logo{font-size:.6rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase}
+        .ft-logo b{color:var(--gold-l)}
+        .ft-meta{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--text-dim)}
+
+        /* ─── REVEAL ──────────────────────────────── */
+        .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+        .rv.in{opacity:1;transform:translateY(0)}
+
+        /* ─── RESPONSIVE ──────────────────────────── */
+        @media(max-width:900px){
+            nav{padding:.8rem 1.2rem}
+            .plat-grid{grid-template-columns:1fr}
+            .req-grid{grid-template-columns:1fr}
+            .g-grid{grid-template-columns:1fr}
+            footer{flex-direction:column;gap:1rem;text-align:center}
+            .detect-card{margin:0 1rem 2rem}
+        }
+    </style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="c"></div>
+<div id="cr"></div>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+    <div class="logo">YOLA<b>.</b>DOWNLOAD</div>
+    <div class="nav-r">
+        <a href="index.html" class="nav-pill">← Inicio</a>
+        <a href="tech.html" class="nav-pill">Ver cómo funciona</a>
+    </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<div class="z">
+<section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-aura"></div>
+    <div class="hero-inner">
+        <div class="eyebrow">Gratis · Open-source · Privacidad total</div>
+        <h1>Descargá YOLA.<br><i>Es tuya.</i></h1>
+        <p class="hero-sub">Un instalador. Sin suscripciones. Sin registro. Sin datos a la nube. Descargalo, abrilo, y tu IA ya está viva en tu máquina.</p>
+
+        <!-- OS DETECTION CARD -->
+        <div class="detect-card rv" id="detectCard">
+            <div class="detect-os-icon" id="detectIcon">💻</div>
+            <div class="detect-label">Detectamos tu sistema</div>
+            <div class="detect-name" id="detectName">Tu <b>sistema</b></div>
+            <div class="detect-version" id="detectVersion">verificando...</div>
+            <button class="detect-btn" id="detectBtn" onclick="downloadOS()">
+                <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span id="detectBtnText">Descargar</span>
+            </button>
+            <div class="detect-size" id="detectSize"></div>
+            <div class="detect-alt" id="detectAlt"></div>
+        </div>
+    </div>
+</section>
+</div>
+
+<!-- ═══════════════ ALL PLATFORMS ═══════════════ -->
+<div class="z">
+<section class="platforms">
+    <div class="plat-title rv">
+        <h2>O elegí tu <i>plataforma.</i></h2>
+        <p>Si no se detectó tu sistema, descargá manualmente.</p>
+    </div>
+    <div class="plat-grid rv">
+        <div class="plat-card" id="plat-linux">
+            <span class="plat-icon">🐧</span>
+            <div class="plat-name">Linux</div>
+            <div class="plat-format">Debian / Ubuntu · .deb</div>
+            <a href="#" class="plat-link" onclick="downloadPlatform('linux');return false">Descargar para Linux →</a>
+        </div>
+        <div class="plat-card" id="plat-windows">
+            <span class="plat-icon">🪟</span>
+            <div class="plat-name">Windows</div>
+            <div class="plat-format">Windows 10/11 · .exe</div>
+            <a href="#" class="plat-link" onclick="downloadPlatform('windows');return false">Descargar para Windows →</a>
+        </div>
+        <div class="plat-card" id="plat-mac">
+            <span class="plat-icon">🍎</span>
+            <div class="plat-name">macOS</div>
+            <div class="plat-format">Intel + Apple Silicon · .dmg</div>
+            <a href="#" class="plat-link" onclick="downloadPlatform('mac');return false">Descargar para Mac →</a>
+        </div>
+    </div>
+</section>
+</div>
+
+<!-- ═══════════════ REQUIREMENTS ═══════════════ -->
+<div class="z">
+<section class="reqs">
+    <div class="reqs-inner">
+        <h2 class="rv">¿Qué necesitás?</h2>
+        <div class="req-grid rv">
+            <div class="req-item">
+                <span class="req-icon">⚙️</span>
+                <div class="req-text">
+                    <h4>4 GB de RAM mínimo</h4>
+                    <p>YOLA es liviana. Corre en máquinas modestas. Con 8GB vas sobrado.</p>
+                </div>
+            </div>
+            <div class="req-item">
+                <span class="req-icon">💾</span>
+                <div class="req-text">
+                    <h4>1.5 GB de espacio libre</h4>
+                    <p>Incluye el motor IA, sensores, y espacio para memoria local.</p>
+                </div>
+            </div>
+            <div class="req-item">
+                <span class="req-icon">🌐</span>
+                <div class="req-text">
+                    <h4>Internet para el primer uso</h4>
+                    <p>Solo para descargar el modelo de IA inicial (~800MB). Después, 100% offline.</p>
+                </div>
+            </div>
+            <div class="req-item">
+                <span class="req-icon">🛡️</span>
+                <div class="req-text">
+                    <h4>Sin permisos especiales</h4>
+                    <p>No necesitás root ni admin. YOLA corre en tu espacio de usuario.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+<!-- ═══════════════ STEPS ═══════════════ -->
+<div class="z">
+<section class="steps">
+    <h2 class="rv">3 pasos. <i>Sin complicaciones.</i></h2>
+    <div class="step-list rv">
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <h3>Descargá el instalador</h3>
+                <p>Hacé click en el botón de arriba. Se descarga un solo archivo. No hay trampas, no hay installer empaquetado con bloatware.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <h3>Ejecutalo</h3>
+                <p>En Linux: <code>sudo dpkg -i yola-os.deb</code>. En Windows: doble click. En Mac: arrastrá a Applications. Listo.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <h3>YOLA ya está viva</h3>
+                <p>Al abrirse, YOLA arranca sus 8 servicios automáticamente. Tu sistema nervioso digital ya está escuchando. Empezá a trabajar.</p>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+<!-- ═══════════════ GUARANTEE ═══════════════ -->
+<div class="z">
+<section class="guarantee">
+    <h2 class="rv">Nuestra <i>palabra.</i></h2>
+    <div class="g-grid rv">
+        <div class="g-card">
+            <span class="g-icon">🚫</span>
+            <h4>Sin data mining</h4>
+            <p>Nunca, jamás, bajo ninguna circunstancia. No hay telemetría que salga de tu máquina.</p>
+        </div>
+        <div class="g-card">
+            <span class="g-icon">🔓</span>
+            <h4>Open-source</h4>
+            <p>Podés leer cada línea del código fuente. No hay servidores ocultos, no hay backdoors.</p>
+        </div>
+        <div class="g-card">
+            <span class="g-icon">💚</span>
+            <h4>Siempre gratis</h4>
+            <p>No hay versión Pro. No hay paywall. No hay features bloqueadas. Todo es tuyo desde el día uno.</p>
+        </div>
+    </div>
+</section>
+</div>
+
+<!-- ═══════════════ CTA ═══════════════ -->
+<div class="z">
+<section class="cta-final">
+    <div class="cta-bg"></div>
+    <h2>¿Ya la descargaste?<br><i>Unite a los Guardianes.</i></h2>
+    <p>Los que creyeron primero obtienen participación real en el proyecto. Si algún día YOLA se vuelve masiva, vos ya estás adentro.</p>
+    <div class="cta-row">
+        <a href="countdown.html" class="btn btn-gold">Origin ×7 →</a>
+        <a href="tech.html" class="btn btn-outline">Ver la arquitectura</a>
+    </div>
+</section>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="z">
+    <div class="ft-logo">YOLA<b>.</b>PROTOCOL</div>
+    <p class="ft-meta">SAYRIDEVS · Lima, Perú · 2026</p>
+    <p class="ft-meta">Tu IA. Tu máquina. Tu datos.</p>
+</footer>
+
+<script>
+// ─── OS Detection ───────────────────────────────────────────
+var osData = {
+    linux:   { icon:'🐧', name:'<b>Linux</b>',  format:'Debian / Ubuntu · .deb',  size:'~145 MB', btn:'Descargar para Linux' },
+    windows: { icon:'🪟', name:'<b>Windows</b>', format:'Windows 10/11 · .exe',    size:'~130 MB', btn:'Descargar para Windows' },
+    mac:     { icon:'🍎', name:'<b>macOS</b>',   format:'Intel + Apple Silicon · .dmg', size:'~120 MB', btn:'Descargar para Mac' },
+    unknown: { icon:'💻', name:'Tu <b>sistema</b>', format:'Sistema operativo',   size:'',         btn:'Ver opciones de descarga' }
+};
+
+function detectOS() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.indexOf('linux') !== -1 && ua.indexOf('android') === -1) return 'linux';
+    if (ua.indexOf('win') !== -1) return 'windows';
+    if (ua.indexOf('mac') !== -1) return 'mac';
+    return 'unknown';
+}
+
+var detectedOS = detectOS();
+var os = osData[detectedOS];
+
+document.getElementById('detectIcon').textContent = os.icon;
+document.getElementById('detectName').innerHTML = os.name;
+document.getElementById('detectVersion').textContent = os.format;
+document.getElementById('detectBtnText').textContent = os.btn;
+document.getElementById('detectSize').textContent = os.size ? 'Archivo: ' + os.size : '';
+
+// Highlight detected platform card
+var platCard = document.getElementById('plat-' + detectedOS);
+if (platCard) {
+    platCard.classList.add('detected');
+    var badge = document.createElement('span');
+    badge.className = 'detected-badge';
+    badge.textContent = 'Tu sistema';
+    platCard.appendChild(badge);
+}
+
+// Show alt link for other platforms
+var altHTML = '';
+if (detectedOS === 'linux') altHTML = '¿Usás Windows? <a href="#" onclick="downloadPlatform(\'windows\');return false">Descargar para Windows</a>';
+else if (detectedOS === 'windows') altHTML = '¿Usás Linux? <a href="#" onclick="downloadPlatform(\'linux\');return false">Descargar para Linux</a>';
+else if (detectedOS === 'mac') altHTML = '¿Usás Windows? <a href="#" onclick="downloadPlatform(\'windows\');return false">Descargar para Windows</a>';
+else altHTML = 'Elegí tu plataforma arriba ↓';
+document.getElementById('detectAlt').innerHTML = altHTML;
+
+function downloadOS() {
+    downloadPlatform(detectedOS);
+}
+
+function downloadPlatform(os) {
+    // TODO: Replace with real release URLs when builds are ready
+    var urls = {
+        linux:   'https://github.com/sayridevs/yola-clear/releases/latest/download/yola-os-linux.deb',
+        windows: 'https://github.com/sayridevs/yola-clear/releases/latest/download/yola-os-windows.exe',
+        mac:     'https://github.com/sayridevs/yola-clear/releases/latest/download/yola-os-macos.dmg'
+    };
+    var url = urls[os];
+    if (url) {
+        window.location.href = url;
+    } else {
+        alert('La descarga para este sistema aún no está disponible. ¡Próximamente!');
+    }
+}
+
+// ─── Custom Cursor ──────────────────────────────────────────
+(function(){
+    var cur=document.getElementById('c'),ring=document.getElementById('cr');
+    if(!cur||!ring)return;
+    var mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cur.style.transform='translate('+(mx-3)+'px,'+(my-3)+'px)';});
+    (function animRing(){rx+=(mx-rx-14)*.1;ry+=(my-ry-14)*.1;ring.style.transform='translate('+rx+'px,'+ry+'px)';requestAnimationFrame(animRing);})();
+    document.querySelectorAll('a,button,.btn,.nav-pill,.plat-card,.req-item,.step,.g-card,.detect-btn').forEach(function(el){
+        el.addEventListener('mouseenter',function(){ring.classList.add('h');});
+        el.addEventListener('mouseleave',function(){ring.classList.remove('h');});
+    });
+})();
+
+// ─── Scroll Progress ────────────────────────────────────────
+(function(){
+    var bar=document.getElementById('scrollProgress');
+    if(!bar)return;
+    function update(){var h=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(h>0?(window.scrollY/h)*100:0)+'%';}
+    window.addEventListener('scroll',update,{passive:true});update();
+})();
+
+// ─── Nav Scroll State ───────────────────────────────────────
+(function(){
+    var nav=document.getElementById('mainNav');
+    if(!nav)return;
+    window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
+})();
+
+// ─── Scroll Reveal ──────────────────────────────────────────
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
+
+// ─── Console ────────────────────────────────────────────────
+console.log('%c YOLA %c Download ',
+    'background:#b8932a;color:#050505;font-weight:bold;padding:4px 8px;font-family:monospace;',
+    'background:#111;color:#d4ab47;padding:4px 8px;font-family:monospace;'
+);
+</script>
+</body>
+</html>
