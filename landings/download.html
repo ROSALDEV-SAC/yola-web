@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YOLA — Descargar · Tu IA, tu máquina</title>
-    <meta name="description" content="Descargá YOLA gratis. Windows, Linux o Mac. Sin suscripciones. Sin datos a la nube. Solo vos y tu IA soberana.">
+    <meta name="description" content="Descarga YOLA gratis. Windows, Linux o Mac. Sin suscripciones. Sin datos a la nube. Solo tú y tu IA soberana.">
     <meta property="og:title" content="YOLA — Descargar gratis">
     <meta property="og:description" content="La IA que vive en tu máquina. Sin nube. Sin permisos. Sin corporaciones.">
-    <meta property="og:url" content="https://yolabysayri.com/landings/download.html">
-    <meta property="og:image" content="https://yolabysayri.com/landings/index.html">
+    <meta property="og:url" content="download.html">
+    <meta property="og:image" content="index.html">
     <meta name="theme-color" content="#050505">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'none';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -165,8 +165,8 @@
 <nav id="mainNav">
     <div class="logo">YOLA<b>.</b>DOWNLOAD</div>
     <div class="nav-r">
-        <a href="https://yolabysayri.com/landings/index.html" class="nav-pill">← Inicio</a>
-        <a href="https://yolabysayri.com/landings/tech.html" class="nav-pill">Ver cómo funciona</a>
+        <a href="index.html" class="nav-pill">← Inicio</a>
+        <a href="tech.html" class="nav-pill">Ver cómo funciona</a>
     </div>
 </nav>
 
@@ -177,7 +177,7 @@
     <div class="hero-aura"></div>
     <div class="hero-inner">
         <div class="eyebrow">Gratis · Open-source · Privacidad total</div>
-        <h1>Descargá YOLA.<br><i>Es tuya.</i></h1>
+        <h1>Descarga YOLA.<br><i>Es tuya.</i></h1>
         <p class="hero-sub">Un instalador. Sin suscripciones. Sin registro. Sin datos a la nube. Descargalo, abrilo, y tu IA ya está viva en tu máquina.</p>
 
         <!-- OS DETECTION CARD -->
@@ -202,7 +202,7 @@
 <section class="platforms">
     <div class="plat-title rv">
         <h2>O elegí tu <i>plataforma.</i></h2>
-        <p>Si no se detectó tu sistema, descargá manualmente.</p>
+        <p>Si no se detectó tu sistema, descarga manualmente.</p>
     </div>
     <div class="plat-grid rv">
         <div class="plat-card" id="plat-linux">
@@ -274,7 +274,7 @@
         <div class="step">
             <div class="step-num">1</div>
             <div class="step-content">
-                <h3>Descargá el instalador</h3>
+                <h3>Descarga el instalador</h3>
                 <p>Hacé click en el botón de arriba. Se descarga un solo archivo. No hay trampas, no hay installer empaquetado con bloatware.</p>
             </div>
         </div>
@@ -325,10 +325,10 @@
 <section class="cta-final">
     <div class="cta-bg"></div>
     <h2>¿Ya la descargaste?<br><i>Unite a los Guardianes.</i></h2>
-    <p>Los que creyeron primero obtienen participación real en el proyecto. Si algún día YOLA se vuelve masiva, vos ya estás adentro.</p>
+    <p>Los que creyeron primero obtienen participación real en el proyecto. Si algún día YOLA se vuelve masiva, tú ya estás adentro.</p>
     <div class="cta-row">
-        <a href="https://yolabysayri.com/landings/countdown.html" class="btn btn-gold">Origin ×7 →</a>
-        <a href="https://yolabysayri.com/landings/tech.html" class="btn btn-outline">Ver la arquitectura</a>
+        <a href="countdown.html" class="btn btn-gold">Origin ×5 →</a>
+        <a href="tech.html" class="btn btn-outline">Ver la arquitectura</a>
     </div>
 </section>
 </div>
@@ -378,9 +378,9 @@ if (platCard) {
 
 // Show alt link for other platforms
 var altHTML = '';
-if (detectedOS === 'linux') altHTML = '¿Usás Windows? <a href="#" onclick="downloadPlatform(\'windows\');return false">Descargar para Windows</a>';
-else if (detectedOS === 'windows') altHTML = '¿Usás Linux? <a href="#" onclick="downloadPlatform(\'linux\');return false">Descargar para Linux</a>';
-else if (detectedOS === 'mac') altHTML = '¿Usás Windows? <a href="#" onclick="downloadPlatform(\'windows\');return false">Descargar para Windows</a>';
+if (detectedOS === 'linux') altHTML = '¿Usas Windows? <a href="#" onclick="downloadPlatform(\'windows\');return false">Descargar para Windows</a>';
+else if (detectedOS === 'windows') altHTML = '¿Usas Linux? <a href="#" onclick="downloadPlatform(\'linux\');return false">Descargar para Linux</a>';
+else if (detectedOS === 'mac') altHTML = '¿Usas Windows? <a href="#" onclick="downloadPlatform(\'windows\');return false">Descargar para Windows</a>';
 else altHTML = 'Elegí tu plataforma arriba ↓';
 document.getElementById('detectAlt').innerHTML = altHTML;
 
