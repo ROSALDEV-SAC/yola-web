@@ -271,7 +271,7 @@
             .stats-grid{grid-template-columns:1fr 1fr}
             .stat-num{font-size:2rem}
         }
-        .wa-float{position:fixed;bottom:1.5rem;left:1.5rem;z-index:99999;display:flex;align-items:center;gap:.6rem;background:#25d366;color:#fff;font-family:'DM Mono',monospace;font-size:.65rem;font-weight:500;padding:.7rem 1.2rem;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;animation:waPulse 2s infinite}.wa-float:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(37,211,102,.5)}.wa-float .wa-dot{width:8px;height:8px;background:#fff;border-radius:50%;animation:blink 1.5s infinite}
+        .wa-float{position:fixed;bottom:1.5rem;left:1.5rem;z-index:99999;display:flex;align-items:center;gap:.6rem;background:#075e54;color:#fff;font-family:'DM Mono',monospace;font-size:.7rem;font-weight:500;padding:.75rem 1.4rem;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(7,94,84,.5);transition:all .3s;animation:waPulse 2s infinite;letter-spacing:.02em}.wa-float:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(7,94,84,.6);background:#064e46}.wa-float .wa-icon{font-size:.9rem;line-height:1}.wa-float .wa-dot{width:8px;height:8px;background:#25d366;border-radius:50%;animation:blink 1.5s infinite}
         @keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 30px rgba(37,211,102,.6)}}
 
     </style>
@@ -418,7 +418,7 @@
             <div class="fstep-dot active"><span>1</span></div>
             <div class="fstep-content">
                 <h3>🔌 Se conecta al cerebro</h3>
-                <p>El motor de inteligencia artificial arranca primero. Es la parte que puede pensar, razonar y ejecutar. Se levanta en 2 segundos.</p>
+                <p>El motor de inteligencia artificial arranca primero. Es la parte que puede pensar, razonar y ejecutar. Se levanta en 2 segundos. Motor base: <a href="https://github.com/opencodeco/opencode" target="_blank" rel="noopener" style="color:var(--gold-l);text-decoration:none">OpenCode (MIT)</a>.</p>
                 <span class="fstep-lang">Gemini 1.5 Flash · 1M tokens contexto</span>
             </div>
         </div>
@@ -766,7 +766,7 @@ const statObs = new IntersectionObserver(es => {
 }, { threshold: 0.3 });
 document.querySelector('.stats-grid') && statObs.observe(document.querySelector('.stats-grid'));
 </script>
-<a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="wa-float"><span class="wa-dot"></span> Unite a la comunidad</a>
+<a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="wa-float"><span class="wa-icon">📱</span><span class="wa-dot"></span> Unite a la comunidad</a>
 
 </body>
 </html>
