@@ -321,8 +321,8 @@ function apiGet(action) {
 function apiPost(data) {
     return fetch(API_URL, {
         method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain' },
+        mode: 'cors',
+        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
         body: JSON.stringify(data)
     }).catch(function(e) { console.error('API POST error:', e); });
 }
