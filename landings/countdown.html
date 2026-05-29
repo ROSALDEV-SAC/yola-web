@@ -233,7 +233,7 @@
             <label class="form-lbl" for="fPayment">Comprobante de pago / descripción de contribución</label>
             <textarea class="form-inp" id="fPayment" placeholder="¿Cómo abonaste? ¿Cuánto? (USD, crypto, código, u otra forma). Perspectivas de lo que esperas del proyecto. Todo cuenta." maxlength="600" style="min-height:90px;margin-bottom:.6rem"></textarea>
             <button class="btn-submit" onclick="registerOrigin()">Registrarme como Origin ×3.75 →</button>
-            <p class="form-fine">Tu registro queda inmutable en el ledger de SayriDevs.<br>La contribución se verifica y tu participación queda registrada.</p>
+            <p class="form-fine">Tu registro queda inmutable en el ledger de <a href="https://github.com/SayriDevs" target="_blank">SayriDevs</a>.<br>La contribución se verifica y tu participación queda registrada.</p>
         </div>
 
         <!-- SHARE -->
@@ -242,6 +242,7 @@
             <a class="share-btn" href="https://twitter.com/intent/tweet?text=La%20era%20de%20la%20IA%20soberana%20empieza%20el%205%20de%20junio.%20Multiplicador%20%C3%973.75%20para%20los%20que%20creyeron%20primero.%20Gratis.%20%F0%9F%A7%A0%F0%9F%94%B5" target="_blank">𝕏 Tweetear</a>
             <a class="share-btn" href="https://wa.me/?text=La%20IA%20soberana%20se%20activa%20el%205%20de%20junio.%20Multiplicador%20%C3%973.75%20para%20los%20primeros.%20Gratis.%20Sin%20nube.%20%F0%9F%A7%A0" target="_blank">💬 WhatsApp</a>
             <a class="share-btn" href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" style="border-color:rgba(37,211,102,.3);color:#25d366">💬 Comunidad</a>
+            <a class="share-btn" href="https://www.youtube.com/@sayridev1920" target="_blank" style="border-color:rgba(255,0,0,.2);color:#ff0000">🎬 Novedades</a>
         </div>
 
     </div>
@@ -421,7 +422,7 @@ updateCountdown();
 cdInterval = setInterval(updateCountdown, 1000);
 
 // ─── Origin Registration (Google Sheets) ──────────────────
-var ORIGIN_API = 'https://script.google.com/macros/s/AKfycbz1p9IvNPYpTwy3laN0v7FIOMRA-8YBkfYB4tCG-Hb6GOOWPRHTuFsW8ZX_BSoxhD_5nQ/exec';
+var ORIGIN_API = 'https://script.google.com/macros/s/AKfycbyATTdMHkE-FcbU7K-lVjicmWNRBTOCDvE1lAMRSpVEFji5fVXrLJ-_9ipgSxTo1veTFQ/exec';
 var LAST_REG = 0;
 var REG_COOLDOWN = 30000;
 var isRegistering = false;
@@ -436,7 +437,7 @@ function registerOrigin() {
     var now = Date.now();
     if (now - LAST_REG < REG_COOLDOWN) {
         var wait = Math.ceil((REG_COOLDOWN - (now - LAST_REG)) / 1000);
-        alert('Esperá ' + wait + ' segundos.');
+        alert('Espera ' + wait + ' segundos.');
         return;
     }
 
@@ -445,11 +446,11 @@ function registerOrigin() {
     var payment = sanitize(document.getElementById('fPayment').value);
 
     if (!doc || !email || !payment) {
-        alert('Completá todos los campos: documento, email y comprobante de pago.');
+        alert('Completa todos los campos: documento, email y comprobante de pago.');
         return;
     }
     if (email.indexOf('@') === -1 || email.indexOf('.') === -1) {
-        alert('Ingresá un email válido.');
+        alert('Ingresa un email válido.');
         return;
     }
     if (payment.length < 15) {
@@ -486,7 +487,7 @@ function registerOrigin() {
         'Tu multiplicador: ×3.75\n' +
         'Fase: Origin (se cierra el 5 de junio)\n' +
         'Quedan ~' + remaining + ' días.\n\n' +
-        'Tu aporte queda inmutable en el ledger de SayriDevs.\n\n' +
+        'Tu aporte queda inmutable en el ledger de SayriDevs (github.com/SayriDevs).\n\n' +
         'Bienvenido al pacto.'
     );
 

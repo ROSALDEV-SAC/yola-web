@@ -270,7 +270,7 @@ try {
 // ═══════════════════════════════════════════════════════════
 // YOLA FEEDBACK — Google Sheets Backend
 // ═══════════════════════════════════════════════════════════
-var API_URL = 'https://script.google.com/macros/s/AKfycbz1p9IvNPYpTwy3laN0v7FIOMRA-8YBkfYB4tCG-Hb6GOOWPRHTuFsW8ZX_BSoxhD_5nQ/exec';
+var API_URL = 'https://script.google.com/macros/s/AKfycbyATTdMHkE-FcbU7K-lVjicmWNRBTOCDvE1lAMRSpVEFji5fVXrLJ-_9ipgSxTo1veTFQ/exec';
 var USER_ID = getOrCreateUserId();
 
 // ─── SECURITY: Rate limiting & double-submit prevention ─────
@@ -283,7 +283,7 @@ function canSubmit() {
     if (isSubmitting) return { ok: false, reason: 'Ya hay un envío en curso...' };
     if (now - LAST_SUBMIT < SUBMIT_COOLDOWN) {
         var wait = Math.ceil((SUBMIT_COOLDOWN - (now - LAST_SUBMIT)) / 1000);
-        return { ok: false, reason: 'Esperá ' + wait + ' segundos antes de enviar otro.' };
+        return { ok: false, reason: 'Espera ' + wait + ' segundos antes de enviar otro.' };
     }
     return { ok: true };
 }
@@ -472,7 +472,7 @@ function submitFeedback() {
     var title = sanitizeTitle(document.getElementById('fbTitle').value);
     var desc = sanitizeInput(document.getElementById('fbDesc').value);
     if (!name || !title || !desc) {
-        alert('Completá tu nombre, título y descripción.');
+        alert('Completa tu nombre, título y descripción.');
         return;
     }
     if (desc.length < 10) {
