@@ -82,7 +82,7 @@ function doPost(e) {
 
 function doGet(e) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var action = e.parameter.action;
+  var action = (e && e.parameter) ? e.parameter.action : null;
   
   if (action === 'list') {
     var sheet = ss.getSheetByName('Feedback');
@@ -114,7 +114,7 @@ function doGet(e) {
   }
   
   // ─── TEST ENDPOINT ─────────────────────────────────
-  if (action === 'test') {
+  if (!action || action === 'test') {
     return ContentService.createTextOutput(JSON.stringify({status:'ok', message:'YOLA API is running', time: new Date().toISOString()})).setMimeType(ContentService.MimeType.JSON);
   }
   
