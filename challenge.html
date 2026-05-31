@@ -20,36 +20,36 @@
 
         @keyframes auraPulse{0%,100%{opacity:1;transform:translate(-50%,-50%) scale(1)}50%{opacity:.7;transform:translate(-50%,-50%) scale(1.05)}}
 
-        .danger-badge{display:inline-flex;align-items:center;gap:.6rem;font-family:'DM Mono',monospace;font-size:.65rem;color:var(--red);border:1px solid rgba(192,64,64,.3);padding:.5rem 1.2rem;margin-bottom:2rem;background:var(--red-dim);animation:dangerPulse 2s ease-in-out infinite}
+        .danger-badge{display:inline-flex;align-items:center;gap:.6rem;font-family:'DM Mono',monospace;font-size:0.812rem;color:var(--red);border:1px solid rgba(192,64,64,.3);padding:.5rem 1.2rem;margin-bottom:2rem;background:var(--red-dim);animation:dangerPulse 2s ease-in-out infinite}
         @keyframes dangerPulse{0%,100%{border-color:rgba(192,64,64,.3);box-shadow:0 0 0 rgba(192,64,64,0)}50%{border-color:rgba(192,64,64,.6);box-shadow:0 0 30px rgba(192,64,64,.1)}}
         .danger-badge::before{content:'';width:6px;height:6px;background:var(--red);border-radius:50%;animation:blink 1.5s infinite}
 
 
         .mult-big{display:inline-flex;align-items:center;gap:1rem;background:var(--gold-dim);border:2px solid rgba(184,147,42,.3);padding:1.5rem 2.5rem;margin-bottom:2rem;animation:multGlow 3s ease-in-out infinite}
         @keyframes multGlow{0%,100%{box-shadow:0 0 20px rgba(184,147,42,.1)}50%{box-shadow:0 0 50px rgba(184,147,42,.2)}}
-        .mult-big .mult-x{font-size:3.5rem;font-weight:800;color:var(--gold-l);font-family:'DM Mono',monospace;line-height:1}
+        .mult-big .mult-x{font-size:4.375rem;font-weight:800;color:var(--gold-l);font-family:'DM Mono',monospace;line-height:1}
         .mult-big .mult-text{text-align:left}
-        .mult-big .mult-label{font-family:'DM Mono',monospace;font-size:.55rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.1em}
-        .mult-big .mult-desc{font-size:.8rem;color:var(--text-mid);margin-top:.2rem}
+        .mult-big .mult-label{font-family:'DM Mono',monospace;font-size:0.688rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.1em}
+        .mult-big .mult-desc{font-size:1rem;color:var(--text-mid);margin-top:.2rem}
 
-        /* SECTIONS */.section{padding:5rem 2rem;max-width:900px;margin:0 auto}.section h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:800;letter-spacing:-.02em;margin-bottom:1.5rem;text-align:center}.section h2 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
+        /* SECTIONS */.section{padding:5rem 2rem;max-width:900px;margin:0 auto}.section h2{font-size:clamp(1.75rem, 3.125vw, 2.5rem);font-weight:800;letter-spacing:-.02em;margin-bottom:1.5rem;text-align:center}.section h2 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
 
         /* VIBE CARD */.vibe-card{background:var(--s2);border:1px solid var(--border);padding:2rem;position:relative;overflow:hidden}.vibe-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),var(--gold))}
-        .vibe-card h3{font-size:.9rem;font-weight:800;margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}.vibe-card p{font-size:.8rem;color:var(--text-dim);line-height:1.8}
-        .vibe-card code{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--cyan);background:var(--cyan-dim);padding:.1rem .4rem;border:1px solid rgba(62,184,192,.1)}
+        .vibe-card h3{font-size:1.125rem;font-weight:800;margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}.vibe-card p{font-size:1rem;color:var(--text-dim);line-height:1.8}
+        .vibe-card code{font-family:'DM Mono',monospace;font-size:0.875rem;color:var(--cyan);background:var(--cyan-dim);padding:.1rem .4rem;border:1px solid rgba(62,184,192,.1)}
         .vibe-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:2rem}
 
         /* RULES */.rules-card{background:var(--s1);border:1px solid var(--border);padding:2rem;margin-top:2rem}
         .rule-item{display:flex;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--border);align-items:flex-start}.rule-item:last-child{border-bottom:none}
-        .rule-num{font-size:1.2rem;font-weight:800;color:var(--gold-l);flex-shrink:0;width:2rem;text-align:center;opacity:.6}
-        .rule-text h4{font-size:.8rem;font-weight:700;margin-bottom:.2rem}.rule-text p{font-size:.7rem;color:var(--text-dim);line-height:1.6}
+        .rule-num{font-size:1.5rem;font-weight:800;color:var(--gold-l);flex-shrink:0;width:2rem;text-align:center;opacity:.6}
+        .rule-text h4{font-size:1rem;font-weight:700;margin-bottom:.2rem}.rule-text p{font-size:0.875rem;color:var(--text-dim);line-height:1.6}
 
         /* PROOF */.proof-card{background:var(--s2);border:1px solid var(--border);padding:2rem;margin-top:2rem;position:relative}.proof-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green),var(--cyan))}
         .proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:1.5rem}
         .proof-item{background:var(--s2);padding:1.5rem;text-align:center}
-        .proof-item .p-icon{font-size:1.5rem;margin-bottom:.5rem;display:block}
-        .proof-item h4{font-size:.75rem;font-weight:800;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.03em}
-        .proof-item p{font-size:.65rem;color:var(--text-dim);line-height:1.5}
+        .proof-item .p-icon{font-size:1.875rem;margin-bottom:.5rem;display:block}
+        .proof-item h4{font-size:0.938rem;font-weight:800;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.03em}
+        .proof-item p{font-size:0.812rem;color:var(--text-dim);line-height:1.5}
 
         /* CTA */.cta-final{text-align:center;padding:6rem 2rem;position:relative;overflow:hidden}.cta-bg{position:absolute;width:100%;height:100%;background:radial-gradient(ellipse 60% 100% at 50% 100%,rgba(192,64,64,.05) 0%,transparent 70%);pointer-events:none}
 
@@ -66,14 +66,14 @@
         }
         @media(max-width:600px){
             .hero{padding:5.5rem 1rem 2.5rem}
-            .danger-badge{font-size:.55rem;padding:.4rem .8rem}
-            .mult-big .mult-x{font-size:2.5rem}
+            .danger-badge{font-size:0.688rem;padding:.4rem .8rem}
+            .mult-big .mult-x{font-size:3.125rem}
             .vibe-card{padding:1.2rem}
-            .vibe-card p{font-size:.72rem}
+            .vibe-card p{font-size:0.9rem}
             .rule-item{gap:.8rem;padding:.6rem 0}
-            .rule-text p{font-size:.65rem}
+            .rule-text p{font-size:0.812rem}
             .proof-item{padding:1rem}
-            .proof-item p{font-size:.6rem}
+            .proof-item p{font-size:0.75rem}
             .cta-final{padding:3rem 1rem}
         }
     </style>
@@ -89,7 +89,8 @@
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-r">
         <a href="index.html" class="nav-pill">← Inicio</a>
-        <a href="countdown.html" class="nav-pill">Origin ×3.75</a>
+        <a href="guardianes.html" class="nav-pill">Guardianes</a>
+        <a href="countdown.html" class="nav-pill gold">Origin ×3.75</a>
     </div>
 </nav>
 <div class="nav-overlay" id="navOverlay"></div>
@@ -183,7 +184,7 @@
 <div class="z">
 <section class="section">
     <h2 class="rv">Superficie de <i>ataque.</i></h2>
-    <p class="rv" style="text-align:center;color:var(--text-mid);font-size:.9rem;margin-bottom:2rem">Todo lo que sabemos que está mal. Tu oportunidad.</p>
+    <p class="rv" style="text-align:center;color:var(--text-mid);font-size:1.125rem;margin-bottom:2rem">Todo lo que sabemos que está mal. Tu oportunidad.</p>
 
     <div class="proof-card rv">
         <div class="proof-grid">
@@ -219,7 +220,7 @@
             </div>
         </div>
     </div>
-    <p class="rv" style="text-align:center;font-family:'DM Mono',monospace;font-size:.6rem;color:var(--text-dim);margin-top:2rem;letter-spacing:.08em">Sí, estamos buscando nuestro experto en seguridad. Si este reto te excita, tal vez tu lugar es acá. → <a href="feedback.html" style="color:var(--cyan);text-decoration:none;border-bottom:1px solid var(--cyan-dim)">Dínos quién sos</a></p>
+    <p class="rv" style="text-align:center;font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--text-dim);margin-top:2rem;letter-spacing:.08em">Sí, estamos buscando nuestro experto en seguridad. Si este reto te excita, tal vez tu lugar es acá. → <a href="feedback.html" style="color:var(--cyan);text-decoration:none;border-bottom:1px solid var(--cyan-dim)">Dínos quién sos</a></p>
 </section>
 </div>
 
@@ -234,7 +235,7 @@
         <a href="countdown.html" class="btn btn-outline">Origin ×3.75 normal</a>
     </div>
     <div style="display:flex;gap:.8rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap;position:relative">
-        <a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" style="font-family:'DM Mono',monospace;font-size:.6rem;color:#25d366;text-decoration:none;padding:.5rem 1rem;border:1px solid rgba(37,211,102,.3);transition:all .2s;display:flex;align-items:center;gap:.5rem;border-radius:2px">💬 Unirme a la comunidad</a>
+        <a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" style="font-family:'DM Mono',monospace;font-size:0.75rem;color:#25d366;text-decoration:none;padding:.5rem 1rem;border:1px solid rgba(37,211,102,.3);transition:all .2s;display:flex;align-items:center;gap:.5rem;border-radius:2px">💬 Unirme a la comunidad</a>
     </div>
 </section>
 </div>
@@ -246,7 +247,11 @@
 </footer>
 
 <script src="js/main.js"></script>
-<a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="wa-float"><span class="wa-icon">📱</span><span class="wa-dot"></span> Unite a la comunidad</a>
+<!-- FLOAT GROUP -->
+<div class="float-group">
+    <a href="countdown.html" class="float-btn origin-float">Origin ×3.75</a>
+    <a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="float-btn wa-float-btn"><span class="wa-dot"></span> Comunidad</a>
+</div>
 
 </body>
 </html>

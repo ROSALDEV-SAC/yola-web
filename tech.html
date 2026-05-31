@@ -31,21 +31,21 @@
         .marquee{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.2rem 0;overflow:hidden}
         .marquee-inner{display:flex;gap:4rem;animation:scroll-x 30s linear infinite;white-space:nowrap;align-items:center}
         @keyframes scroll-x{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-        .mq{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:1rem}
+        .mq{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:1rem}
         .mq::after{content:'·';color:var(--gold)}
 
         /* ─── BIG STATEMENT ────────────────────── */
         .statement{padding:8rem 2rem;text-align:center;max-width:900px;margin:0 auto}
-        .statement h2{font-size:clamp(2rem,4.5vw,3.8rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:2rem}
+        .statement h2{font-size:clamp(2.5rem, 5.625vw, 4.75rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:2rem}
         .statement h2 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
-        .statement p{font-size:1.05rem;color:var(--text-mid);line-height:1.9;max-width:600px;margin:0 auto}
+        .statement p{font-size:1.312rem;color:var(--text-mid);line-height:1.9;max-width:600px;margin:0 auto}
 
         /* ─── ORGANISM SECTION ─────────────────── */
         .organism{padding:6rem 2rem;max-width:1000px;margin:0 auto}
         .org-title{text-align:center;margin-bottom:4rem}
-        .org-title h2{font-size:clamp(1.8rem,3.5vw,3rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.8rem}
+        .org-title h2{font-size:clamp(2.25rem, 4.375vw, 3.75rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.8rem}
         .org-title h2 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
-        .org-title p{font-size:.95rem;color:var(--text-mid);line-height:1.8;max-width:560px;margin:0 auto}
+        .org-title p{font-size:1.188rem;color:var(--text-mid);line-height:1.8;max-width:560px;margin:0 auto}
 
         .body-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
         .body-card{background:var(--s2);padding:2.5rem 2rem;transition:background .3s;position:relative;overflow:hidden}
@@ -58,12 +58,12 @@
         .body-card.reflex::before{background:var(--red)}
         .body-card.memory::before{background:var(--purple)}
         .body-card.bones::before{background:var(--text-dim)}
-        .bc-icon{font-size:2rem;margin-bottom:1.2rem;display:block}
-        .bc-label{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.6rem}
-        .bc-name{font-size:1.1rem;font-weight:800;margin-bottom:.6rem}
-        .bc-desc{font-size:.8rem;color:var(--text-dim);line-height:1.8;font-weight:400}
+        .bc-icon{font-size:2.5rem;margin-bottom:1.2rem;display:block}
+        .bc-label{font-family:'DM Mono',monospace;font-size:0.625rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.6rem}
+        .bc-name{font-size:1.375rem;font-weight:800;margin-bottom:.6rem}
+        .bc-desc{font-size:1rem;color:var(--text-dim);line-height:1.8;font-weight:400}
         .bc-desc strong{color:var(--text-mid);font-weight:600}
-        .bc-quote{margin-top:1rem;padding:.8rem 1rem;background:var(--bg);border-left:2px solid var(--gold);font-family:'DM Mono',monospace;font-size:.65rem;color:var(--text-mid);line-height:1.6}
+        .bc-quote{margin-top:1rem;padding:.8rem 1rem;background:var(--bg);border-left:2px solid var(--gold);font-family:'DM Mono',monospace;font-size:0.812rem;color:var(--text-mid);line-height:1.6}
 
         /* ─── STATS ────────────────────────────── */
         .stats-section{background:var(--s1);padding:5rem 2rem}
@@ -71,13 +71,13 @@
         .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin:3rem 0}
         .stat{background:var(--s2);padding:2rem;text-align:center;transition:background .2s}
         .stat:hover{background:var(--s3)}
-        .stat-num{font-size:2.8rem;font-weight:800;letter-spacing:-.04em;display:block;line-height:1}
+        .stat-num{font-size:3.5rem;font-weight:800;letter-spacing:-.04em;display:block;line-height:1}
         .stat-num.gold{color:var(--gold-l)}
         .stat-num.cyan{color:var(--cyan)}
         .stat-num.green{color:var(--green)}
         .stat-num.purple{color:var(--purple)}
-        .stat-label{font-family:'DM Mono',monospace;font-size:.55rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;margin-top:.6rem;display:block}
-        .stat-desc{font-size:.72rem;color:var(--text-mid);margin-top:.4rem;line-height:1.5}
+        .stat-label{font-family:'DM Mono',monospace;font-size:0.688rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;margin-top:.6rem;display:block}
+        .stat-desc{font-size:0.9rem;color:var(--text-mid);margin-top:.4rem;line-height:1.5}
 
         /* ─── FLOW ─────────────────────────────── */
         .flow{padding:6rem 2rem;max-width:1000px;margin:0 auto}
@@ -88,21 +88,21 @@
         .fstep-dot{width:28px;height:28px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--bg);position:relative;z-index:1}
         .fstep-dot.active{border-color:var(--gold);background:var(--gold-dim)}
         .fstep-dot.active::after{content:'';width:8px;height:8px;background:var(--gold-l);border-radius:50%;animation:blink 1.5s infinite}
-        .fstep-dot span{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--text-dim)}
-        .fstep-content h3{font-size:.9rem;font-weight:700;margin-bottom:.3rem;display:flex;align-items:center;gap:.5rem}
-        .fstep-content p{font-size:.78rem;color:var(--text-dim);line-height:1.8;font-weight:400}
-        .fstep-content .fstep-lang{font-family:'DM Mono',monospace;font-size:.55rem;color:var(--cyan);background:var(--cyan-dim);padding:.15rem .5rem;display:inline-block;margin-top:.4rem;border:1px solid rgba(62,184,192,.1)}
+        .fstep-dot span{font-family:'DM Mono',monospace;font-size:0.625rem;color:var(--text-dim)}
+        .fstep-content h3{font-size:1.125rem;font-weight:700;margin-bottom:.3rem;display:flex;align-items:center;gap:.5rem}
+        .fstep-content p{font-size:0.975rem;color:var(--text-dim);line-height:1.8;font-weight:400}
+        .fstep-content .fstep-lang{font-family:'DM Mono',monospace;font-size:0.688rem;color:var(--cyan);background:var(--cyan-dim);padding:.15rem .5rem;display:inline-block;margin-top:.4rem;border:1px solid rgba(62,184,192,.1)}
 
         /* ─── COMPARISON ───────────────────────── */
         .compare{background:var(--s1);padding:6rem 2rem}
         .compare-inner{max-width:1000px;margin:0 auto}
         .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin:3rem 0}
         .compare-col{background:var(--s2);padding:2rem}
-        .compare-col h3{font-size:.85rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
+        .compare-col h3{font-size:1.062rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
         .compare-col ul{list-style:none;padding:0}
-        .compare-col li{font-size:.78rem;color:var(--text-dim);line-height:1.8;padding:.4rem 0;border-bottom:1px solid var(--border);display:flex;align-items:baseline;gap:.6rem}
+        .compare-col li{font-size:0.975rem;color:var(--text-dim);line-height:1.8;padding:.4rem 0;border-bottom:1px solid var(--border);display:flex;align-items:baseline;gap:.6rem}
         .compare-col li:last-child{border-bottom:none}
-        .compare-col li .icon{font-size:.7rem;flex-shrink:0}
+        .compare-col li .icon{font-size:0.875rem;flex-shrink:0}
         .compare-col.not-yola li{color:var(--text-dim)}
         .compare-col.yola-col{border-left:2px solid var(--gold)}
         .compare-col.yola-col li{color:var(--text-mid)}
@@ -110,21 +110,21 @@
 
         /* ─── TESTIMONIAL STYLE ────────────────── */
         .voices{padding:6rem 2rem;max-width:800px;margin:0 auto;text-align:center}
-        .voice-big{font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;line-height:1.5;color:var(--text-mid);margin:2rem 0;font-style:italic;max-width:650px;margin-left:auto;margin-right:auto}
+        .voice-big{font-size:clamp(1.625rem, 3.125vw, 2.25rem);font-weight:700;line-height:1.5;color:var(--text-mid);margin:2rem 0;font-style:italic;max-width:650px;margin-left:auto;margin-right:auto}
         .voice-big strong{color:var(--text);font-style:normal}
-        .voice-attr{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.15em}
+        .voice-attr{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.15em}
 
         /* ─── GUARDIAN CTA ─────────────────────── */
         .guardian{padding:8rem 2rem;text-align:center;position:relative;overflow:hidden}
         .guardian-aura{position:absolute;width:600px;height:400px;background:radial-gradient(ellipse,rgba(184,147,42,.07) 0%,transparent 60%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
-        .guardian h2{font-size:clamp(2rem,4vw,3.5rem);font-weight:800;letter-spacing:-.03em;margin-bottom:1rem;position:relative}
+        .guardian h2{font-size:clamp(2.5rem, 5vw, 4.375rem);font-weight:800;letter-spacing:-.03em;margin-bottom:1rem;position:relative}
         .guardian h2 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
-        .guardian p{font-size:1rem;color:var(--text-mid);line-height:1.8;max-width:500px;margin:0 auto 2.5rem;position:relative}
+        .guardian p{font-size:1.25rem;color:var(--text-mid);line-height:1.8;max-width:500px;margin:0 auto 2.5rem;position:relative}
         .guardian .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative}
 
         /* ─── SHARE BAR ────────────────────────── */
-        .share-bar{border-top:1px solid var(--border);padding:1.5rem 2rem;display:flex;justify-content:center;gap:1rem;position:relative;z-index:2}
-        .share-btn{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--text-dim);text-decoration:none;padding:.5rem 1rem;border:1px solid var(--border);transition:all .2s;display:flex;align-items:center;gap:.5rem}
+        .share-bar{border-top:1px solid var(--border);padding:1.5rem 2rem;display:flex;justify-content:center;flex-wrap:wrap;gap:.8rem;position:relative;z-index:2}
+        .share-btn{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--text-dim);text-decoration:none;padding:.5rem 1rem;border:1px solid var(--border);transition:all .2s;display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap}
         .share-btn:hover{border-color:var(--gold);color:var(--gold-l)}
 
         /* ─── FOOTER ───────────────────────────── */
@@ -137,7 +137,7 @@
         /* ─── SCROLL INDICATOR (HERO) ──────────── */
         .scroll-hint{position:absolute;bottom:2.5rem;right:3rem;display:flex;flex-direction:column;align-items:center;gap:.75rem;z-index:10;cursor:pointer;transition:transform .2s}
         .scroll-hint:hover{transform:translateY(-3px)}
-        .scroll-hint-text{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--gold-l);letter-spacing:.18em;text-transform:uppercase;animation:fadePulse 2.5s ease-in-out infinite;font-weight:500;text-shadow:0 0 20px rgba(184,147,42,.15)}
+        .scroll-hint-text{font-family:'DM Mono',monospace;font-size:0.875rem;color:var(--gold-l);letter-spacing:.18em;text-transform:uppercase;animation:fadePulse 2.5s ease-in-out infinite;font-weight:500;text-shadow:0 0 20px rgba(184,147,42,.15)}
         .scroll-hint-arrow{width:26px;height:40px;border:2px solid var(--gold);border-radius:13px;display:flex;justify-content:center;padding-top:8px;background:rgba(184,147,42,.04);box-shadow:0 0 20px rgba(184,147,42,.08)}
         .scroll-hint-dot{width:4px;height:10px;background:var(--gold-l);border-radius:4px;animation:scrollBounce 2s ease-in-out infinite}
         @keyframes scrollBounce{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(10px);opacity:.3}}
@@ -195,7 +195,7 @@
         /* ─── RESPONSIVE ───────────────────────── */
         @media(max-width:480px){
             .stats-grid{grid-template-columns:1fr 1fr}
-            .stat-num{font-size:2rem}
+            .stat-num{font-size:2.5rem}
         }
 
     
@@ -217,32 +217,44 @@
             .hero{padding:5.5rem 1rem 2.5rem}
             .hero-aura{width:300px;height:250px}
             .marquee-inner{gap:2.5rem;animation-duration:20s}
-            .mq{font-size:.5rem}
+            .mq{font-size:0.625rem}
             .statement{padding:3rem 1rem}
-            .statement h2{font-size:clamp(1.5rem,6vw,2.2rem)}
-            .statement p{font-size:.88rem}
+            .statement h2{font-size:clamp(1.875rem, 7.5vw, 2.75rem)}
+            .statement p{font-size:1.1rem}
             .organism{padding:3rem 1rem}
             .org-title{margin-bottom:2rem}
-            .org-title h2{font-size:clamp(1.3rem,5vw,1.8rem)}
-            .org-title p{font-size:.85rem}
+            .org-title h2{font-size:clamp(1.625rem, 6.25vw, 2.25rem)}
+            .org-title p{font-size:1.062rem}
             .body-grid{grid-template-columns:1fr}
             .body-card{padding:1.5rem 1.2rem}
-            .bc-icon{font-size:1.5rem}
-            .bc-name{font-size:.95rem}
-            .bc-desc{font-size:.72rem}
-            .bc-quote{font-size:.6rem}
+            .bc-icon{font-size:1.875rem}
+            .bc-name{font-size:1.188rem}
+            .bc-desc{font-size:0.9rem}
+            .bc-quote{font-size:0.75rem}
             .stats-section{padding:3rem 1rem}
             .stats-grid{grid-template-columns:repeat(2,1fr)}
             .stat{padding:1.2rem}
-            .stat-num{font-size:2rem}
-            .stat-desc{font-size:.65rem}
+            .stat-num{font-size:2.5rem}
+            .stat-desc{font-size:0.812rem}
             .flow{padding:3rem 1rem}
             .flow-steps{padding-left:1.5rem}
             .fstep{gap:1rem;padding:1.2rem 0}
             .fstep-dot{width:24px;height:24px}
-            .fstep-content h3{font-size:.8rem}
-            .fstep-content p{font-size:.72rem}
+            .fstep-content h3{font-size:1rem}
+            .fstep-content p{font-size:0.9rem}
             .comparison{padding:3rem 1rem}
+
+            /* Share bar */
+            .share-bar{padding:1.2rem 1rem;gap:.5rem}
+            .share-btn{font-size:.65rem;padding:.4rem .7rem}
+
+            /* Comparison */
+            .compare{padding:3rem 1rem}
+            .compare-grid{grid-template-columns:1fr}
+            .compare-col.yola-col{border-left:none;border-top:2px solid var(--gold)}
+            .compare-col{padding:1.5rem}
+            .compare-col h3{font-size:0.95rem}
+            .compare-col li{font-size:0.85rem;line-height:1.7}
         }
     </style>
 </head>
@@ -261,7 +273,8 @@
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-r">
         <a href="index.html" class="nav-pill">← Inicio</a>
-        <a href="countdown.html" class="nav-pill">Origin ×3.75</a>
+        <a href="guardianes.html" class="nav-pill">Guardianes</a>
+        <a href="countdown.html" class="nav-pill gold">Origin ×3.75</a>
     </div>
 </nav>
 <div class="nav-overlay" id="navOverlay"></div>
@@ -535,7 +548,7 @@
 <!-- ═══════════════ VOICES ═══════════════ -->
 <div class="z">
 <section class="voices rv">
-    <div class="section-tag" style="justify-content:center"><span style="color:var(--gold-l);font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase">Lo que esto significa</span></div>
+    <div class="section-tag" style="justify-content:center"><span style="color:var(--gold-l);font-family:'DM Mono',monospace;font-size:0.75rem;letter-spacing:.25em;text-transform:uppercase">Lo que esto significa</span></div>
     <p class="voice-big">"Si mañana Google decide cobrar por Gemini, o OpenAI cierra, o cualquier corporación apaga sus servidores... <strong>YOLA sigue funcionando en tu máquina</strong>. Porque YOLA nunca dependió de ellos."</p>
     <p class="voice-attr">Filosofía de diseño · <a href="https://github.com/SayriDevs" target="_blank" style="color:var(--gold-l);text-decoration:none">SayriDevs</a>, Lima 2026</p>
 </section>
@@ -704,7 +717,11 @@ const statObs = new IntersectionObserver(es => {
 }, { threshold: 0.3 });
 document.querySelector('.stats-grid') && statObs.observe(document.querySelector('.stats-grid'));
 </script>
-<a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="wa-float"><span class="wa-icon">📱</span><span class="wa-dot"></span> Unite a la comunidad</a>
+<!-- FLOAT GROUP -->
+<div class="float-group">
+    <a href="countdown.html" class="float-btn origin-float">Origin ×3.75</a>
+    <a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="float-btn wa-float-btn"><span class="wa-dot"></span> Comunidad</a>
+</div>
 
 </body>
 </html>

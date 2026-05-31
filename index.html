@@ -20,8 +20,8 @@
         body::after { content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.04) 2px,rgba(0,0,0,0.04) 4px);pointer-events:none;z-index:9996; }
 
         /* NAV */
-        .nav-status { display:flex;align-items:center;gap:.5rem;font-family:'DM Mono',monospace;font-size:.65rem;color:var(--green); }
-        .btn-nav { font-family:'DM Mono',monospace;font-size:.7rem;background:var(--gold);color:#050505;padding:.65rem 1.6rem;text-decoration:none;font-weight:500;letter-spacing:.05em;transition:background .15s,transform .1s;cursor:none; }
+        .nav-status { display:flex;align-items:center;gap:.5rem;font-family:'DM Mono',monospace;font-size:0.812rem;color:var(--green); }
+        .btn-nav { font-family:'DM Mono',monospace;font-size:0.875rem;background:var(--gold);color:#050505;padding:.65rem 1.6rem;text-decoration:none;font-weight:500;letter-spacing:.05em;transition:background .15s,transform .1s;cursor:none; }
         .btn-nav:hover { background:var(--text);transform:translateY(-1px); }
 
         /* HERO */
@@ -30,21 +30,21 @@
 
 
 
-        .hero-p { font-size:1.05rem;color:var(--text-mid);line-height:1.85;margin-bottom:2.5rem;max-width:560px;font-weight:400; }
+        .hero-p { font-size:1.312rem;color:var(--text-mid);line-height:1.85;margin-bottom:2.5rem;max-width:560px;font-weight:400; }
         .hero-p strong { color:var(--text);font-weight:700; }
 
         .hero-cta { display:flex;gap:1rem;align-items:center;flex-wrap:wrap; }
-        .btn-primary { display:inline-flex;align-items:center;gap:.8rem;padding:1rem 2.2rem;background:var(--gold);color:#050505;font-family:'Syne',sans-serif;font-weight:800;font-size:.8rem;text-decoration:none;text-transform:uppercase;letter-spacing:.06em;cursor:none;transition:transform .15s,box-shadow .15s; }
+        .btn-primary { display:inline-flex;align-items:center;gap:.8rem;padding:1rem 2.2rem;background:var(--gold);color:#050505;font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;text-decoration:none;text-transform:uppercase;letter-spacing:.06em;cursor:none;transition:transform .15s,box-shadow .15s; }
         .btn-primary:hover { transform:translateY(-2px);box-shadow:0 12px 40px var(--gold-glow); }
-        .btn-ghost { font-family:'DM Mono',monospace;font-size:.75rem;color:var(--text-dim);text-decoration:none;cursor:none;transition:color .2s;border-bottom:1px solid var(--border2);padding-bottom:1px; }
+        .btn-ghost { font-family:'DM Mono',monospace;font-size:0.938rem;color:var(--text-dim);text-decoration:none;cursor:none;transition:color .2s;border-bottom:1px solid var(--border2);padding-bottom:1px; }
         .btn-ghost:hover { color:var(--text-mid); }
 
         /* JARVIS TERMINAL */
         .jarvis-term { background:var(--s1);border:1px solid var(--border2);overflow:hidden;position:relative; }
         .jt-bar { background:var(--s2);border-bottom:1px solid var(--border);padding:.6rem 1rem;display:flex;align-items:center;gap:.5rem; }
         .jt-dot { width:9px;height:9px;border-radius:50%; }
-        .jt-title { font-family:'DM Mono',monospace;font-size:.6rem;color:var(--text-dim);margin-left:auto; }
-        .jt-body { padding:1.2rem 1.4rem;font-family:'DM Mono',monospace;font-size:.72rem;line-height:1.75;min-height:280px; }
+        .jt-title { font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--text-dim);margin-left:auto; }
+        .jt-body { padding:1.2rem 1.4rem;font-family:'DM Mono',monospace;font-size:0.9rem;line-height:1.75;min-height:280px; }
         .jt-line { display:flex;gap:.6rem; }
         .jt-t { color:var(--text-dim);min-width:40px; }
         .jt-c { color:var(--cyan); }
@@ -52,27 +52,27 @@
         .jt-a { color:var(--gold-l); }
         .jt-w { color:var(--text-mid); }
         .jt-hl { background:rgba(62,184,192,.07);border-left:2px solid var(--cyan);padding-left:.5rem;display:block; }
-        .phase-strip { display:flex;align-items:center;gap:.7rem;font-family:'DM Mono',monospace;font-size:.62rem;color:var(--cyan);background:var(--cyan-dim);border-top:1px solid rgba(62,184,192,.15);padding:.8rem 1.4rem; }
+        .phase-strip { display:flex;align-items:center;gap:.7rem;font-family:'DM Mono',monospace;font-size:0.775rem;color:var(--cyan);background:var(--cyan-dim);border-top:1px solid rgba(62,184,192,.15);padding:.8rem 1.4rem; }
         .phase-dot { width:5px;height:5px;background:var(--cyan);border-radius:50%;animation:blink 1.2s infinite; }
 
         /* MANIFESTO STRIP */
         .manifesto { border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;padding:1.5rem 0; }
         .manifesto-inner { display:flex;gap:5rem;animation:scroll-x 25s linear infinite;white-space:nowrap;align-items:center; }
         @keyframes scroll-x { 0%{transform:translateX(0)}100%{transform:translateX(-50%)} }
-        .manifesto-item { font-family:'DM Mono',monospace;font-size:.65rem;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:1rem; }
+        .manifesto-item { font-family:'DM Mono',monospace;font-size:0.812rem;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:1rem; }
         .manifesto-item::after { content:'·';color:var(--gold); }
 
         /* SECTION BASE */
         section { padding:8rem 3rem; }
         .container { max-width:1280px;margin:0 auto; }
-        .section-tag { font-family:'DM Mono',monospace;font-size:.62rem;color:var(--gold-l);text-transform:uppercase;letter-spacing:.25em;margin-bottom:1rem;display:flex;align-items:center;gap:1rem; }
+        .section-tag { font-family:'DM Mono',monospace;font-size:0.775rem;color:var(--gold-l);text-transform:uppercase;letter-spacing:.25em;margin-bottom:1rem;display:flex;align-items:center;gap:1rem; }
         .section-tag::after { content:'';flex:1;max-width:60px;height:1px;background:var(--border2); }
-        h2 { font-size:clamp(2rem,3.5vw,3.2rem);font-weight:800;line-height:1.05;letter-spacing:-.03em; }
+        h2 { font-size:clamp(2.5rem, 4.375vw, 4rem);font-weight:800;line-height:1.05;letter-spacing:-.03em; }
         h2 i { font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l); }
 
         /* JARVIS SECTION */
         .jarvis-grid { display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:4rem; }
-        .jarvis-text p { font-size:1rem;color:var(--text-mid);line-height:1.9;font-weight:400;margin-bottom:1.2rem; }
+        .jarvis-text p { font-size:1.25rem;color:var(--text-mid);line-height:1.9;font-weight:400;margin-bottom:1.2rem; }
         .jarvis-text strong { color:var(--text); }
 
         .pillars { display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border); }
@@ -80,50 +80,50 @@
         .pillar:hover { background:var(--s2); }
         .pillar-icon { width:36px;height:36px;background:var(--gold-dim);border:1px solid rgba(184,147,42,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0; }
         .pillar-icon svg { width:16px;height:16px;stroke:var(--gold-l);fill:none;stroke-width:1.5; }
-        .pillar h4 { font-size:.85rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem; }
-        .pillar p { font-size:.78rem;color:var(--text-dim);line-height:1.7;font-weight:400; }
+        .pillar h4 { font-size:1.062rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem; }
+        .pillar p { font-size:0.975rem;color:var(--text-dim);line-height:1.7;font-weight:400; }
 
         /* TECH SECTION */
         .tech-section { background:var(--s1); }
         .tech-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:4rem; }
         .tech-card { background:var(--s1);padding:2.2rem;transition:background .2s; }
         .tech-card:hover { background:var(--s2); }
-        .tech-tag { font-family:'DM Mono',monospace;font-size:.6rem;color:var(--cyan);background:var(--cyan-dim);border:1px solid rgba(62,184,192,.15);padding:.3rem .7rem;display:inline-block;margin-bottom:1.2rem; }
-        .tech-card h3 { font-size:.95rem;font-weight:800;margin-bottom:.6rem;text-transform:uppercase;letter-spacing:.04em; }
-        .tech-card p { font-size:.78rem;color:var(--text-dim);line-height:1.7;font-weight:400; }
+        .tech-tag { font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--cyan);background:var(--cyan-dim);border:1px solid rgba(62,184,192,.15);padding:.3rem .7rem;display:inline-block;margin-bottom:1.2rem; }
+        .tech-card h3 { font-size:1.188rem;font-weight:800;margin-bottom:.6rem;text-transform:uppercase;letter-spacing:.04em; }
+        .tech-card p { font-size:0.975rem;color:var(--text-dim);line-height:1.7;font-weight:400; }
 
         /* SENSORIUM */
         .sensor-layout { display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:start;margin-top:4rem; }
         .sensor-feed { background:var(--s1);border:1px solid var(--border);overflow:hidden; }
         .sf-header { background:var(--s2);border-bottom:1px solid var(--border);padding:.8rem 1.2rem;display:flex;justify-content:space-between;align-items:center; }
-        .sf-title { font-family:'DM Mono',monospace;font-size:.62rem;color:var(--text-dim); }
-        .sf-live { font-family:'DM Mono',monospace;font-size:.6rem;color:var(--green);display:flex;align-items:center;gap:.4rem; }
+        .sf-title { font-family:'DM Mono',monospace;font-size:0.775rem;color:var(--text-dim); }
+        .sf-live { font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--green);display:flex;align-items:center;gap:.4rem; }
         .sf-live::before { content:'';width:5px;height:5px;background:var(--green);border-radius:50%;animation:blink 1.5s infinite; }
         .sf-body { padding:1rem 0; }
-        .sf-event { padding:.7rem 1.2rem;display:flex;gap:.8rem;align-items:flex-start;border-bottom:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.67rem;transition:background .2s; }
+        .sf-event { padding:.7rem 1.2rem;display:flex;gap:.8rem;align-items:flex-start;border-bottom:1px solid var(--border);font-family:'DM Mono',monospace;font-size:0.838rem;transition:background .2s; }
         .sf-event:hover { background:var(--s2); }
         .sf-event:last-child { border-bottom:none; }
-        .sev { padding:.2rem .5rem;font-size:.55rem;text-transform:uppercase;letter-spacing:.05em;flex-shrink:0;margin-top:.1rem; }
+        .sev { padding:.2rem .5rem;font-size:0.688rem;text-transform:uppercase;letter-spacing:.05em;flex-shrink:0;margin-top:.1rem; }
         .sev-i { background:rgba(62,184,192,.1);color:var(--cyan); }
         .sev-w { background:rgba(212,171,71,.12);color:var(--amber); }
         .sev-c { background:rgba(224,112,112,.12);color:#e07070; }
         .sf-event-text { flex:1; }
         .sf-event-title { color:var(--text);margin-bottom:.2rem; }
         .sf-event-sub { color:var(--text-dim); }
-        .sf-time { color:var(--text-dim);font-size:.58rem;flex-shrink:0;margin-top:.15rem; }
+        .sf-time { color:var(--text-dim);font-size:0.725rem;flex-shrink:0;margin-top:.15rem; }
 
-        .sensor-right p { font-size:.95rem;color:var(--text-mid);line-height:1.9;font-weight:400;margin-bottom:1.2rem; }
+        .sensor-right p { font-size:1.188rem;color:var(--text-mid);line-height:1.9;font-weight:400;margin-bottom:1.2rem; }
         .sensor-right strong { color:var(--text); }
         .memory-stats { display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:2rem; }
         .mstat { background:var(--s1);padding:1.2rem 1.4rem; }
-        .mstat-n { font-size:1.8rem;font-weight:800;color:var(--text);letter-spacing:-.04em;display:block; }
+        .mstat-n { font-size:2.25rem;font-weight:800;color:var(--text);letter-spacing:-.04em;display:block; }
         .mstat-n b { color:var(--gold-l); }
-        .mstat-l { font-family:'DM Mono',monospace;font-size:.6rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.1em;display:block;margin-top:.3rem; }
+        .mstat-l { font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.1em;display:block;margin-top:.3rem; }
 
         /* EQUITY */
         .equity-section { background:var(--s1); }
         .equity-layout { display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;margin-top:4rem; }
-        .equity-left p { font-size:.95rem;color:var(--text-mid);line-height:1.9;font-weight:400;margin-bottom:1.2rem; }
+        .equity-left p { font-size:1.188rem;color:var(--text-mid);line-height:1.9;font-weight:400;margin-bottom:1.2rem; }
         .equity-left strong { color:var(--text); }
 
         .timeline { position:relative;margin-top:2.5rem; }
@@ -133,34 +133,34 @@
         .tl-node { width:41px;height:41px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--s1);position:relative;z-index:1; }
         .tl-node.gold { border-color:rgba(184,147,42,.5);background:var(--gold-dim); }
         .tl-node.gold span { color:var(--gold-l); }
-        .tl-node span { font-family:'DM Mono',monospace;font-size:.65rem;color:var(--text-dim);font-weight:500; }
-        .tl-content h4 { font-size:.9rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem; }
-        .tl-content p { font-size:.78rem;color:var(--text-dim);line-height:1.7;font-weight:400; }
-        .tl-mult { font-family:'DM Mono',monospace;font-size:1.1rem;color:var(--gold-l);font-weight:500; }
+        .tl-node span { font-family:'DM Mono',monospace;font-size:0.812rem;color:var(--text-dim);font-weight:500; }
+        .tl-content h4 { font-size:1.125rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem; }
+        .tl-content p { font-size:0.975rem;color:var(--text-dim);line-height:1.7;font-weight:400; }
+        .tl-mult { font-family:'DM Mono',monospace;font-size:1.375rem;color:var(--gold-l);font-weight:500; }
 
         .equity-right { position:sticky;top:8rem; }
         .pledge-box { background:var(--bg);border:1px solid var(--border2);padding:2rem; }
-        .pb-title { font-family:'DM Mono',monospace;font-size:.62rem;color:var(--gold-l);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:.7rem; }
+        .pb-title { font-family:'DM Mono',monospace;font-size:0.775rem;color:var(--gold-l);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:.7rem; }
         .pb-title::before { content:'';width:5px;height:5px;background:var(--gold-l);border-radius:50%;animation:blink 2s infinite; }
-        .form-lbl { font-family:'DM Mono',monospace;font-size:.6rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:.5rem; }
-        .form-inp { width:100%;background:var(--s2);border:1px solid var(--border2);color:var(--text);font-family:'DM Mono',monospace;font-size:.78rem;padding:.75rem 1rem;outline:none;margin-bottom:1.1rem;transition:border-color .2s;cursor:none; }
+        .form-lbl { font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:.5rem; }
+        .form-inp { width:100%;background:var(--s2);border:1px solid var(--border2);color:var(--text);font-family:'DM Mono',monospace;font-size:0.975rem;padding:.75rem 1rem;outline:none;margin-bottom:1.1rem;transition:border-color .2s;cursor:none; }
         .amount-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:.5rem; }
-        .amt { background:var(--s2);border:1px solid var(--border);color:var(--text-mid);font-family:'DM Mono',monospace;font-size:.72rem;padding:.65rem;text-align:center;cursor:none;transition:all .15s; }
+        .amt { background:var(--s2);border:1px solid var(--border);color:var(--text-mid);font-family:'DM Mono',monospace;font-size:0.9rem;padding:.65rem;text-align:center;cursor:none;transition:all .15s; }
         .amt:hover,.amt.on { border-color:var(--gold);color:var(--gold-l);background:var(--gold-dim); }
-        .tier-preview { background:var(--s2);border:1px solid var(--border);padding:.9rem 1rem;margin:1rem 0;display:flex;justify-content:space-between;align-items:center;font-family:'DM Mono',monospace;font-size:.68rem; }
+        .tier-preview { background:var(--s2);border:1px solid var(--border);padding:.9rem 1rem;margin:1rem 0;display:flex;justify-content:space-between;align-items:center;font-family:'DM Mono',monospace;font-size:0.85rem; }
         .tp-l { color:var(--text-dim); }
         .tp-r { color:var(--gold-l);font-weight:500; }
-        .btn-submit { width:100%;padding:1rem;background:var(--gold);color:#050505;font-family:'Syne',sans-serif;font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;border:none;cursor:none;transition:transform .15s,box-shadow .15s; }
+        .btn-submit { width:100%;padding:1rem;background:var(--gold);color:#050505;font-family:'Syne',sans-serif;font-weight:800;font-size:1.025rem;text-transform:uppercase;letter-spacing:.08em;border:none;cursor:none;transition:transform .15s,box-shadow .15s; }
         .btn-submit:hover { transform:translateY(-2px);box-shadow:0 10px 40px var(--gold-glow); }
-        .fine { font-family:'DM Mono',monospace;font-size:.58rem;color:var(--text-dim);text-align:center;margin-top:.8rem;line-height:1.6; }
+        .fine { font-family:'DM Mono',monospace;font-size:0.725rem;color:var(--text-dim);text-align:center;margin-top:.8rem;line-height:1.6; }
 
         /* FINAL CTA */
         .cta-final h2 { position:relative;margin-bottom:1rem; }
-        .cta-final > .container > p { color:var(--text-dim);font-size:.95rem;font-weight:400;line-height:1.8;max-width:480px;margin:0 auto 2.5rem;position:relative; }
+        .cta-final > .container > p { color:var(--text-dim);font-size:1.188rem;font-weight:400;line-height:1.8;max-width:480px;margin:0 auto 2.5rem;position:relative; }
 
         /* FOOTER */
         .ft-logo b { color:var(--gold-l); }
-        .ft-meta { font-family:'DM Mono',monospace;font-size:.6rem;color:var(--text-dim); }
+        .ft-meta { font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--text-dim); }
 
         /* REVEAL */
 
@@ -169,7 +169,7 @@
         /* ─── SCROLL INDICATOR (HERO) ──────────── */
         .scroll-hint{position:absolute;bottom:2.5rem;right:3rem;display:flex;flex-direction:column;align-items:center;gap:.75rem;z-index:10;cursor:pointer;transition:transform .2s}
         .scroll-hint:hover{transform:translateY(-3px)}
-        .scroll-hint-text{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--gold-l);letter-spacing:.18em;text-transform:uppercase;animation:fadePulse 2.5s ease-in-out infinite;font-weight:500;text-shadow:0 0 20px rgba(184,147,42,.15)}
+        .scroll-hint-text{font-family:'DM Mono',monospace;font-size:0.875rem;color:var(--gold-l);letter-spacing:.18em;text-transform:uppercase;animation:fadePulse 2.5s ease-in-out infinite;font-weight:500;text-shadow:0 0 20px rgba(184,147,42,.15)}
         .scroll-hint-arrow{width:26px;height:40px;border:2px solid var(--gold);border-radius:13px;display:flex;justify-content:center;padding-top:8px;background:rgba(184,147,42,.04);box-shadow:0 0 20px rgba(184,147,42,.08)}
         .scroll-hint-dot{width:4px;height:10px;background:var(--gold-l);border-radius:4px;animation:scrollBounce 2s ease-in-out infinite}
         @keyframes scrollBounce{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(10px);opacity:.3}}
@@ -231,14 +231,14 @@
             }
             .nav-r.open{right:0}
             .nav-status{display:none}
-            .btn-nav{width:100%;text-align:center;padding:.7rem 1rem;font-size:.65rem}
+            .btn-nav{width:100%;text-align:center;padding:.7rem 1rem;font-size:0.812rem}
             .nav-toggle{display:flex}
 
             /* Hero: stack columns */
             .hero{padding:6rem 1.5rem 3rem;min-height:auto;min-height:80dvh}
             .hero-inner{grid-template-columns:1fr;gap:2rem}
             .hero .jarvis-term{margin-top:2rem}
-            .jt-body{min-height:200px;font-size:.65rem}
+            .jt-body{min-height:200px;font-size:0.812rem}
             .scroll-hint{right:1.5rem;bottom:2rem}
 
             /* Sections: reduce padding */
@@ -268,67 +268,67 @@
         @media(max-width:600px){
             /* Nav smaller */
             nav{padding:.7rem 1rem}
-            .logo{font-size:.55rem;letter-spacing:.25em}
+            .logo{font-size:0.688rem;letter-spacing:.25em}
 
             /* Hero compact */
             .hero{padding:5.5rem 1rem 2rem;min-height:auto;min-height:70dvh}
-            .hero-p{font-size:.9rem;line-height:1.7}
+            .hero-p{font-size:1.125rem;line-height:1.7}
             .hero-cta{flex-direction:column;align-items:stretch}
             .hero-cta .btn-primary{justify-content:center}
             .hero-cta .btn-ghost{text-align:center}
             .hero-aura{width:300px;height:250px}
             .hero-aura2{display:none}
             .jt-bar{padding:.5rem .8rem}
-            .jt-body{padding:.8rem 1rem;min-height:180px;font-size:.6rem;line-height:1.6}
+            .jt-body{padding:.8rem 1rem;min-height:180px;font-size:0.75rem;line-height:1.6}
             .jt-line{gap:.4rem}
-            .jt-t{min-width:32px;font-size:.58rem}
-            .phase-strip{font-size:.5rem;padding:.6rem 1rem}
+            .jt-t{min-width:32px;font-size:0.725rem}
+            .phase-strip{font-size:0.625rem;padding:.6rem 1rem}
 
             /* Manifesto: faster scroll */
             .manifesto{padding:1rem 0}
             .manifesto-inner{gap:3rem;animation-duration:18s}
-            .manifesto-item{font-size:.55rem}
+            .manifesto-item{font-size:0.688rem}
 
             /* Sections tighter */
             section{padding:3rem 1rem}
 
             /* Jarvis: text smaller */
-            .jarvis-text p{font-size:.88rem;line-height:1.8}
+            .jarvis-text p{font-size:1.1rem;line-height:1.8}
             .pillar{padding:1.2rem 1rem;gap:1rem}
             .pillar-icon{width:30px;height:30px}
             .pillar-icon svg{width:13px;height:13px}
-            .pillar h4{font-size:.78rem}
-            .pillar p{font-size:.72rem}
+            .pillar h4{font-size:0.975rem}
+            .pillar p{font-size:0.9rem}
 
             /* Tech: single column */
             .tech-grid{grid-template-columns:1fr}
             .tech-card{padding:1.5rem}
 
             /* Sensorium: compact */
-            .sf-event{padding:.5rem .8rem;font-size:.6rem}
-            .sf-event-sub{font-size:.55rem}
-            .sf-time{font-size:.5rem}
-            .sensor-right p{font-size:.85rem;line-height:1.8}
+            .sf-event{padding:.5rem .8rem;font-size:0.75rem}
+            .sf-event-sub{font-size:0.688rem}
+            .sf-time{font-size:0.625rem}
+            .sensor-right p{font-size:1.062rem;line-height:1.8}
             .memory-stats{grid-template-columns:1fr 1fr}
             .mstat{padding:1rem}
-            .mstat-n{font-size:1.4rem}
+            .mstat-n{font-size:1.75rem}
 
             /* Equity: compact */
-            .equity-left p{font-size:.85rem;line-height:1.8}
+            .equity-left p{font-size:1.062rem;line-height:1.8}
             .tl-item{gap:1rem}
             .tl-node{width:34px;height:34px}
-            .tl-node span{font-size:.55rem}
-            .tl-content h4{font-size:.8rem}
-            .tl-content p{font-size:.72rem}
+            .tl-node span{font-size:0.688rem}
+            .tl-content h4{font-size:1rem}
+            .tl-content p{font-size:0.9rem}
             .pledge-box{padding:1.2rem}
-            .form-inp{font-size:.75rem;padding:.7rem .8rem;margin-bottom:.9rem}
+            .form-inp{font-size:0.938rem;padding:.7rem .8rem;margin-bottom:.9rem}
             .amount-grid{grid-template-columns:repeat(2,1fr)}
-            .amt{font-size:.68rem;padding:.6rem .4rem}
-            .btn-submit{font-size:.75rem;padding:.9rem}
+            .amt{font-size:0.85rem;padding:.6rem .4rem}
+            .btn-submit{font-size:0.938rem;padding:.9rem}
 
             /* CTA */
             .cta-final{padding:3rem 1rem}
-            .cta-final .container p{font-size:.85rem}
+            .cta-final .container p{font-size:1.062rem}
 
             /* Footer */
             footer{flex-direction:column;gap:.8rem;text-align:center;padding:1.5rem 1rem}
@@ -337,16 +337,16 @@
         /* SMALL PHONE ≤400px */
         @media(max-width:400px){
             nav{padding:.6rem .8rem}
-            .logo{font-size:.5rem;letter-spacing:.2em}
+            .logo{font-size:0.625rem;letter-spacing:.2em}
             .hero{padding:5rem .8rem 1.5rem}
             section{padding:2.5rem .8rem}
             .pillar{padding:1rem .8rem}
             .tech-card{padding:1.2rem}
             .pledge-box{padding:1rem}
-            .form-lbl{font-size:.5rem}
-            .form-inp{font-size:.7rem;padding:.6rem .7rem}
-            .btn-submit{font-size:.7rem}
-            .tl-content h4{font-size:.75rem}
+            .form-lbl{font-size:0.625rem}
+            .form-inp{font-size:0.875rem;padding:.6rem .7rem}
+            .btn-submit{font-size:0.875rem}
+            .tl-content h4{font-size:0.938rem}
         }
 
 
@@ -362,13 +362,12 @@
     <div class="logo">YOLA<b>.</b>PROTOCOL</div>
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-r">
-        <div class="nav-status">Fase Seed activa</div>
-        <a href="tech.html" class="btn-nav" style="background:transparent;border:1px solid rgba(255,255,255,.12);color:var(--text-mid);font-size:.65rem">Ver lo que hay dentro ↓</a>
-        <a href="feedback.html" class="btn-nav" style="background:transparent;border:1px solid var(--cyan);color:var(--cyan);font-size:.65rem">Feedback ↓</a>
-        <a href="challenge.html" class="btn-nav" style="background:transparent;border:1px solid var(--red);color:var(--red);font-size:.65rem">Reto ×4.75 ↓</a>
-        <a href="sayri.html" class="btn-nav" style="background:transparent;border:1px solid var(--green);color:var(--green);font-size:.65rem">Sayri →</a>
-        <a href="countdown.html" class="btn-nav" style="background:transparent;border:1px solid var(--gold);color:var(--gold-l);font-size:.65rem">Origin ×3.75 · 5 Jun ↓</a>
-        <a href="#guardian" class="btn-nav">Ser Guardián</a>
+        <a href="tech.html" class="btn-nav" style="background:transparent;border:1px solid var(--purple);color:var(--purple);font-size:0.812rem">Arquitectura</a>
+        <a href="feedback.html" class="btn-nav" style="background:transparent;border:1px solid var(--cyan);color:var(--cyan);font-size:0.812rem">Feedback</a>
+        <a href="challenge.html" class="btn-nav" style="background:transparent;border:1px solid var(--red);color:var(--red);font-size:0.812rem">Reto ×4.75</a>
+        <a href="guardianes.html" class="btn-nav" style="background:transparent;border:1px solid var(--gold);color:var(--gold-l);font-size:0.812rem">Guardianes</a>
+        <a href="sayri.html" class="btn-nav" style="background:transparent;border:1px solid var(--green);color:var(--green);font-size:0.812rem">Quién es Sayri</a>
+        <a href="invertir.html" class="btn-nav" style="background:transparent;border:1px solid var(--gold);color:var(--gold-l);font-size:0.812rem">Invertir</a>
     </div>
 </nav>
 <div class="nav-overlay" id="navOverlay"></div>
@@ -486,7 +485,7 @@
                     </div>
                     <div>
                         <h4>Meta-aprendizaje continuo</h4>
-                        <p>Cada línea auditada, cada error resuelto alimenta <code style="font-size:.7rem;color:var(--gold-l)">memory.db</code> — evoluciona su propia inteligencia.</p>
+                        <p>Cada línea auditada, cada error resuelto alimenta <code style="font-size:0.875rem;color:var(--gold-l)">memory.db</code> — evoluciona su propia inteligencia.</p>
                     </div>
                 </div>
             </div>
@@ -520,7 +519,7 @@
             <div class="tech-card">
                 <span class="tech-tag">SQLite · bun:sqlite</span>
                 <h3>Memoria que persiste</h3>
-                <p>Cada patrón aprendido, cada fallo resuelto, cada preferencia tuya vive en <code style="color:var(--gold-l);font-size:.7rem">~/.yola/memory/memory.db</code>. Offline. Tuyo.</p>
+                <p>Cada patrón aprendido, cada fallo resuelto, cada preferencia tuya vive en <code style="color:var(--gold-l);font-size:0.875rem">~/.yola/memory/memory.db</code>. Offline. Tuyo.</p>
             </div>
             <div class="tech-card">
                 <span class="tech-tag">Piper TTS · Whisper</span>
@@ -604,7 +603,7 @@
             </div>
             <div class="sensor-right">
                 <p>YOLA tiene un <strong>sistema nervioso</strong>. El Sensorium es un bus de eventos que escucha tu entorno en tiempo real: cambios en archivos, salud del sistema, patrones de error, inactividad.</p>
-                <p>No espera a que preguntes. Cuando detecta que <code style="color:var(--gold-l);font-size:.8rem">package.json</code> cambió, ya está sugiriendo <code style="color:var(--cyan);font-size:.8rem">bun install</code>. Cuando ve 7 archivos TypeScript modificados, lanza el typecheck. Cuando un fallo se repite, el <strong>AutoHealer</strong> lo repara solo.</p>
+                <p>No espera a que preguntes. Cuando detecta que <code style="color:var(--gold-l);font-size:1rem">package.json</code> cambió, ya está sugiriendo <code style="color:var(--cyan);font-size:1rem">bun install</code>. Cuando ve 7 archivos TypeScript modificados, lanza el typecheck. Cuando un fallo se repite, el <strong>AutoHealer</strong> lo repara solo.</p>
                 <p>La memoria crece con cada sesión. YOLA en tu máquina hoy es más inteligente que YOLA hace una semana.</p>
                 <div class="memory-stats">
                     <div class="mstat">
@@ -719,8 +718,8 @@
         <p><a href="https://github.com/SayriDevs" target="_blank">SayriDevs</a> está construyendo la infraestructura de IA soberana que los desarrolladores merecen. Sin corporaciones intermediarias. Sin datos en la nube. Con participación real para los que creyeron.</p>
         <a href="#guardian" class="btn-primary">Unirme como Guardián Origin</a>
         <div style="display:flex;gap:.8rem;justify-content:center;margin-top:1.2rem;flex-wrap:wrap">
-            <a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" style="font-family:'DM Mono',monospace;font-size:.6rem;color:#25d366;text-decoration:none;padding:.5rem 1rem;border:1px solid rgba(37,211,102,.3);transition:all .2s;display:flex;align-items:center;gap:.5rem;border-radius:2px">💬 Unirme a la comunidad</a>
-            <a href="https://www.youtube.com/@sayridev1920" target="_blank" style="font-family:'DM Mono',monospace;font-size:.6rem;color:#ff0000;text-decoration:none;padding:.5rem 1rem;border:1px solid rgba(255,0,0,.2);transition:all .2s;display:flex;align-items:center;gap:.5rem;border-radius:2px">🎬 Novedades</a>
+            <a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" style="font-family:'DM Mono',monospace;font-size:0.75rem;color:#25d366;text-decoration:none;padding:.5rem 1rem;border:1px solid rgba(37,211,102,.3);transition:all .2s;display:flex;align-items:center;gap:.5rem;border-radius:2px">💬 Unirme a la comunidad</a>
+            <a href="https://www.youtube.com/@sayridev1920" target="_blank" style="font-family:'DM Mono',monospace;font-size:0.75rem;color:#ff0000;text-decoration:none;padding:.5rem 1rem;border:1px solid rgba(255,0,0,.2);transition:all .2s;display:flex;align-items:center;gap:.5rem;border-radius:2px">🎬 Novedades</a>
         </div>
     </div>
 </section>
@@ -729,9 +728,9 @@
     <div class="ft-logo">YOLA<b>.</b>PROTOCOL</div>
     <p class="ft-meta">SAYRIDEVS INFRASTRUCTURE © 2026 · Lima, Perú</p>
     <div style="display:flex;gap:1rem;justify-content:center;margin-top:.5rem;flex-wrap:wrap">
-        <a href="privacy.html" style="font-family:'DM Mono',monospace;font-size:.5rem;color:var(--text-dim);text-decoration:none;transition:color .2s">Privacidad</a>
-        <a href="terms.html" style="font-family:'DM Mono',monospace;font-size:.5rem;color:var(--text-dim);text-decoration:none;transition:color .2s">Términos</a>
-        <a href="eula.html" style="font-family:'DM Mono',monospace;font-size:.5rem;color:var(--text-dim);text-decoration:none;transition:color .2s">Licencia</a>
+        <a href="privacy.html" style="font-family:'DM Mono',monospace;font-size:0.625rem;color:var(--text-dim);text-decoration:none;transition:color .2s">Privacidad</a>
+        <a href="terms.html" style="font-family:'DM Mono',monospace;font-size:0.625rem;color:var(--text-dim);text-decoration:none;transition:color .2s">Términos</a>
+        <a href="eula.html" style="font-family:'DM Mono',monospace;font-size:0.625rem;color:var(--text-dim);text-decoration:none;transition:color .2s">Licencia</a>
     </div>
 </footer>
 
@@ -860,7 +859,11 @@ setInterval(()=>{
     if(body.children.length>7)body.removeChild(body.lastChild);
 },4200);
 </script>
-<a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="wa-float"><span class="wa-icon">📱</span><span class="wa-dot"></span> Unite a la comunidad</a>
+<!-- FLOAT GROUP -->
+<div class="float-group">
+    <a href="countdown.html" class="float-btn origin-float">Origin ×3.75</a>
+    <a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="float-btn wa-float-btn"><span class="wa-dot"></span> Comunidad</a>
+</div>
 
 </body>
 </html>
