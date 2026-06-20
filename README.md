@@ -12,7 +12,7 @@
 |---|---|---|
 | **Landing** | `/index.html` | Página principal · Origin ×7 |
 | **Arquitectura** | `/tech.html` | Auto-documentación técnica viral |
-| **Countdown** | `/countdown.html` | Timer al 5 Jun + registro Origin |
+| **Countdown** | `/countdown.html` | Timer al 24 Sep + registro Origin |
 | **Feedback** | `/feedback.html` | Sistema de feedback global |
 | **Reto ×20** | `/challenge.html` | Reto hacker · vibe coding |
 | **Sayri** | `/sayri.html` | Quién es Sayri · cómo invertir |
