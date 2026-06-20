@@ -55,11 +55,8 @@
         .phase-dot { width:5px;height:5px;background:var(--cyan);border-radius:50%;animation:blink 1.2s infinite; }
 
         /* MANIFESTO STRIP */
-        .manifesto { border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;padding:1.5rem 0; }
-        .manifesto-inner { display:flex;gap:5rem;animation:scroll-x 25s linear infinite;white-space:nowrap;align-items:center; }
-        @keyframes scroll-x { 0%{transform:translateX(0)}100%{transform:translateX(-50%)} }
-        .manifesto-item { font-family:'DM Mono',monospace;font-size:0.812rem;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:1rem; }
-        .manifesto-item::after { content:'·';color:var(--gold); }
+        .manifesto { border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.5rem 2rem;text-align:center; }
+        .manifesto-text { font-family:'DM Mono',monospace;font-size:0.812rem;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase; }
 
         /* SECTION BASE */
         section { padding:8rem 3rem; }
@@ -284,9 +281,8 @@
             .phase-strip{font-size:0.625rem;padding:.6rem 1rem}
 
             /* Manifesto: faster scroll */
-            .manifesto{padding:1rem 0}
-            .manifesto-inner{gap:3rem;animation-duration:18s}
-            .manifesto-item{font-size:0.688rem}
+            .manifesto{padding:1rem 1.2rem}
+            .manifesto-text{font-size:0.688rem}
 
             /* Sections tighter */
             section{padding:3rem 1rem}
@@ -420,9 +416,7 @@
 </section>
 
 <div class="manifesto">
-    <div class="manifesto-inner">
-        <span class="manifesto-item">hola mundo</span>
-    </div>
+    <span class="manifesto-text">hola mundo</span>
 </div>
 
 <!-- ·············· DIVIDER ·············· -->
