@@ -32,7 +32,7 @@
         .hero-p { font-size:1.312rem;color:var(--text-mid);line-height:1.85;margin-bottom:2.5rem;max-width:560px;font-weight:400; }
         .hero-p strong { color:var(--text);font-weight:700; }
 
-        .hero-cta { display:flex;gap:1rem;align-items:center; }
+        .hero-cta { display:flex;flex-direction:column;gap:.2rem;align-items:flex-start; }
         .btn-primary { display:inline-flex;align-items:center;gap:.8rem;padding:1rem 2.2rem;background:var(--gold);color:#050505;font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;text-decoration:none;text-transform:uppercase;letter-spacing:.06em;cursor:none;transition:transform .15s,box-shadow .15s; }
         .btn-primary:hover { transform:translateY(-2px);box-shadow:0 12px 40px var(--gold-glow); }
         .btn-ghost { font-family:'DM Mono',monospace;font-size:0.938rem;color:var(--text-dim);text-decoration:none;cursor:none;transition:color .2s;border-bottom:1px solid var(--border2);padding-bottom:1px; }
@@ -266,8 +266,10 @@
             /* Hero compact */
             .hero{padding:5.5rem 1rem 2rem;min-height:auto;min-height:70dvh}
             .hero-p{font-size:1.125rem;line-height:1.7}
-            .hero-cta{flex-direction:row;align-items:center;gap:.6rem}
+            .hero-cta{align-items:stretch}
             .hero-cta .btn-primary{justify-content:center;font-size:0.812rem;padding:.7rem 1.2rem;flex:1}
+            .hero-cta .btn-ghost{text-align:center;margin-top:.2rem}
+            .hero-cta .btn-ghost{text-align:center}
             .hero-cta .btn-primary{justify-content:center}
             .hero-cta .btn-ghost{text-align:center}
             .hero-aura{width:300px;height:250px}
@@ -375,8 +377,10 @@
             <h1 style="font-size:clamp(1.5rem, 3.5vw, 2.8rem)"><span style="font-size:0.65em">LA</span> IA <span style="font-size:0.65em">QUE</span> IMPULSA<br><span style="font-size:0.65em">TU</span> PRODUCTIVIDAD<br><span style="font-size:0.65em">Y</span> ECONOMÍA</h1>
 
             <div class="hero-cta">
-                <a href="#guardian" class="btn-primary">Ser Guardián</a>
-                <a href="guardianes.html" class="btn-primary">Nuestros Guardianes</a>
+                <div style="display:flex;gap:1rem;flex-wrap:wrap;width:100%">
+                    <a href="#guardian" class="btn-primary">Ser Guardián</a>
+                    <a href="guardianes.html" class="btn-primary">Nuestros Guardianes</a>
+                </div>
                 <a href="#jarvis" class="btn-ghost">Ver la visión completa →</a>
             </div>
         </div>
