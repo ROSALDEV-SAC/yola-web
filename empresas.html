@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOLA — Empresas · Soluciones de IA</title>
-    <meta name="description" content="Soluciones empresariales creadas por YOLA. Productos de IA soberana para el mundo real.">
-    <meta property="og:title" content="YOLA Empresas — Soluciones de IA">
-    <meta property="og:description" content="Productos de IA soberana para empresas. El primero: YOLA AVISA.">
+    <title>YOLA — Empresas · Software de IA</title>
+    <meta name="description" content="Software empresarial creado por YOLA. Productos de IA para el mundo real.">
+    <meta property="og:title" content="YOLA Empresas — Software de IA">
+    <meta property="og:description" content="Productos de IA soberana para empresas.">
     <meta name="theme-color" content="#050505">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'none';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -15,86 +15,67 @@
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/base.css">
     <style>
-        /* NAV */
         .nav-status { display:flex;align-items:center;gap:.5rem;font-family:'DM Mono',monospace;font-size:0.812rem;color:var(--green); }
-
-        /* HERO */
         .hero-inner{position:relative;max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:center}
-        .hero-aura2 { position:absolute;width:500px;height:500px;background:radial-gradient(ellipse,rgba(62,184,192,.04) 0%,transparent 65%);top:30%;right:10%;pointer-events:none; }
+        .hero-aura2{position:absolute;width:500px;height:500px;background:radial-gradient(ellipse,rgba(62,184,192,.04) 0%,transparent 65%);top:30%;right:10%;pointer-events:none}
+        .hero-p{font-size:1.125rem;color:var(--text-mid);line-height:1.85;margin-bottom:2.5rem;max-width:560px;font-weight:400}
+        .hero-p strong{color:var(--text);font-weight:700}
+        .btn-primary{display:inline-flex;align-items:center;gap:.8rem;padding:1rem 2.2rem;background:var(--gold);color:#050505;font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;text-decoration:none;text-transform:uppercase;letter-spacing:.06em;cursor:none;transition:transform .15s,box-shadow .15s}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px var(--gold-glow)}
 
-        .hero-p { font-size:1.312rem;color:var(--text-mid);line-height:1.85;margin-bottom:2.5rem;max-width:560px;font-weight:400; }
-        .hero-p strong { color:var(--text);font-weight:700; }
+        .sec{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        .sec-tag{font-family:'DM Mono',monospace;font-size:0.688rem;color:var(--red);text-align:center;text-transform:uppercase;letter-spacing:.15em;margin-bottom:.5rem;display:flex;align-items:center;justify-content:center;gap:.5rem}
+        .sec-tag::before,.sec-tag::after{content:'';width:20px;height:1px;background:var(--border2)}
+        .sec h2{text-align:center;font-size:clamp(1.5rem, 3vw, 2.25rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.8rem}
+        .sec h2 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
+        .sec>p{text-align:center;font-size:1rem;color:var(--text-dim);line-height:1.7;max-width:500px;margin:0 auto 2.5rem}
 
-        .hero-cta { display:flex;flex-direction:column;gap:1rem;align-items:flex-start; }
-        .hero-cta > div { display:flex;gap:1rem;flex-wrap:wrap;width:100%; }
-        .btn-primary { display:inline-flex;align-items:center;gap:.8rem;padding:1rem 2.2rem;background:var(--gold);color:#050505;font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;text-decoration:none;text-transform:uppercase;letter-spacing:.06em;cursor:none;transition:transform .15s,box-shadow .15s; }
-        .btn-primary:hover { transform:translateY(-2px);box-shadow:0 12px 40px var(--gold-glow); }
-        .btn-ghost { font-family:'DM Mono',monospace;font-size:0.938rem;color:var(--text-dim);text-decoration:none;cursor:none;transition:color .2s;border-bottom:1px solid var(--border2);padding-bottom:1px; }
-        .btn-ghost:hover { color:var(--text-mid); }
+        .prods{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border);border:1px solid var(--border)}
+        .prod{background:var(--s2);padding:1.5rem;transition:background .2s;display:flex;flex-direction:column}
+        .prod:hover{background:var(--s3)}
+        .prod-badge{font-family:'DM Mono',monospace;font-size:0.562rem;padding:.15rem .4rem;display:inline-block;margin-bottom:.5rem;width:fit-content;text-transform:uppercase;letter-spacing:.1em}
+        .prod-badge.red{background:var(--red-dim);color:var(--red);border:1px solid rgba(192,64,64,.2)}
+        .prod-badge.cyan{background:var(--cyan-dim);color:var(--cyan);border:1px solid rgba(62,184,192,.12)}
+        .prod-badge.gold{background:var(--gold-dim);color:var(--gold-l);border:1px solid rgba(184,147,42,.15)}
+        .prod-badge.green{background:var(--green-dim);color:var(--green);border:1px solid rgba(63,168,102,.12)}
+        .prod-badge.purple{background:var(--purple-dim);color:var(--purple);border:1px solid rgba(139,92,246,.12)}
+        .prod h3{font-size:1rem;font-weight:800;margin-bottom:.3rem}
+        .prod .prod-desc{font-size:0.8rem;color:var(--text-dim);line-height:1.6;margin-bottom:.6rem;flex:1}
+        .prod .prod-meta{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--text-mid);letter-spacing:.05em}
+        .prod .prod-status{font-family:'DM Mono',monospace;font-size:0.562rem;padding:.15rem .4rem;display:inline-block;margin-top:.5rem;width:fit-content}
+        .prod .prod-status.live{background:rgba(63,168,102,.12);color:var(--green);border:1px solid rgba(63,168,102,.15)}
+        .prod .prod-status.dev{background:rgba(62,184,192,.08);color:var(--cyan);border:1px solid rgba(62,184,192,.1)}
+        .prod .prod-status.soon{background:rgba(255,255,255,.04);color:var(--text-dim);border:1px solid var(--border2)}
 
-        /* FEATURES */
-        .features{padding:5rem 2rem;max-width:900px;margin:0 auto}
-        .feat-title{text-align:center;margin-bottom:3rem}
-        .feat-title h2{font-size:clamp(1.75rem, 3.125vw, 2.5rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.6rem}
-        .feat-title h2 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
-        .feat-title p{font-size:1.125rem;color:var(--text-mid)}
-        .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
-        .feat-card{background:var(--s2);padding:2rem;transition:background .25s}
-        .feat-card:hover{background:var(--s3)}
-        .feat-icon{font-size:2.25rem;margin-bottom:.8rem;display:block}
-        .feat-card h3{font-size:1.062rem;font-weight:800;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.03em}
-        .feat-card p{font-size:0.875rem;color:var(--text-dim);line-height:1.7}
-        .feat-card .feat-tag{font-family:'DM Mono',monospace;font-size:0.625rem;color:var(--cyan);background:var(--cyan-dim);border:1px solid rgba(62,184,192,.12);padding:.15rem .4rem;display:inline-block;margin-top:.6rem}
-
-        /* SECTION */
-        .section{padding:5rem 2rem;max-width:900px;margin:0 auto}
-        .section h2{font-size:clamp(1.75rem, 3.125vw, 2.5rem);font-weight:800;letter-spacing:-.02em;margin-bottom:1.5rem;text-align:center}
-        .section h2 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
-        .section p{font-size:1rem;color:var(--text-dim);line-height:1.8;margin-bottom:1rem}
-        .section ul{padding-left:1.5rem;margin-bottom:1.5rem}
-        .section li{font-size:1rem;color:var(--text-dim);line-height:1.8;margin-bottom:.5rem}
-
-        /* PRODUCT CARD */
-        .product-card{background:var(--s2);border:1px solid var(--border);padding:2.5rem;position:relative;overflow:hidden;margin-top:2rem}
-        .product-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),var(--gold))}
-        .product-card h3{font-size:1.5rem;font-weight:800;margin-bottom:.5rem}
-        .product-card .prod-tag{font-family:'DM Mono',monospace;font-size:0.688rem;color:var(--red);background:var(--red-dim);border:1px solid rgba(192,64,64,.2);padding:.2rem .5rem;display:inline-block;margin-bottom:1rem;text-transform:uppercase;letter-spacing:.1em}
-        .product-card p{font-size:1rem;color:var(--text-dim);line-height:1.8}
-        .product-card strong{color:var(--text)}
-
-        /* USE CASES */
-        .use-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:2rem}
-        .use-item{background:var(--s2);padding:1.5rem}
-        .use-item h4{font-size:0.938rem;font-weight:800;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.03em}
-        .use-item p{font-size:0.812rem;color:var(--text-dim);line-height:1.6}
-
-        .disclaimer{font-family:'DM Mono',monospace;font-size:0.688rem;color:var(--text-dim);text-align:center;padding:1rem;border:1px solid var(--border);background:var(--s2);max-width:700px;margin:2rem auto 0}
-
-        /* CTA */
-        .cta-final{text-align:center;padding:6rem 2rem;position:relative;overflow:hidden}
+        .cta-final{text-align:center;padding:4rem 2rem;position:relative;overflow:hidden}
         .cta-bg{position:absolute;width:100%;height:100%;background:radial-gradient(ellipse 60% 100% at 50% 100%,rgba(192,64,64,.05) 0%,transparent 70%);pointer-events:none}
-        .cta-final h2{font-size:clamp(1.875rem, 3.75vw, 3.125rem);font-weight:800;letter-spacing:-.03em;margin-bottom:1rem;position:relative}
+        .cta-final h2{font-size:clamp(1.5rem, 3vw, 2.25rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.8rem;position:relative}
         .cta-final h2 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
-        .cta-final p{color:var(--text-mid);font-size:1.125rem;font-weight:400;line-height:1.8;max-width:450px;margin:0 auto 2rem;position:relative}
+        .cta-final p{color:var(--text-mid);font-size:1rem;line-height:1.8;max-width:450px;margin:0 auto 1.5rem;position:relative}
         .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative}
 
-        /* RESPONSIVE */
+        .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+        .rv.in{opacity:1;transform:translateY(0)}
+
         @media(max-width:900px){
             .hero-inner{grid-template-columns:1fr;gap:2rem}
-            .features{padding:3.5rem 1.2rem}
-            .section{padding:3.5rem 1.2rem}
-            .feat-grid{grid-template-columns:1fr}
-            .cta-final{padding:4rem 1.2rem}
+            .sec{padding:3rem 1.2rem}
+            .prods{grid-template-columns:1fr}
+            .cta-final{padding:3rem 1.2rem}
         }
         @media(max-width:600px){
             .hero{padding:5.5rem 1rem 2.5rem}
             .hero-aura2{display:none}
-            .product-card{padding:1.5rem}
-            .use-grid{grid-template-columns:1fr}
-            .features{padding:3rem 1rem}
-            .section{padding:3rem 1rem}
-            .cta-final{padding:3rem 1rem}
+            .sec{padding:2.5rem 1rem}
+            .prod{padding:1.2rem}
         }
+
+        /* override base btn styles for cta */
+        .btn{font-family:'Syne',sans-serif;font-weight:800;font-size:0.9rem;text-transform:uppercase;letter-spacing:.06em;padding:.9rem 2rem;text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;transition:all .15s;cursor:none}
+        .btn-gold{background:var(--gold);color:#050505}
+        .btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 40px var(--gold-glow)}
+        .btn-outline{background:transparent;color:var(--text-mid);border:1px solid var(--border2)}
+        .btn-outline:hover{border-color:var(--text-dim);color:var(--text)}
     </style>
 </head>
 <body>
@@ -104,7 +85,7 @@
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <nav id="mainNav">
-    <div class="logo">YOLA<b>.</b>ENTERPRISE</div>
+    <div class="logo">YOLA<b>.</b>STORE</div>
     <a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="btn-nav green nav-comunidad"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/></svg> Comunidad</a>
     <a href="sayri.html" class="btn-nav green nav-comunidad">Quién es Sayri</a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -128,125 +109,88 @@
     <div class="hero-aura2"></div>
     <div class="hero-inner">
         <div>
-            <div class="eyebrow">YOLA ENTERPRISE · Producto #001</div>
-            <h1 style="font-size:clamp(1.5rem, 3.5vw, 2.8rem)">Captura cada<br><i>notificación</i> que<br>importa.</h1>
-            <p class="hero-p"><strong>YOLA AVISA</strong> es una app Android que escucha, captura y estructura notificaciones de Yape, Plin y otras apps de cobranza. Diseñada para empresas que necesitan <strong>datos financieros en tiempo real</strong> desde los dispositivos de sus colaboradores.</p>
-            <div class="hero-cta">
-                <a href="#producto" class="btn-primary">Conocer YOLA AVISA →</a>
-                <a href="#usos" class="btn-ghost">Casos de uso</a>
-            </div>
+            <div class="eyebrow">YOLA STORE · Software empresarial</div>
+            <h1 style="font-size:clamp(1.5rem, 3.5vw, 2.8rem)">Productos de IA<br><i>que resuelven</i><br>problemas reales.</h1>
+            <p class="hero-p">Cada producto está construido por YOLA para resolver un problema concreto del mundo empresarial. <strong>Sin bloatware. Lo que necesitas, nada más.</strong></p>
+            <a href="#catalogo" class="btn-primary">Ver productos →</a>
         </div>
         <div class="jarvis-term">
             <div class="jt-bar">
                 <span class="jt-dot" style="background:#ff5f57"></span>
                 <span class="jt-dot" style="background:#febc2e"></span>
                 <span class="jt-dot" style="background:#2ac840"></span>
-                <span class="jt-title">YOLA AVISA · service.log</span>
+                <span class="jt-title">yola store · catalog</span>
             </div>
-            <div class="jt-body" style="min-height:180px;font-size:0.812rem">
-                <div class="jt-line"><span class="jt-t">[SERVICE]</span><span class="jt-g">✓ NotificationListener activado</span></div>
-                <div class="jt-line"><span class="jt-t">[MONITOR]</span><span class="jt-c">→ Yape: pago recibido S/45.00</span></div>
-                <div class="jt-line"><span class="jt-t">[MONITOR]</span><span class="jt-c">→ Plin: transferencia S/120.00</span></div>
-                <div class="jt-line"><span class="jt-t">[STRUCT]</span><span class="jt-w">Datos extraídos: monto, emisor, fecha</span></div>
-                <div class="jt-line"><span class="jt-t">[SYNC]</span><span class="jt-g">✓ Enviado a servidor central</span></div>
-                <div class="jt-line"><span class="jt-t">[MONITOR]</span><span class="jt-c">→ Yape: pago recibido S/230.00</span></div>
-                <div class="jt-line"><span class="jt-t">[STATUS]</span><span class="jt-g">✓ 14 notificaciones hoy · 0 errores</span></div>
+            <div class="jt-body" style="min-height:160px;font-size:0.812rem">
+                <div class="jt-line"><span class="jt-t">[STORE]</span><span class="jt-g">✓ 5 productos disponibles</span></div>
+                <div class="jt-line"><span class="jt-t">[001]</span><span class="jt-c">YOLA AVISA · Captura notificaciones</span></div>
+                <div class="jt-line"><span class="jt-t">[002]</span><span class="jt-c">YOLA VIGILA · Monitoreo fiscal</span></div>
+                <div class="jt-line"><span class="jt-t">[003]</span><span class="jt-c">YOLA COBRA · Gestión de cobranza</span></div>
+                <div class="jt-line"><span class="jt-t">[004]</span><span class="jt-c">YOLA DOCS · Generación documental</span></div>
+                <div class="jt-line"><span class="jt-t">[005]</span><span class="jt-c">YOLA DATA · Analítica financiera</span></div>
+                <div class="jt-line"><span class="jt-t">[STATUS]</span><span class="jt-g">✓ 1 en producción · 4 en desarrollo</span></div>
             </div>
         </div>
     </div>
 </section>
 </div>
 
-<!-- PRODUCTO -->
-<div class="z" id="producto">
-<section class="section">
-    <div class="feat-title rv">
-        <h2>YOLA AVISA · <i>El producto</i></h2>
-        <p>Una APK que convierte notificaciones en datos estructurados para tu negocio.</p>
-    </div>
-    <div class="product-card rv">
-        <span class="prod-tag">🔴 Android · APK</span>
-        <h3>¿Qué hace YOLA AVISA?</h3>
-        <p>YOLA AVISA se instala en dispositivos Android y utiliza el <strong>NotificationListenerService</strong> del sistema para capturar notificaciones entrantes de apps financieras como <strong>Yape, Plin, Lukita, Tunq</strong> y cualquier otra app de cobranza o transferencia.</p>
-        <p>Una vez capturadas, las notificaciones se procesan localmente para extraer datos clave: <strong>monto, app de origen, fecha/hora, remitente</strong>. Luego se envían de forma estructurada a un endpoint definido por la empresa.</p>
-    </div>
-</section>
-</div>
-
-<!-- FEATURES -->
-<div class="z">
-<section class="features">
-    <div class="feat-title rv">
-        <h2>Lo que <i>captura.</i></h2>
-        <p>Datos estructurados desde cualquier notificación financiera.</p>
-    </div>
-    <div class="feat-grid rv">
-        <div class="feat-card">
-            <span class="feat-icon">💳</span>
-            <h3>Yape</h3>
-            <p>Captura pagos recibidos, montos y remitente desde las notificaciones de Yape automáticamente.</p>
-            <span class="feat-tag">BCP · Yape</span>
+<!-- CATÁLOGO -->
+<div class="z" id="catalogo">
+<section class="sec">
+    <div class="sec-tag">Catálogo</div>
+    <h2 class="rv">Productos <i>disponibles</i></h2>
+    <p class="rv">Software empaquetado, listo para implementar en tu empresa.</p>
+    <div class="prods rv">
+        <!-- YOLA AVISA -->
+        <div class="prod">
+            <span class="prod-badge red">📱 Android · APK</span>
+            <h3>YOLA AVISA</h3>
+            <div class="prod-desc">App que captura notificaciones de Yape, Plin y apps de cobranza. Extrae montos, remitentes y fechas. Envía datos estructurados a tu servidor.</div>
+            <div class="prod-meta">NotificationListener · API endpoint</div>
+            <span class="prod-status live">🟢 En producción</span>
         </div>
-        <div class="feat-card">
-            <span class="feat-icon">⚡</span>
-            <h3>Plin</h3>
-            <p>Detección de transferencias Plin entrantes con monto exacto, app de origen y timestamp.</p>
-            <span class="feat-tag">Interbank · Plin</span>
+        <!-- YOLA VIGILA -->
+        <div class="prod">
+            <span class="prod-badge cyan">🖥 Web · Dashboard</span>
+            <h3>YOLA VIGILA</h3>
+            <div class="prod-desc">Panel de monitoreo fiscal que consolida ingresos detectados por YOLA AVISA en todos tus dispositivos. Alertas, reportes y exportación de datos.</div>
+            <div class="prod-meta">Dashboard · Reportes · Alertas</div>
+            <span class="prod-status dev">🔵 En desarrollo</span>
         </div>
-        <div class="feat-card">
-            <span class="feat-icon">📊</span>
-            <h3>Cobranza</h3>
-            <p>Notificaciones de apps de cobranza, recordatorios de pago y alertas de vencimiento.</p>
-            <span class="feat-tag">Múltiples apps</span>
+        <!-- YOLA COBRA -->
+        <div class="prod">
+            <span class="prod-badge gold">⚙️ Web · CRM</span>
+            <h3>YOLA COBRA</h3>
+            <div class="prod-desc">Sistema de gestión de cobranza con asignación de casos, seguimiento de pagos y comunicación automatizada con deudores.</div>
+            <div class="prod-meta">CRM · Automatización · Seguimiento</div>
+            <span class="prod-status dev">🔵 En desarrollo</span>
         </div>
-        <div class="feat-card">
-            <span class="feat-icon">🔔</span>
-            <h3>Notificaciones SMS</h3>
-            <p>Captura SMS del banco con alertas de movimiento, saldos y operaciones.</p>
-            <span class="feat-tag">SMS · Banking</span>
+        <!-- YOLA DOCS -->
+        <div class="prod">
+            <span class="prod-badge purple">📄 Web · Generador</span>
+            <h3>YOLA DOCS</h3>
+            <div class="prod-desc">Generación automatizada de documentos legales, contratos, cartas de cobranza y reportes financieros con datos en tiempo real.</div>
+            <div class="prod-meta">PDF · Plantillas · API</div>
+            <span class="prod-status soon">⚪ Próximamente</span>
         </div>
-        <div class="feat-card">
-            <span class="feat-icon">☁️</span>
-            <h3>Sin nube externa</h3>
-            <p>Los datos se envían al servidor que defines. Sin terceros, sin almacenamiento en servidores ajenos.</p>
-            <span class="feat-tag">Self-hosted</span>
+        <!-- YOLA DATA -->
+        <div class="prod">
+            <span class="prod-badge green">📊 Web · Analytics</span>
+            <h3>YOLA DATA</h3>
+            <div class="prod-desc">Plataforma de analítica financiera que cruza datos de múltiples fuentes. Visualizaciones, predicciones y exportación a ERP.</div>
+            <div class="prod-meta">BI · Dashboards · Export</div>
+            <span class="prod-status soon">⚪ Próximamente</span>
         </div>
-        <div class="feat-card">
-            <span class="feat-icon">⚙️</span>
-            <h3>Multi-dispositivo</h3>
-            <p>Centraliza notificaciones de múltiples colaboradores en un solo dashboard empresarial.</p>
-            <span class="feat-tag">Team · Empresas</span>
+        <!-- Placeholder -->
+        <div class="prod">
+            <span class="prod-badge" style="background:rgba(255,255,255,.03);color:var(--text-dim);border:1px solid var(--border2)">🔮 Próximo</span>
+            <h3>YOLA ___</h3>
+            <div class="prod-desc" style="color:var(--text-dim);opacity:.5">Más productos en camino. YOLA sigue construyendo soluciones para tu negocio.</div>
+            <div class="prod-meta">TBD</div>
+            <span class="prod-status soon">⚪ Próximamente</span>
         </div>
     </div>
-</section>
-</div>
-
-<!-- USE CASES -->
-<div class="z" id="usos">
-<section class="section" style="background:var(--s1);padding:5rem 2rem">
-    <div class="feat-title rv">
-        <h2>Casos de <i>uso real.</i></h2>
-        <p>Así están usando YOLA AVISA las empresas.</p>
-    </div>
-    <div class="use-grid rv">
-        <div class="use-item">
-            <h4>💰 Cobranza digital</h4>
-            <p>Empresas de cobranza que necesitan registrar en tiempo real cada pago que llega al dispositivo del cobrador, sin depender de reportes manuales.</p>
-        </div>
-        <div class="use-item">
-            <h4>📋 Auditoría financiera</h4>
-            <p>Registro automático de todas las transacciones que pasan por el teléfono del colaborador, con evidencia de notificación original.</p>
-        </div>
-        <div class="use-item">
-            <h4>🏢 Control de tesorería</h4>
-            <p>Centraliza en un dashboard los ingresos detectados en todos los dispositivos del equipo, con montos, horarios y fuentes.</p>
-        </div>
-        <div class="use-item">
-            <h4>📱 BYOD corporativo</h4>
-            <p>Dispositivos personales de empleados que también reciben pagos por Yape/Plin. YOLA AVISA captura solo lo que la empresa necesita.</p>
-        </div>
-    </div>
-    <p class="disclaimer">YOLA AVISA requiere acceso a notificaciones del sistema Android. Los datos capturados pertenecen a la empresa y se envían únicamente al endpoint configurado. No se almacenan en servidores de YOLA.</p>
 </section>
 </div>
 
@@ -254,24 +198,23 @@
 <div class="z">
 <section class="cta-final">
     <div class="cta-bg"></div>
-    <h2>¿Listo para <i>automatizar</i><br>tu cobranza?</h2>
-    <p>YOLA AVISA está disponible para empresas. Solicita una demo y configura tu primer dispositivo en minutos.</p>
+    <h2>¿Necesitas un producto<br><i>a medida?</i></h2>
+    <p>YOLA puede construir software personalizado para tu empresa. Háblanos de tu problema y te presentamos una solución.</p>
     <div class="cta-row">
-        <a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="btn btn-red">Solicitar demo</a>
-        <a href="feedback.html" class="btn btn-outline" style="border-color:var(--text-dim);color:var(--text-mid)">Escribir al equipo</a>
+        <a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="btn btn-gold">Solicitar demo</a>
+        <a href="feedback.html" class="btn btn-outline">Proponer idea</a>
     </div>
 </section>
 </div>
 
 <!-- FOOTER -->
 <footer class="z">
-    <div class="ft-logo">YOLA<b>.</b>ENTERPRISE</div>
+    <div class="ft-logo">YOLA<b>.</b>STORE</div>
     <p class="ft-meta">SAYRIDEVS · Lima, Perú · 2026</p>
 </footer>
 
 <script src="js/main.js"></script>
 <script>
-// ─── Scroll Reveal ──────────────────────────────────────────
 var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
 </script>
