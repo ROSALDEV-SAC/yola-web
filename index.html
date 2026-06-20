@@ -23,9 +23,6 @@
         .nav-status { display:flex;align-items:center;gap:.5rem;font-family:'DM Mono',monospace;font-size:0.812rem;color:var(--green); }
         .btn-nav { font-family:'DM Mono',monospace;font-size:0.875rem;background:var(--gold);color:#050505;padding:.65rem 1.6rem;text-decoration:none;font-weight:500;letter-spacing:.05em;transition:background .15s,transform .1s;cursor:none; }
         .btn-nav:hover { background:var(--text);transform:translateY(-1px); }
-        .nav-group { display:inline-flex; align-items:center; gap:.3rem; position:relative; }
-        .nav-group::before { content:''; position:absolute; left:-.6rem; top:20%; bottom:20%; width:1px; background:var(--border2); }
-        .nav-group .btn-nav { font-size:0.75rem; padding:.4rem .6rem; }
 
         /* HERO */
         .hero-inner{position:relative;max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:center}
@@ -235,9 +232,6 @@
             .nav-r.open{right:0}
             .nav-status{display:none}
             .btn-nav{width:100%;text-align:center;padding:.7rem 1rem;font-size:0.812rem}
-            .nav-group{flex-direction:column;gap:.3rem}
-            .nav-group::before{display:none}
-            .nav-group .btn-nav{width:100%;text-align:center;font-size:0.812rem;padding:.7rem 1rem}
             .nav-toggle{display:flex}
 
             /* Hero: stack columns */
@@ -365,13 +359,11 @@
 <div id="cr"></div>
 
 <nav id="mainNav">
-    <div class="logo">YOLA</div>
+    <div class="logo">YOLA<b>.</b>PROTOCOL</div>
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-r">
-        <div class="nav-group">
-            <a href="tech.html" class="btn-nav" style="background:transparent;border:1px solid var(--purple);color:var(--purple);font-size:0.812rem">Arquitectura</a>
-            <a href="feedback.html" class="btn-nav" style="background:transparent;border:1px solid var(--cyan);color:var(--cyan);font-size:0.812rem">Feedback</a>
-        </div>
+        <a href="tech.html" class="btn-nav" style="background:transparent;border:1px solid var(--purple);color:var(--purple);font-size:0.812rem">Arquitectura</a>
+        <a href="feedback.html" class="btn-nav" style="background:transparent;border:1px solid var(--cyan);color:var(--cyan);font-size:0.812rem">Feedback</a>
         <a href="challenge.html" class="btn-nav" style="background:transparent;border:1px solid var(--red);color:var(--red);font-size:0.812rem">Reto ×4.75</a>
         <a href="guardianes.html" class="btn-nav" style="background:transparent;border:1px solid var(--gold);color:var(--gold-l);font-size:0.812rem">Guardianes</a>
         <a href="sayri.html" class="btn-nav" style="background:transparent;border:1px solid var(--green);color:var(--green);font-size:0.812rem">Quién es Sayri</a>
@@ -733,7 +725,7 @@
 </section>
 
 <footer>
-    <div class="ft-logo">YOLA</div>
+    <div class="ft-logo">YOLA<b>.</b>PROTOCOL</div>
     <p class="ft-meta">SAYRIDEVS INFRASTRUCTURE © 2026 · Lima, Perú</p>
     <div style="display:flex;gap:1rem;justify-content:center;margin-top:.5rem;flex-wrap:wrap">
         <a href="privacy.html" style="font-family:'DM Mono',monospace;font-size:0.625rem;color:var(--text-dim);text-decoration:none;transition:color .2s">Privacidad</a>
