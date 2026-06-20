@@ -21,8 +21,7 @@
 
         /* NAV */
         .nav-status { display:flex;align-items:center;gap:.5rem;font-family:'DM Mono',monospace;font-size:0.812rem;color:var(--green); }
-        .btn-nav { font-family:'DM Mono',monospace;font-size:0.875rem;background:var(--gold);color:#050505;padding:.65rem 1.6rem;text-decoration:none;font-weight:500;letter-spacing:.05em;transition:background .15s,transform .1s;cursor:none; }
-        .btn-nav:hover { background:var(--text);transform:translateY(-1px); }
+
 
         /* HERO */
         .hero-inner{position:relative;max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:center}
@@ -231,7 +230,7 @@
             }
             .nav-r.open{right:0}
             .nav-status{display:none}
-            .btn-nav{width:100%;text-align:center;padding:.7rem 1rem;font-size:0.812rem}
+
             .nav-toggle{display:flex}
 
             /* Hero: stack columns */
@@ -362,13 +361,14 @@
     <div class="logo">YOLA</div>
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-r">
-        <a href="tech.html" class="btn-nav" style="background:transparent;border:1px solid var(--purple);color:var(--purple);font-size:0.812rem">Arquitectura</a>
-        <a href="feedback.html" class="btn-nav" style="background:transparent;border:1px solid var(--cyan);color:var(--cyan);font-size:0.812rem">Feedback</a>
-        <a href="challenge.html" class="btn-nav" style="background:transparent;border:1px solid var(--red);color:var(--red);font-size:0.812rem">Reto ×4.75</a>
-        <a href="guardianes.html" class="btn-nav" style="background:transparent;border:1px solid var(--gold);color:var(--gold-l);font-size:0.812rem">Guardianes</a>
-        <a href="sayri.html" class="btn-nav" style="background:transparent;border:1px solid var(--green);color:var(--green);font-size:0.812rem">Quién es Sayri</a>
-        <a href="invertir.html" class="btn-nav" style="background:transparent;border:1px solid var(--gold);color:var(--gold-l);font-size:0.812rem">Invertir</a>
-        <a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="btn-nav" style="background:transparent;border:1px solid var(--green);color:var(--green);font-size:0.812rem">Comunidad</a>
+        <a href="index.html" class="btn-nav">Inicio</a>
+        <a href="tech.html" class="btn-nav purple">Arquitectura</a>
+        <a href="feedback.html" class="btn-nav cyan">Feedback</a>
+        <a href="challenge.html" class="btn-nav red">Reto ×4.75</a>
+        <a href="guardianes.html" class="btn-nav gold">Guardianes</a>
+        <a href="sayri.html" class="btn-nav green">Quién es Sayri</a>
+        <a href="invertir.html" class="btn-nav gold">Invertir</a>
+        <a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="btn-nav green">Comunidad</a>
     </div>
 </nav>
 <div class="nav-overlay" id="navOverlay"></div>
