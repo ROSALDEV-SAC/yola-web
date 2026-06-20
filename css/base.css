@@ -206,6 +206,8 @@ nav.scrolled {
 .btn-nav.green { border-color: var(--green); color: var(--green); }
 .btn-nav.green:hover { background: var(--green-dim); }
 .btn-nav.green.active { background: var(--green); color: #fff; }
+.nav-comunidad { margin-left: auto; }
+.nav-comunidad-mob { display: none; }
 
 .nav-status {
     display: flex;
@@ -583,6 +585,8 @@ footer {
     .btn-nav.active {
         border-color: var(--border);
     }
+    .nav-comunidad { display: none; }
+    .nav-comunidad-mob { display: block; }
     .nav-status { display: none; }
 
     /* Hero */
