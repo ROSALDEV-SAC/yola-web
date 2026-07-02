@@ -37,9 +37,74 @@ function doPost(e) {
 }
 
 function doGet(e) {
-  var action = (e && e.parameter) ? e.parameter.action : 'test';
+  var action = (e && e.parameter) ? e.parameter.action : '';
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+
+  // ─── TEST ────────────────────────────────────────────────
   if (action === 'test') {
     return ContentService.createTextOutput(JSON.stringify({status:'ok', time: new Date().toISOString()})).setMimeType(ContentService.MimeType.JSON);
   }
+
+  // ─── LIST: devuelve todos los feedbacks con votos calculados ──
+  if (action === 'list') {
+    var sheet = ss.getSheetByName('Feedback');
+    if (!sheet) {
+      return ContentService.createTextOutput(JSON.stringify({feedbacks: []})).setMimeType(ContentService.MimeType.JSON);
+    }
+    var rows = sheet.getDataRange().getValues();
+    if (rows.length <= 1) {
+      return ContentService.createTextOutput(JSON.stringify({feedbacks: []})).setMimeType(ContentService.MimeType.JSON);
+    }
+
+    // Construir array de feedbacks desde las filas
+    var feedbacks = [];
+    for (var i = 1; i < rows.length; i++) {
+      var r = rows[i];
+      feedbacks.push({
+        id: r[1] || '',
+        name: r[2] || '',
+        title: r[3] || '',
+        desc: r[4] || '',
+        cat: r[5] || 'feature',
+        date: r[6] || '',
+        votes: 0,
+        status: 'pending'
+      });
+    }
+
+    // Calcular votos desde la hoja Votes
+    var votesSheet = ss.getSheetByName('Votes');
+    if (votesSheet) {
+      var voteRows = votesSheet.getDataRange().getValues();
+      var voteCounts = {};
+      for (var j = 1; j < voteRows.length; j++) {
+        var v = voteRows[j];
+        var fbId = v[1];
+        var delta = Number(v[2]) || 0;
+        voteCounts[fbId] = (voteCounts[fbId] || 0) + delta;
+      }
+      for (var k = 0; k < feedbacks.length; k++) {
+        feedbacks[k].votes = voteCounts[feedbacks[k].id] || 0;
+      }
+    }
+
+    return ContentService.createTextOutput(JSON.stringify({feedbacks: feedbacks})).setMimeType(ContentService.MimeType.JSON);
+  }
+
+  // ─── VOTES: devuelve mapa feedbackId → true ──────────────
+  if (action === 'votes') {
+    var sheet = ss.getSheetByName('Votes');
+    if (!sheet) {
+      return ContentService.createTextOutput(JSON.stringify({votes: {}})).setMimeType(ContentService.MimeType.JSON);
+    }
+    var rows = sheet.getDataRange().getValues();
+    var votes = {};
+    for (var i = 1; i < rows.length; i++) {
+      var fbId = rows[i][1];
+      if (fbId) votes[fbId] = true;
+    }
+    return ContentService.createTextOutput(JSON.stringify({votes: votes})).setMimeType(ContentService.MimeType.JSON);
+  }
+
   return ContentService.createTextOutput(JSON.stringify({status:'ok'})).setMimeType(ContentService.MimeType.JSON);
 }

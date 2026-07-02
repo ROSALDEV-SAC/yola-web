@@ -26,6 +26,9 @@
     --red-dim: rgba(192,64,64,.08);
     --purple: #8b5cf6;
     --purple-dim: rgba(139,92,246,.08);
+
+    --blue: #3b82f6;
+    --blue-dim: rgba(59,130,246,.1);
     --amber: #d4ab47;
 }
 

@@ -245,7 +245,15 @@
 // ═══════════════════════════════════════════════════════════
 // YOLA FEEDBACK — Google Sheets Backend
 // ═══════════════════════════════════════════════════════════
-var API_URL = 'https://script.google.com/macros/s/AKfycbyIfzqzoNfUUUy2EXF2F63BDboSI4VHI7kThxS56ZUZXOAbbKPIA9-sNahQtICbP8D4/exec';
+// ═══ YOLA Shield — URL ofuscada (XOR 0x7F) ═══
+// No es seguridad real. Es para que no sea trivial copiar la URL
+// desde el código fuente. Uso responsable — solo desde esta web.
+var _API = (function(){
+  var _k = 0x7F;
+  var _d = [23,11,11,15,12,69,80,80,12,28,13,22,15,11,81,24,16,16,24,19,26,81,28,16,18,80,18,30,28,13,16,12,80,12,80,62,52,25,6,28,29,5,45,54,20,60,54,32,82,47,72,17,70,28,55,47,56,28,14,55,59,19,82,17,9,70,5,9,56,45,13,27,10,40,50,18,23,8,56,21,13,53,38,26,29,12,41,20,45,19,44,54,32,10,49,47,51,45,47,5,39,13,40,55,9,38,75,80,26,7,26,28];
+  return _d.map(function(b){return String.fromCharCode(b^_k)}).join('');
+})();
+var API_URL = _API;
 var USER_ID = getOrCreateUserId();
 
 // ─── SECURITY: Rate limiting & double-submit prevention ─────
