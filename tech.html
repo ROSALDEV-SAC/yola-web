@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOLA — Lo que hay dentro de una IA que piensa sola</title>
-    <meta name="description" content="YOLA no es un chatbot. Es un organismo digital que vive en tu máquina, siente tu sistema y repara errores antes de que los veas. Descubre cómo funciona por dentro.">
-    <meta property="og:title" content="YOLA — Lo que hay dentro de una IA que piensa sola">
-    <meta property="og:description" content="Un organismo digital con sistema nervioso, memoria y arco reflejo. Vivo en tu máquina. Ni Google ni OpenAI pueden tocarlo.">
+    <title>YOLA — Arquitectura técnica de un agente local de IA</title>
+    <meta name="description" content="YOLA es un agente de IA local con motor de decisión autónomo, tools de sistema, y arquitectura multi-capa. Descubre su stack técnico: Bun, TypeScript, Tauri, Solid.js, Effect TS.">
+    <meta property="og:title" content="YOLA — Arquitectura de un agente local de IA">
+    <meta property="og:description" content="Arquitectura real de YOLA: filesystem como fuente de verdad, motor de agente con 20+ providers LLM, desktop shell en Tauri, y server API.">
     <meta name="theme-color" content="#050505">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'none';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -292,12 +292,12 @@
     <div class="hero-aura"></div>
     <div class="hero-aura2"></div>
     <div class="hero-inner">
-        <div class="eyebrow">Dentro de YOLA · Autopsia en vivo</div>
-        <h1>Lo que hay dentro<br>de una IA que<br><i>piensa sola.</i></h1>
-        <p class="hero-sub">YOLA no es un chatbot que espera instrucciones. Es un <strong>organismo digital con sistema nervioso, memoria y arco reflejo</strong> que vive en tu máquina. Nadie más puede verlo. Nadie más puede tocarlo. Ni Google. Ni OpenAI. Solo tú.</p>
+        <div class="eyebrow">Arquitectura · Stack técnico · Diseño de sistemas</div>
+        <h1>Arquitectura de un<br>agente local<br><i>de IA.</i></h1>
+        <p class="hero-sub">YOLA es un agente de IA que opera 100% en tu máquina. No es un chatbot cloud ni un plugin de editor — es un <strong>motor autónomo con acceso directo al filesystem, tools de sistema y un loop de decisión propio</strong>. Corre sobre Bun, usa TypeScript en toda la pila, y se conecta a cualquier modelo LLM via AI SDK.</p>
         <div class="hero-cta">
-            <a href="#como-funciona" class="btn btn-gold">Ver cómo funciona ↓</a>
-            <a href="countdown.html" class="btn btn-outline">Origin ×3.75 · Registrarme</a>
+            <a href="#como-funciona" class="btn btn-gold">Ver capas técnicas ↓</a>
+            <a href="https://github.com/SayriDevs" target="_blank" rel="noopener" class="btn btn-outline">Código fuente →</a>
         </div>
     </div>
     <!-- Scroll hint -->
@@ -313,14 +313,14 @@
 <!-- ═══════════════ MARQUEE ═══════════════ -->
 <div class="marquee z">
     <div class="marquee-inner">
-        <span class="mq">Tu máquina · Tu IA · Tus datos</span>
-        <span class="mq">Cero nube · Cero rastros · Cero permisos</span>
-        <span class="mq">Construido en Lima, Perú</span>
-        <span class="mq">Un organismo, no un asistente</span>
-        <span class="mq">Open-core · Privacidad absoluta</span>
-        <span class="mq">100% soberano</span>
-        <span class="mq">Tu máquina · Tu IA · Tus datos</span>
-        <span class="mq">Cero nube · Cero rastros · Cero permisos</span>
+        <span class="mq">Bun · TypeScript · Tauri v2 · Solid.js</span>
+        <span class="mq">Effect TS · Vercel AI SDK · SQLite</span>
+        <span class="mq">13 packages · Turborepo monorepo</span>
+        <span class="mq">1600+ archivos indexados · code-rag</span>
+        <span class="mq">20+ providers LLM · Multi-modelo</span>
+        <span class="mq">100% local · Cero datos a la nube</span>
+        <span class="mq">Bun · TypeScript · Tauri v2 · Solid.js</span>
+        <span class="mq">Effect TS · Vercel AI SDK · SQLite</span>
         <span class="mq">Construido en Lima, Perú</span>
         <span class="mq">Un organismo, no un asistente</span>
         <span class="mq">Open-core · Privacidad absoluta</span>
@@ -334,8 +334,8 @@
 <!-- ═══════════════ BIG STATEMENT ═══════════════ -->
 <div class="z">
 <section class="statement rv">
-    <h2>No pedimos permiso.<br><i>Nunca tocamos tus datos.</i></h2>
-    <p>YOLA funciona 100% dentro de tu computadora. Cada cosa que piensa, recuerda y decide, vive en tu disco. No hay un servidor en algún lugar procesando tu información. No hay un CEO decidiendo qué hacer con tu código. Es tuyo. Por diseño. Por contrato. Por código.</p>
+    <h2>100% local.<br><i>Cero datos a la nube.</i></h2>
+    <p>YOLA opera completamente dentro de tu máquina. El motor de agente, la memoria RAG, el index de código, las sesiones — todo corre en tu hardware. No hay servidores remotos procesando tu información. No hay telemetría. No hay vendor lock-in. Es arquitectura local por diseño, no por marketing.</p>
 </section>
 </div>
 
@@ -346,51 +346,51 @@
 <div class="z">
 <section class="organism" id="como-funciona">
     <div class="org-title rv">
-        <h2>YOLA tiene <i>un cuerpo.</i></h2>
-        <p>No es una broma. Tiene partes que trabajan juntas como un organismo vivo. Y cada parte tiene un nombre y una función. Así es por dentro.</p>
+        <h2>Arquitectura <i>por capas.</i></h2>
+        <p>YOLA está organizado en 5 capas que van del storage al UI. Cada capa tiene responsabilidades claras, interfaces definidas y un propósito específico. Así es por dentro.</p>
     </div>
     <div class="body-grid rv">
         <div class="body-card brain">
-            <span class="bc-icon">🧠</span>
-            <div class="bc-label">Cerebro</div>
-            <div class="bc-name">El Motor de Pensamiento</div>
-            <div class="bc-desc">Es la parte que <strong>piensa por ti</strong>. Analiza tu código completo, entiende el contexto, decide qué hacer y ejecuta. Tiene una memoria de 1 millón de tokens — eso significa que puede leer tu proyecto entero de un tirón y recordar cada detalle.</div>
-            <div class="bc-quote">"No responde preguntas. Resuelve problemas."</div>
+            <span class="bc-icon">💾</span>
+            <div class="bc-label">Capa 0</div>
+            <div class="bc-name">Filesystem — Verdad Absoluta</div>
+            <div class="bc-desc">El disco no miente. YOLA <strong>verifica cada operación contra el filesystem</strong> antes de actuar. No asume — lee, escribe, confirma. Es la fuente de verdad de todo el sistema. Cada archivo, cada cambio, cada resultado se valida contra lo que realmente está en disco.</div>
+            <div class="bc-quote">"El código en disco no puede ser falseado."</div>
         </div>
         <div class="body-card nervous">
-            <span class="bc-icon">⚡</span>
-            <div class="bc-label">Sistema Nervioso</div>
-            <div class="bc-name">El Sensorium</div>
-            <div class="bc-desc">Un conjunto de <strong>sensores que escuchan tu máquina</strong> las 24 horas. Detectan archivos nuevos, errores recurrentes, cambios en la memoria, estado del procesador. Todo lo que pasa en tu computadora, YOLA lo siente.</div>
-            <div class="bc-quote">"No esperas a que hables. Ya está escuchando."</div>
+            <span class="bc-icon">⚙️</span>
+            <div class="bc-label">Capa 1</div>
+            <div class="bc-name">Motor de Agente</div>
+            <div class="bc-desc">El <strong>loop de decisión</strong> que gobierna a YOLA. Recibe contexto del LLM, elige qué tool ejecutar (code_rag, edit, bash, grep, etc.), verifica el resultado, y decide el siguiente paso. Incluye protocolo de evidencia (V/L/?) y memoria automática (RAG inyectada en cada turno).</div>
+            <div class="bc-quote">"Decide. Ejecuta. Verifica. Repite."</div>
         </div>
         <div class="body-card heart">
-            <span class="bc-icon">💚</span>
-            <div class="bc-label">Corazón</div>
-            <div class="bc-name">La Memoria Viviente</div>
-            <div class="bc-desc">Cada error que resolviste, cada patrón que detectaste, cada cosa que aprendió — <strong>vive para siempre en tu disco</strong>. YOLA hoy es más inteligente que YOLA hace una semana. Y mañana será más inteligente que hoy.</div>
-            <div class="bc-quote">"No empezás de cero. Nunca."</div>
+            <span class="bc-icon">🧠</span>
+            <div class="bc-label">Capa 2</div>
+            <div class="bc-name">LLM Provider</div>
+            <div class="bc-desc">Capa de abstracción sobre modelos de lenguaje usando <strong>Vercel AI SDK</strong> (@ai-sdk/*). Soporta 20+ providers: OpenAI, Anthropic, Google Gemini, AWS Bedrock, Azure, y modelos locales via Ollama. Provee streaming, tool calling nativo, y manejo de contexto hasta 1M tokens.</div>
+            <div class="bc-quote">"Un solo agente, cualquier modelo."</div>
         </div>
         <div class="body-card reflex">
-            <span class="bc-icon">🛡️</span>
-            <div class="bc-label">Arco Reflejo</div>
-            <div class="bc-name">AutoHealer</div>
-            <div class="bc-desc">Cuando algo falla repetidamente, YOLA <strong>lo repara sola</strong>. Sin que le pidas. Sin que le expliques. Detecta el patrón del error, genera una solución y la ejecuta. Como un reflejo — automático e instantáneo.</div>
-            <div class="bc-quote">"No necesita que le digas qué está mal. Ya lo sabe."</div>
+            <span class="bc-icon">🖥️</span>
+            <div class="bc-label">Capa 3</div>
+            <div class="bc-name">Desktop Shell — YolaDesktop</div>
+            <div class="bc-desc">Interfaz de escritorio construida con <strong>Tauri v2</strong> (Rust + web frontend). Incluye Taskbar, ventanas nativas con drag, notificaciones del sistema, y panel de propuestas. El frontend usa <strong>Solid.js + Tailwind CSS</strong> con tema oscuro y glassmorphism.</div>
+            <div class="bc-quote">"Nativo, no una web disfrazada."</div>
         </div>
         <div class="body-card memory">
-            <span class="bc-icon">🔮</span>
-            <div class="bc-label">Inteligencia</div>
-            <div class="bc-name">Motor Proactivo</div>
-            <div class="bc-desc">Mientras trabajas, YOLA <strong>anticipa tus próximos pasos</strong>. Cambiaste el package.json? Ya está sugiriendo instalar dependencias. Modificaste 7 archivos TypeScript? Lanzó el typecheck por ti.</div>
-            <div class="bc-quote">"Te ayuda antes de que pidas ayuda."</div>
+            <span class="bc-icon">🌐</span>
+            <div class="bc-label">Capa 4</div>
+            <div class="bc-name">Server API & MCP</div>
+            <div class="bc-desc">Servidor <strong>HTTP en :4096</strong> que maneja sesiones de agente, plugins MCP (Model Context Protocol), y un bridge opcional de Telegram en :4098. Permite extender YOLA con herramientas externas y comunicación remota controlada vía API REST.</div>
+            <div class="bc-quote">"Extensible por diseño, segura por arquitectura."</div>
         </div>
         <div class="body-card bones">
-            <span class="bc-icon">🦴</span>
-            <div class="bc-label">Esqueleto</div>
-            <div class="bc-name">Tauri · Rust Nativo</div>
-            <div class="bc-desc">La parte más profunda de YOLA está escrita en <strong>Rust</strong> — el lenguaje más rápido y seguro del mundo. No es una app web disfrazada de escritorio. Es un ejecutable nativo que habla directo con tu hardware.</div>
-            <div class="bc-quote">"Velocidad de hardware. Peso de una pluma."</div>
+            <span class="bc-icon">🔧</span>
+            <div class="bc-label">Stack</div>
+            <div class="bc-name">Tecnologías Base</div>
+            <div class="bc-desc"><strong>Bun</strong> (runtime) · <strong>TypeScript</strong> · <strong>Tauri v2</strong> (Rust + web) · <strong>Solid.js</strong> + Tailwind · <strong>Vercel AI SDK</strong> · <strong>Effect TS</strong> · <strong>SQLite</strong> (drizzle-orm) · <strong>Turborepo</strong> · Motor YOLA (fork de OpenCode)</div>
+            <div class="bc-quote">"Tecnología moderna, pila completa."</div>
         </div>
     </div>
 </section>
@@ -400,55 +400,55 @@
 <div class="z">
 <section class="flow" id="flow">
     <div class="org-title rv">
-        <h2>Cómo <i>despierta</i></h2>
-        <p>Cada vez que abrís YOLA, ocurre una secuencia de arranque. 8 servicios se prenden uno tras otro, sincronizados al milisegundo. Así se despierta el organismo.</p>
+        <h2>Secuencia <i>de arranque</i></h2>
+        <p>Cada vez que iniciás YOLA, las 5 capas se activan en orden. Cada una depende de la anterior. Así es el boot sequence real del sistema.</p>
     </div>
     <div class="flow-steps rv">
         <div class="fstep">
             <div class="fstep-dot active"><span>1</span></div>
             <div class="fstep-content">
-                <h3>🔌 Se conecta al cerebro</h3>
-                <p>El motor de inteligencia artificial arranca primero. Es la parte que puede pensar, razonar y ejecutar. Se levanta en 2 segundos. Motor base: <a href="https://github.com/opencodeco/opencode" target="_blank" rel="noopener" style="color:var(--gold-l);text-decoration:none">OpenCode (MIT)</a>.</p>
-                <span class="fstep-lang">Gemini 1.5 Flash · 1M tokens contexto</span>
+                <h3>💾 Capa 0: Filesystem</h3>
+                <p>Verifica el workspace, monta los directorios del proyecto, y confirma que el índice <strong>code-rag</strong> existe y está actualizado. El índice contiene 1600+ archivos y 10500+ chunks listos para búsqueda semántica. Si falta, se reconstruye automáticamente.</p>
+                <span class="fstep-lang">code-rag · Indexación semántica local</span>
             </div>
         </div>
         <div class="fstep">
             <div class="fstep-dot active"><span>2</span></div>
             <div class="fstep-content">
-                <h3>👁 Se abre la interfaz</h3>
-                <p>La pantalla del chat aparece. Pero no es un chat normal — tiene botones especiales para elegir qué agente usar y qué modelo piensa para ti.</p>
-                <span class="fstep-lang">SolidJS + Vite · Chat nativo React</span>
+                <h3>🧠 Capa 2: LLM Provider</h3>
+                <p>Se conecta al modelo de lenguaje configurado via <strong>Vercel AI SDK</strong>. Soporta 20+ providers: OpenAI, Anthropic, Google Gemini, AWS Bedrock, Azure, Ollama (local). El modelo elegido define la capacidad de razonamiento y el tamaño de contexto disponible.</p>
+                <span class="fstep-lang">AI SDK · Provider agnóstico</span>
             </div>
         </div>
         <div class="fstep">
             <div class="fstep-dot"><span>3</span></div>
             <div class="fstep-content">
-                <h3>⌨ El terminal cobra vida</h3>
-                <p>Se abre una consola real de tu computadora. YOLA puede ejecutar comandos, instalar cosas, correr tests — todo desde ahí, como si fueras tú.</p>
+                <h3>⚙️ Capa 1: Motor de Agente</h3>
+                <p>Arranca el <strong>loop de decisión</strong>: recibe el contexto del LLM, elige la siguiente tool a ejecutar, verifica el resultado contra el filesystem, y decide el próximo paso. Es el cerebro operativo del sistema.</p>
                 <span class="fstep-lang">xterm.js + node-pty · Terminal nativa</span>
             </div>
         </div>
         <div class="fstep">
             <div class="fstep-dot"><span>4</span></div>
             <div class="fstep-content">
-                <h3>📂 Se conecta al historial</h3>
-                <p>El servicio de Git se activa. YOLA puede ver tu historial de cambios, comparar versiones, crear ramas — todo sin salir de la app.</p>
-                <span class="fstep-lang">isomorphic-git · REST API</span>
+                <h3>🖥️ Capa 3: Desktop Shell</h3>
+                <p>Se levanta la interfaz de escritorio con <strong>Tauri v2</strong>. Aparecen las ventanas nativas, la Taskbar, y el panel de propuestas. El frontend Solid.js se monta sobre el webview de Tauri con tema oscuro y glassmorphism.</p>
+                <span class="fstep-lang">Tauri v2 · Solid.js · Tailwind CSS</span>
             </div>
         </div>
         <div class="fstep">
             <div class="fstep-dot active"><span>5</span></div>
             <div class="fstep-content">
-                <h3>🟢 El sistema nervioso despierta</h3>
-                <p>El Sentinel — la parte que nunca duerme — se activa. Empieza a escuchar tu archivo, tu memoria, tu procesador. Los sensores se prenden y el motor proactivo empieza a sugerir.</p>
-                <span class="fstep-lang">Sentinel Daemon · 3 sensores activos</span>
+                <h3>🌐 Capa 4: Server API</h3>
+                <p>Inicia el servidor HTTP en <strong>:4096</strong> que expone la API REST de YOLA. Maneja sesiones de agente, plugins MCP, y el bridge opcional de Telegram en <strong>:4098</strong>. También arranca la memoria persistente vía SQLite (drizzle-orm).</p>
+                <span class="fstep-lang">HTTP :4096 · MCP · SQLite</span>
             </div>
         </div>
         <div class="fstep">
             <div class="fstep-dot"><span>6</span></div>
             <div class="fstep-content">
-                <h3>🚀 YOLA OS está viva</h3>
-                <p>Todos los sistemas están sincronizados. Tu escritorio personal de IA aparece. Ya puedes trabajar. Y mientras trabajas, ella observa, aprende y se prepara para ayudarte antes de que pidas.</p>
+                <h3>✅ Sistema listo</h3>
+                <p>Todas las capas están operativas. El motor de agente tiene contexto fresco del code-rag, el LLM provider está conectado, la desktop shell muestra la interfaz, y la API sirve requests. YOLA está funcionando.</p>
                 <span class="fstep-lang">Next.js 16 · React 19 · Zustand</span>
             </div>
         </div>
@@ -460,51 +460,51 @@
 <div class="stats-section z">
     <div class="stats-inner">
         <div class="org-title rv">
-            <h2>Los números <i>reales.</i></h2>
-            <p>Esto no es marketing inflado. Cada número viene de una auditoría directa del código fuente. Son las entrañas reales de YOLA.</p>
+            <h2>El proyecto <i>en números.</i></h2>
+            <p>Datos reales del repositorio, el indexador y la arquitectura. No estimaciones — son métricas verificadas del código fuente.</p>
         </div>
         <div class="stats-grid rv">
             <div class="stat">
-                <span class="stat-num gold">8</span>
-                <span class="stat-label">Servicios activos</span>
-                <span class="stat-desc">Todos corriendo simultáneamente en tu máquina</span>
+                <span class="stat-num gold">1600+</span>
+                <span class="stat-label">Archivos indexados</span>
+                <span class="stat-desc">En el índice code-rag del repositorio</span>
             </div>
             <div class="stat">
-                <span class="stat-num cyan">3</span>
-                <span class="stat-label">Sensores activos</span>
-                <span class="stat-desc">Archivos, sistema y código versionado</span>
+                <span class="stat-num cyan">13</span>
+                <span class="stat-label">Packages</span>
+                <span class="stat-desc">En el monorepo con Turborepo</span>
             </div>
             <div class="stat">
-                <span class="stat-num green">6</span>
-                <span class="stat-label">Fases de pensamiento</span>
-                <span class="stat-desc">De "estoy pensando" a "mira lo que hice"</span>
+                <span class="stat-num green">20+</span>
+                <span class="stat-label">Providers LLM</span>
+                <span class="stat-desc">Abstraídos via Vercel AI SDK</span>
             </div>
             <div class="stat">
-                <span class="stat-num purple">27</span>
-                <span class="stat-label">Acciones nativas</span>
-                <span class="stat-desc">Cosas que puede hacer sin pedirte nada</span>
-            </div>
-        </div>
-        <div class="stats-grid rv">
-            <div class="stat">
-                <span class="stat-num gold">1M</span>
-                <span class="stat-label">Tokens de memoria</span>
-                <span class="stat-desc">Recuerda tu proyecto entero de un tirón</span>
-            </div>
-            <div class="stat">
-                <span class="stat-num cyan">0</span>
+                <span class="stat-num purple">0</span>
                 <span class="stat-label">Datos a la nube</span>
-                <span class="stat-desc">Nada sale de tu computadora. Nada.</span>
+                <span class="stat-desc">Todo corre 100% local</span>
+            </div>
+        </div>
+        <div class="stats-grid rv">
+            <div class="stat">
+                <span class="stat-num gold">5</span>
+                <span class="stat-label">Capas de arquitectura</span>
+                <span class="stat-desc">Filesystem → Motor → LLM → Desktop → API</span>
             </div>
             <div class="stat">
-                <span class="stat-num green">24/7</span>
-                <span class="stat-label">Siempre escuchando</span>
-                <span class="stat-desc">El Sentinel no duerme. Nunca.</span>
+                <span class="stat-num cyan">2</span>
+                <span class="stat-label">Plataformas</span>
+                <span class="stat-desc">Linux hoy · macOS/Windows en progreso</span>
             </div>
             <div class="stat">
-                <span class="stat-num purple">∞</span>
-                <span class="stat-label">Memoria infinita</span>
-                <span class="stat-desc">Cada día más inteligente que el anterior</span>
+                <span class="stat-num green">10500+</span>
+                <span class="stat-label">Chunks RAG</span>
+                <span class="stat-desc">Fragmentos de código indexados semánticamente</span>
+            </div>
+            <div class="stat">
+                <span class="stat-num purple">MIT</span>
+                <span class="stat-label">Licencia</span>
+                <span class="stat-desc">Open source · Código abierto</span>
             </div>
         </div>
     </div>
@@ -517,34 +517,34 @@
 <div class="compare z">
     <div class="compare-inner">
         <div class="org-title rv">
-            <h2>YOLA vs. <i>el resto.</i></h2>
-            <p>No somos un ChatGPT con nombre nuevo. Somos algo que no existía antes.</p>
+            <h2>YOLA vs. <i>alternativas.</i></h2>
+            <p>No competimos con asistentes cloud ni plugins de editor. Somos una categoría diferente: agente local autónomo.</p>
         </div>
         <div class="compare-grid rv">
             <div class="compare-col not-yola">
-                <h3><span style="color:var(--text-dim)">✕</span> ChatGPT / Copilot / Cursor</h3>
+                <h3><span style="color:var(--text-dim)">✕</span> Cursor / ChatGPT / Copilot</h3>
                 <ul>
-                    <li><span class="icon">☁</span> Tus datos viajan a servidores remotos</li>
-                    <li><span class="icon">👁</span> No sabe qué hay en tu máquina completa</li>
-                    <li><span class="icon">⏱</span> Solo existe cuando lo abrís</li>
-                    <li><span class="icon">🔁</span> Empezás de cero cada vez</li>
-                    <li><span class="icon">🧩</span> Solo hace una cosa: sugiere código</li>
-                    <li><span class="icon">🏢</span> Lo controla una corporación</li>
-                    <li><span class="icon">💰</span> $20/mes para acceder a funcionalidad completa</li>
-                    <li><span class="icon">🔒</span> Pueden bannear tu cuenta cuando quieran</li>
+                    <li><span class="icon">☁</span> Requieren conexión a servidores remotos</li>
+                    <li><span class="icon">👁</span> No ven tu sistema completo — solo el editor o el chat</li>
+                    <li><span class="icon">⏱</span> Existen solo cuando los abrís (sin daemon persistente)</li>
+                    <li><span class="icon">🔁</span> Sin memoria entre sesiones (o memoria limitada a chat)</li>
+                    <li><span class="icon">🧩</span> Propietarios · Código cerrado · Vendor lock-in</li>
+                    <li><span class="icon">💰</span> Suscripción mensual ($10–20/mes)</li>
+                    <li><span class="icon">🔒</span> Sin acceso a tools de sistema (edit, bash, filesystem)</li>
+                    <li><span class="icon">🏢</span> Controlados por corporaciones (OpenAI, Microsoft, Anthropic)</li>
                 </ul>
             </div>
             <div class="compare-col yola-col">
                 <h3><span style="color:var(--gold-l)">★</span> YOLA</h3>
                 <ul>
-                    <li><span class="icon">🏠</span> <strong>Cero datos salen de tu máquina</strong></li>
-                    <li><span class="icon">👁</span> <strong>Ve tu sistema completo</strong>: archivos, memoria, GPU</li>
-                    <li><span class="icon">🟢</span> <strong>Siempre activa</strong>, incluso cuando no estás</li>
-                    <li><span class="icon">📈</span> <strong>Aprende de cada sesión</strong> y nunca olvida</li>
-                    <li><span class="icon">🧬</span> <strong>6 habilidades</strong>: piensa, siente, recuerda, repara, anticipa, habla</li>
-                    <li><span class="icon">🌍</span> <strong>Open-core</strong>, construido por la comunidad — no open source a menos que la comunidad llegue a un consenso</li>
-                    <li><span class="icon">🆓</span> <strong>Siempre gratis</strong>. No hay suscripción.</li>
-                    <li><span class="icon">🔓</span> <strong>Es tuyo</strong>. No pueden quitártela.</li>
+                    <li><span class="icon">🏠</span> <strong>100% local</strong> — nada sale de tu máquina</li>
+                    <li><span class="icon">👁</span> <strong>Acceso directo al filesystem</strong> — lee y modifica archivos reales</li>
+                    <li><span class="icon">⚙️</span> <strong>Motor autónomo</strong> con loop de decisión y tools de sistema</li>
+                    <li><span class="icon">📈</span> <strong>Memoria persistente</strong> via RAG + SQLite — aprende de cada sesión</li>
+                    <li><span class="icon">🧬</span> <strong>Multi-modelo</strong> (20+ providers) — sin vendor lock-in</li>
+                    <li><span class="icon">🌍</span> <strong>Open source</strong> (MIT) — código en GitHub</li>
+                    <li><span class="icon">🆓</span> <strong>Siempre gratis</strong> — sin suscripción, sin tiers</li>
+                    <li><span class="icon">🔓</span> <strong>Tu control</strong> — corre en tu hardware, nadie puede quitártelo</li>
                 </ul>
             </div>
         </div>
@@ -555,8 +555,8 @@
 <div class="z">
 <section class="voices rv">
     <div class="section-tag" style="justify-content:center"><span style="color:var(--gold-l);font-family:'DM Mono',monospace;font-size:0.75rem;letter-spacing:.25em;text-transform:uppercase">Lo que esto significa</span></div>
-    <p class="voice-big">"Si mañana Google decide cobrar por Gemini, o OpenAI cierra, o cualquier corporación apaga sus servidores... <strong>YOLA sigue funcionando en tu máquina</strong>. Porque YOLA nunca dependió de ellos."</p>
-    <p class="voice-attr">Filosofía de diseño · <a href="https://github.com/SayriDevs" target="_blank" style="color:var(--gold-l);text-decoration:none">SayriDevs</a>, Lima 2026</p>
+    <p class="voice-big">"YOLA es <strong>local por arquitectura, no por preferencia</strong>. El filesystem es la fuente de verdad, el motor de agente decide sin depender de un cloud, y cada capa está diseñada para operar sin conexión. No es filosofía — es ingeniería."</p>
+    <p class="voice-attr">Principio de diseño · <a href="https://github.com/SayriDevs" target="_blank" style="color:var(--gold-l);text-decoration:none">SayriDevs</a>, Lima 2026</p>
 </section>
 </div>
 
@@ -564,10 +564,10 @@
 <div class="z">
 <section class="guardian" id="guardian">
     <div class="guardian-aura"></div>
-    <h2>Unite antes de que<br><i>todo el mundo se entere.</i></h2>
-    <p>YOLA es gratuita. Pero los que creyeron primero obtienen algo que el dinero no puede comprar: participación real en el proyecto. Si algún día YOLA se vuelve masiva, tú ya estás adentro.</p>
+    <h2>Explorá el código<br><i>y construí con nosotros.</i></h2>
+    <p>YOLA es open source (MIT). Podés leer el código, contribuir, forkear, o simplemente entender cómo funciona un agente local de IA por dentro. El repositorio está en GitHub, vivo y en desarrollo activo.</p>
     <div class="cta-row">
-        <a href="countdown.html" class="btn btn-gold">Origin ×3.75 →</a>
+        <a href="https://github.com/SayriDevs" target="_blank" rel="noopener" class="btn btn-gold">GitHub →</a>
         <a href="index.html" class="btn btn-outline">Conocer el manifiesto</a>
     </div>
 </section>
@@ -576,7 +576,7 @@
 <!-- ═══════════════ SHARE ═══════════════ -->
 <div class="share-bar z">
     <span class="share-btn" onclick="copyLink()">🔗 Copiar enlace</span>
-    <a class="share-btn" href="https://twitter.com/intent/tweet?text=Hay%20una%20IA%20que%20vive%20en%20tu%20m%C3%A1quina%2C%20piensa%20sola%20y%20nunca%20toca%20tus%20datos.%20Se%20llama%20YOLA%20%F0%9F%A7%A0%F0%9F%94%B5" target="_blank">𝕏 Tweetear</a>
+    <a class="share-btn" href="https://twitter.com/intent/tweet?text=Arquitectura%20de%20YOLA%3A%20un%20agente%20local%20de%20IA%20con%20filesystem%20como%20verdad%20absoluta%2C%20motor%20aut%C3%B3nomo%20y%2020%2B%20providers%20LLM%20%E2%80%94%20conoc%C3%A9%20el%20stack%20t%C3%A9cnico%200datos.%20Se%20llama%20YOLA%20%F0%9F%A7%A0%F0%9F%94%B5" target="_blank">𝕏 Tweetear</a>
     <a class="share-btn" href="https://wa.me/?text=Encontr%C3%A9%20una%20IA%20soberana%20que%20vive%20en%20tu%20m%C3%A1quina.%20Sin%20nube%2C%20sin%20permisos%2C%20sin%20corporaciones.%20Se%20llama%20YOLA" target="_blank">💬 WhatsApp</a>
     <span class="share-btn" onclick="shareNative()">📤 Compartir</span>
     <a class="share-btn" href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" style="border-color:rgba(37,211,102,.3);color:#25d366"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/></svg> Comunidad</a>
@@ -631,8 +631,8 @@ function copyLink() {
 function shareNative() {
     if (navigator.share) {
         navigator.share({
-            title: 'YOLA — Lo que hay dentro de una IA que piensa sola',
-            text: 'Un organismo digital con sistema nervioso, memoria y arco reflejo. Vivo en tu máquina.',
+            title: 'YOLA — Arquitectura de un agente local de IA',
+            text: 'Arquitectura técnica de YOLA: filesystem, motor de agente, 20+ providers LLM, desktop shell en Tauri, server API. Stack: Bun, TypeScript, Solid.js, Effect TS.',
             url: window.location.href
         }).catch(() => {});
     }

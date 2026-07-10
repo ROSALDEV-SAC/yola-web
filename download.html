@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YOLA — Descargar · Tu IA, tu máquina</title>
-    <meta name="description" content="Descarga YOLA gratis. Windows, Linux o Mac. Sin suscripciones. Sin datos a la nube. Solo tú y tu IA soberana.">
+    <meta name="description" content="Descarga YOLA gratis para Linux. Sin suscripciones. Sin datos a la nube. Solo tú y tu IA soberana.">
     <meta property="og:title" content="YOLA — Descargar gratis">
     <meta property="og:description" content="La IA que vive en tu máquina. Sin nube. Sin permisos. Sin corporaciones.">
     <meta name="theme-color" content="#050505">
@@ -190,20 +190,20 @@
         <div class="plat-card" id="plat-linux">
             <span class="plat-icon">🐧</span>
             <div class="plat-name">Linux</div>
-            <div class="plat-format">Debian / Ubuntu · .deb</div>
+            <div class="plat-format">x86_64 · AppImage + Binary</div>
             <a href="#" class="plat-link" onclick="downloadPlatform('linux');return false">Descargar para Linux →</a>
         </div>
-        <div class="plat-card" id="plat-windows">
+        <div class="plat-card" id="plat-windows" style="opacity:.5;pointer-events:none">
             <span class="plat-icon">🪟</span>
             <div class="plat-name">Windows</div>
-            <div class="plat-format">Windows 10/11 · .exe</div>
-            <a href="#" class="plat-link" onclick="downloadPlatform('windows');return false">Descargar para Windows →</a>
+            <div class="plat-format">❌ Próximamente</div>
+            <a href="#" class="plat-link" style="color:var(--text-dim)">No disponible aún</a>
         </div>
-        <div class="plat-card" id="plat-mac">
+        <div class="plat-card" id="plat-mac" style="opacity:.5;pointer-events:none">
             <span class="plat-icon">🍎</span>
             <div class="plat-name">macOS</div>
-            <div class="plat-format">Intel + Apple Silicon · .dmg</div>
-            <a href="#" class="plat-link" onclick="downloadPlatform('mac');return false">Descargar para Mac →</a>
+            <div class="plat-format">❌ Próximamente</div>
+            <a href="#" class="plat-link" style="color:var(--text-dim)">No disponible aún</a>
         </div>
     </div>
 </section>
@@ -243,6 +243,13 @@
                     <p>No necesitas root ni admin. YOLA corre en tu espacio de usuario.</p>
                 </div>
             </div>
+            <div class="req-item">
+                <span class="req-icon">🔑</span>
+                <div class="req-text">
+                    <h4>API key de un LLM provider</h4>
+                    <p>Necesitás una API key de OpenAI, Anthropic, o cualquier provider compatible. O usá <a href="https://ollama.com" target="_blank" style="color:var(--gold);text-decoration:underline">Ollama</a> localmente — sin API key, sin internet.</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -264,7 +271,7 @@
             <div class="step-num">2</div>
             <div class="step-content">
                 <h3>Ejecutalo</h3>
-                <p>En Linux: <code>sudo dpkg -i yola-os.deb</code>. En Windows: doble click. En Mac: arrastrá a Applications. Listo.</p>
+                <p>En Linux: <code>chmod +x YOLA_0.1.0_amd64.AppImage &amp;&amp; ./YOLA_0.1.0_amd64.AppImage</code>. Windows y macOS: próximamente. Listo.</p>
             </div>
         </div>
         <div class="step">
@@ -330,9 +337,9 @@
 <script>
 // ─── OS Detection ───────────────────────────────────────────
 var osData = {
-    linux:   { icon:'🐧', name:'<b>Linux</b>',  format:'Debian / Ubuntu · .deb',  size:'~145 MB', btn:'Descargar para Linux' },
-    windows: { icon:'🪟', name:'<b>Windows</b>', format:'Windows 10/11 · .exe',    size:'~130 MB', btn:'Descargar para Windows' },
-    mac:     { icon:'🍎', name:'<b>macOS</b>',   format:'Intel + Apple Silicon · .dmg', size:'~120 MB', btn:'Descargar para Mac' },
+    linux:   { icon:'🐧', name:'<b>Linux</b>',  format:'x86_64 · AppImage + Binary',  size:'~207 MB', btn:'Descargar para Linux' },
+    windows: { icon:'🪟', name:'<b>Windows</b>', format:'❌ Próximamente',    size:'', btn:'No disponible aún' },
+    mac:     { icon:'🍎', name:'<b>macOS</b>',   format:'❌ Próximamente', size:'', btn:'No disponible aún' },
     unknown: { icon:'💻', name:'Tu <b>sistema</b>', format:'Sistema operativo',   size:'',         btn:'Ver opciones de descarga' }
 };
 
@@ -365,9 +372,9 @@ if (platCard) {
 
 // Show alt link for other platforms
 var altHTML = '';
-if (detectedOS === 'linux') altHTML = '¿Usas Windows? <a href="#" onclick="downloadPlatform(\'windows\');return false">Descargar para Windows</a>';
-else if (detectedOS === 'windows') altHTML = '¿Usas Linux? <a href="#" onclick="downloadPlatform(\'linux\');return false">Descargar para Linux</a>';
-else if (detectedOS === 'mac') altHTML = '¿Usas Windows? <a href="#" onclick="downloadPlatform(\'windows\');return false">Descargar para Windows</a>';
+if (detectedOS === 'linux') altHTML = '¿Otro sistema? Windows y macOS <b>próximamente</b>.';
+else if (detectedOS === 'windows') altHTML = 'Windows aún no está disponible. <a href="#" onclick="downloadPlatform(\'linux\');return false">Descargar para Linux →</a>';
+else if (detectedOS === 'mac') altHTML = 'macOS aún no está disponible. <a href="#" onclick="downloadPlatform(\'linux\');return false">Descargar para Linux →</a>';
 else altHTML = 'Elige tu plataforma arriba ↓';
 document.getElementById('detectAlt').innerHTML = altHTML;
 
@@ -376,17 +383,16 @@ function downloadOS() {
 }
 
 function downloadPlatform(os) {
-    // TODO: Replace with real release URLs when builds are ready
     var urls = {
-        linux:   'https://github.com/sayridevs/yola-clear/releases/latest/download/yola-os-linux.deb',
-        windows: 'https://github.com/sayridevs/yola-clear/releases/latest/download/yola-os-windows.exe',
-        mac:     'https://github.com/sayridevs/yola-clear/releases/latest/download/yola-os-macos.dmg'
+        linux:   'https://github.com/SayriDevs/yolabysayri/releases',
+        windows: '',
+        mac:     ''
     };
     var url = urls[os];
     if (url) {
         window.location.href = url;
     } else {
-        alert('La descarga para este sistema aún no está disponible. ¡Próximamente!');
+        alert('Este sistema aún no está soportado. ¡Próximamente!');
     }
 }
 

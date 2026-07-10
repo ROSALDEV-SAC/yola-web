@@ -129,8 +129,8 @@
     <div class="hero-inner">
         <div>
             <div class="eyebrow">YOLA DEV · Software empresarial</div>
-            <h1 style="font-size:clamp(1.5rem, 3.5vw, 2.8rem)">Productos de IA<br><i>que resuelven</i><br>problemas reales.</h1>
-            <p class="hero-p">Cada producto está construido por YOLA para resolver un problema concreto del mundo empresarial. <strong>Sin bloatware. Lo que necesitas, nada más.</strong></p>
+            <h1 style="font-size:clamp(1.5rem, 3.5vw, 2.8rem)">Software de IA<br><i>creado por</i><br>inteligencia artificial.</h1>
+            <p class="hero-p">YOLA no es solo un motor — es un ecosistema que genera productos funcionales. <strong>Software de IA creado por IA.</strong></p>
             <div style="display:flex;justify-content:center"><a href="#catalogo" class="btn-primary">Ver productos →</a></div>
         </div>
 
@@ -143,15 +143,15 @@
 <section class="sec">
     <div class="sec-tag">Catálogo</div>
     <h2 class="rv">Productos <i>disponibles</i></h2>
-    <p class="rv">Software empaquetado, listo para implementar en tu empresa.</p>
+    <p class="rv">Tres productos en producción, generados íntegramente por YOLA a partir de instrucciones en lenguaje natural.</p>
     <div class="prods rv">
         <!-- YOLA AVISA -->
         <div class="prod">
             <span class="prod-badge red">📱 Android · APK</span>
             <h3>YOLA AVISA</h3>
-            <div class="prod-desc">App que captura notificaciones de Yape y apps financieras. Extrae montos, remitentes y fechas. Envía datos estructurados a tu servidor.</div>
-            <div class="prod-meta">NotificationListener · API endpoint</div>
-            <span class="prod-status live">🟢 En producción</span>
+            <div class="prod-desc">App Android que captura notificaciones de apps trackeadas. Extrae montos, remitentes y fechas. Envía datos estructurados a un webhook o Google Sheets.</div>
+            <div class="prod-meta">Kotlin · Room SQLite · Material 3</div>
+            <span class="prod-status live">🟢 En producción (v1)</span>
             <div class="dl-row">
                 <a href="downloads/yolaavisa.apk" class="dl-btn apk" download>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -163,8 +163,8 @@
         <div class="prod">
             <span class="prod-badge cyan">🖥 Multiplataforma · Binario</span>
             <h3>YOLA VIGILA</h3>
-            <div class="prod-desc">Servidor webhook que recibe las notificaciones de YOLA AVISA y las muestra en un dashboard web. No necesita Node.js ni instalación.</div>
-            <div class="prod-meta">Dashboard · API · 0 dependencias</div>
+            <div class="prod-desc">Receptor webhook que recibe POST de notificaciones de YOLA AVISA y las muestra en un dashboard en tiempo real.</div>
+            <div class="prod-meta">Node.js · SQLite · HTML/CSS vanilla</div>
             <span class="prod-status live">🟢 En producción</span>
             <div class="dl-row">
                 <a href="downloads/yolavigila/yolavigila-linux-x64" class="dl-btn linux" download>
@@ -186,19 +186,11 @@
             </div>
             <span class="dl-label">Extraer y ejecutar. Sin instalación.</span>
         </div>
-        <!-- YOLA COBRA -->
-        <div class="prod">
-            <span class="prod-badge gold">⚙️ Web · CRM</span>
-            <h3>YOLA COBRA</h3>
-            <div class="prod-desc">Sistema de gestión de cobranza con asignación de casos, seguimiento de pagos y comunicación automatizada con deudores.</div>
-            <div class="prod-meta">CRM · Automatización · Seguimiento</div>
-            <span class="prod-status dev">🔵 En desarrollo</span>
-        </div>
         <!-- YOLA PANEL -->
         <div class="prod">
             <span class="prod-badge blue">🌐 Web · GitHub Pages</span>
             <h3>YOLA PANEL</h3>
-            <div class="prod-desc">Dashboard de solo lectura que convierte cualquier Google Sheet de YolaAvisa en un análisis financiero completo. Tabla paginada, KPIs, gráficos avanzados y segmentación de montos.</div>
+            <div class="prod-desc">Dashboard de solo lectura que lee datos desde Google Sheets. KPIs, gráficos dinámicos, tabla filtrable y segmentación de montos.</div>
             <div class="prod-meta">Next.js · Google Sheets · CSV</div>
             <span class="prod-status live">🟢 En producción</span>
             <div class="dl-row">
@@ -208,31 +200,28 @@
                 </a>
             </div>
         </div>
-        <!-- YOLA DOCS -->
-        <div class="prod">
-            <span class="prod-badge purple">📄 Web · Generador</span>
-            <h3>YOLA DOCS</h3>
-            <div class="prod-desc">Generación automatizada de documentos legales, contratos, cartas de cobranza y reportes financieros con datos en tiempo real.</div>
-            <div class="prod-meta">PDF · Plantillas · API</div>
-            <span class="prod-status soon">⚪ Próximamente</span>
-        </div>
-        <!-- YOLA DATA -->
-        <div class="prod">
-            <span class="prod-badge green">📊 Web · Analytics</span>
-            <h3>YOLA DATA</h3>
-            <div class="prod-desc">Plataforma de analítica financiera que cruza datos de múltiples fuentes. Visualizaciones, predicciones y exportación a ERP.</div>
-            <div class="prod-meta">BI · Dashboards · Export</div>
-            <span class="prod-status soon">⚪ Próximamente</span>
-        </div>
-        <!-- Placeholder -->
-        <div class="prod">
-            <span class="prod-badge" style="background:rgba(255,255,255,.03);color:var(--text-dim);border:1px solid var(--border2)">🔮 Próximo</span>
-            <h3>YOLA ___</h3>
-            <div class="prod-desc" style="color:var(--text-dim);opacity:.5">Más productos en camino. YOLA sigue construyendo soluciones para tu negocio.</div>
-            <div class="prod-meta">TBD</div>
-            <span class="prod-status soon">⚪ Próximamente</span>
-        </div>
     </div>
+
+    <!-- PIPELINE -->
+    <div class="rv" style="margin-top:4rem;padding:2rem;border:1px solid var(--border2);border-radius:12px;background:rgba(255,255,255,.02)">
+        <h3 style="font-family:'Syne',sans-serif;font-size:1rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);margin-bottom:1.5rem">Pipeline completo</h3>
+        <pre style="font-family:'DM Mono',monospace;font-size:.85rem;color:var(--text-mid);line-height:1.7;white-space:pre-wrap;margin:0;padding:0">YolaAvisa (Android)
+  → Notificaciones raw
+  → Webhook HTTP POST
+  → YolaVigila (server local) → Dashboard
+
+  → Google Sheets (via Apps Script)
+  → YolaPanel (dashboard web)</pre>
+    </div>
+
+    <!-- VALUE PROPOSITION -->
+    <div class="rv" style="margin-top:2rem;padding:2.5rem;border:1px solid var(--gold);border-radius:12px;background:rgba(212,175,55,.03);text-align:center">
+        <p style="color:var(--text);font-size:1.1rem;line-height:1.7;max-width:600px;margin:0 auto">
+            Todo esto fue creado por YOLA. Un humano dio instrucciones en lenguaje natural y la IA generó el código completo de 3 productos funcionales.<br>
+            <strong style="color:var(--gold)">Eso es YOLA.</strong>
+        </p>
+    </div>
+
 </section>
 </div>
 
