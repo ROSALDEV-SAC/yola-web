@@ -3,730 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOLA — Arquitectura técnica de un agente local de IA</title>
-    <meta name="description" content="YOLA es un agente de IA local con motor de decisión autónomo, tools de sistema, y arquitectura multi-capa. Descubre su stack técnico: Bun, TypeScript, Tauri, Solid.js, Effect TS.">
-    <meta property="og:title" content="YOLA — Arquitectura de un agente local de IA">
-    <meta property="og:description" content="Arquitectura real de YOLA: filesystem como fuente de verdad, motor de agente con 20+ providers LLM, desktop shell en Tauri, y server API.">
-    <meta name="theme-color" content="#050505">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'none';">
+    <title>YOLA — Arquitectura · Stack técnico del ecosistema</title>
+    <meta name="description" content="Arquitectura real del ecosistema YOLA: YOLA Engine en Go, YolaAvisa en Kotlin, YolaPanel en Next.js, YolaVigila en Node.js. Principios: soberanía, mínimo, local-first.">
+    <meta property="og:title" content="YOLA — Arquitectura del ecosistema">
+    <meta property="og:description" content="Stack técnico multi-lenguaje, diseño modular, 100% local. Sin nube. Sin dependencias externas.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yolabysayri.com/tech.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
     <link rel="stylesheet" href="css/base.css">
     <style>
+        /* ─── HERO ──────────────────────────── */
+        .hero-tech { padding: 8rem 1.5rem 4rem; text-align: center; position: relative; overflow: hidden; }
+        .hero-tech h1 { font-size: clamp(2.5rem,5vw,4rem); font-weight:800; letter-spacing:-.03em; line-height:1.05; margin-bottom:.8rem; }
+        .hero-tech h1 span { color: var(--accent); }
+        .hero-tech .sub { font-size:1.125rem; color:var(--text-mid); max-width:560px; margin:0 auto 2rem; line-height:1.8; }
+        .hero-tech .sub strong { color:var(--text); }
 
+        /* ─── DIAGRAM ───────────────────────── */
+        .arch { padding:4rem 1.5rem; max-width:900px; margin:0 auto; }
+        .arch h2 { text-align:center; font-size:clamp(1.5rem,3vw,2.25rem); font-weight:800; letter-spacing:-.02em; margin-bottom:.5rem; }
+        .arch h2 span { color:var(--accent); }
+        .arch .sub { text-align:center; color:var(--text-mid); margin-bottom:2.5rem; font-size:1rem; }
+        .arch-diagram { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2rem; overflow-x:auto; }
+        .arch-diagram pre { font-family:var(--font-mono); font-size:.75rem; line-height:1.55; color:var(--text-mid); white-space:pre; }
+        .arch-diagram pre .hl { color:var(--accent); }
+        .arch-diagram pre .gl { color:var(--gold); }
+        .arch-diagram pre .gn { color:var(--green); }
+        .arch-diagram pre .cy { color:var(--cyan); }
+        .arch-diagram pre .dim { color:var(--text-dim); }
 
-        /* ─── CURSOR ──────────────────────────────── */
+        /* ─── STACK GRID ────────────────────── */
+        .stack { padding:4rem 1.5rem 6rem; max-width:1100px; margin:0 auto; }
+        .stack h2 { text-align:center; font-size:clamp(1.5rem,3vw,2.25rem); font-weight:800; letter-spacing:-.02em; margin-bottom:.5rem; }
+        .stack h2 span { color:var(--accent); }
+        .section-sub { text-align:center; color:var(--text-mid); margin-bottom:3rem; font-size:1rem; }
+        .stack-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
+        .stack-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2rem; position:relative; overflow:hidden; transition:border-color var(--transition), transform var(--transition); }
+        .stack-card:hover { border-color:var(--border-light); transform:translateY(-2px); }
+        .stack-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--accent),var(--accent-hover)); opacity:.4; }
+        .stack-icon { display:flex; align-items:center; justify-content:center; width:40px; height:40px; border:1px solid var(--border); border-radius:var(--radius-sm); margin-bottom:1rem; }
+        .stack-icon svg { width:20px; height:20px; stroke:var(--accent2); }
+        .stack-name { font-size:1.125rem; font-weight:700; margin-bottom:.2rem; }
+        .stack-sub { font-family:var(--font-mono); font-size:.65rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:.08em; margin-bottom:.8rem; }
+        .stack-desc { font-size:.875rem; color:var(--text-mid); line-height:1.7; margin-bottom:1.2rem; }
+        .stack-techs { display:flex; flex-wrap:wrap; gap:.4rem; }
+        .stack-tech { font-family:var(--font-mono); font-size:.6rem; font-weight:500; padding:.2rem .5rem; border-radius:var(--radius-sm); background:rgba(255,255,255,.04); color:var(--text-dim); border:1px solid var(--border); }
 
-        /* ─── NAV ──────────────────────────────── */
+        /* ─── PRINCIPLES ────────────────────── */
+        .principles { padding:5rem 1.5rem; max-width:1100px; margin:0 auto; }
+        .principles h2 { text-align:center; font-size:clamp(1.5rem,3vw,2.25rem); font-weight:800; letter-spacing:-.02em; margin-bottom:.5rem; }
+        .principles h2 span { color:var(--accent); }
+        .principles .sub { text-align:center; color:var(--text-mid); margin-bottom:3rem; font-size:1rem; }
+        .princ-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
+        .princ-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2rem; transition:border-color var(--transition), transform var(--transition); }
+        .princ-card:hover { border-color:var(--border-light); transform:translateY(-2px); }
+        .princ-num { font-family:var(--font-mono); font-size:.65rem; font-weight:600; color:var(--accent); letter-spacing:.04em; margin-bottom:.5rem; }
+        .princ-name { font-size:1.125rem; font-weight:700; margin-bottom:.4rem; }
+        .princ-desc { font-size:.875rem; color:var(--text-mid); line-height:1.7; }
 
-        /* ─── SECTIONS ─────────────────────────── */
+        /* ─── DIVIDER ───────────────────────── */
+        .section-div { display:flex; justify-content:center; padding:2rem 0; opacity:.4; }
+        .section-div-icon { width:32px; height:32px; border:1px solid var(--border); border-radius:50%; display:flex; align-items:center; justify-content:center; }
+        .section-div-icon svg { width:16px; height:16px; stroke:var(--text-dim); fill:none; stroke-width:2; }
 
-        /* ─── HERO ─────────────────────────────── */
-        .hero-aura2{position:absolute;width:400px;height:400px;background:radial-gradient(ellipse,rgba(62,184,192,.04) 0%,transparent 60%);bottom:10%;right:15%;pointer-events:none}
-        .hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+        /* ─── CTA ───────────────────────────── */
+        .tech-cta { padding:6rem 1.5rem; max-width:700px; margin:0 auto; text-align:center; }
+        .tech-cta h3 { font-size:clamp(1.5rem,3vw,2.25rem); font-weight:800; letter-spacing:-.02em; margin-bottom:.8rem; }
+        .tech-cta h3 span { color:var(--accent); }
+        .tech-cta p { color:var(--text-mid); line-height:1.8; margin-bottom:2rem; }
 
-        /* ─── MARQUEE ──────────────────────────── */
-        .marquee{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.2rem 0;overflow:hidden}
-        .marquee-inner{display:flex;gap:4rem;animation:scroll-x 30s linear infinite;white-space:nowrap;align-items:center}
-        @keyframes scroll-x{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-        .mq{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:1rem}
-        .mq::after{content:'·';color:var(--gold)}
-
-        /* ─── BIG STATEMENT ────────────────────── */
-        .statement{padding:8rem 2rem;text-align:center;max-width:900px;margin:0 auto}
-        .statement h2{font-size:clamp(2.5rem, 5.625vw, 4.75rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:2rem}
-        .statement h2 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
-        .statement p{font-size:1.312rem;color:var(--text-mid);line-height:1.9;max-width:600px;margin:0 auto}
-
-        /* ─── ORGANISM SECTION ─────────────────── */
-        .organism{padding:6rem 2rem;max-width:1000px;margin:0 auto}
-        .org-title{text-align:center;margin-bottom:4rem}
-        .org-title h2{font-size:clamp(2.25rem, 4.375vw, 3.75rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.8rem}
-        .org-title h2 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
-        .org-title p{font-size:1.188rem;color:var(--text-mid);line-height:1.8;max-width:560px;margin:0 auto}
-
-        .body-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
-        .body-card{background:var(--s2);padding:2.5rem 2rem;transition:background .3s;position:relative;overflow:hidden}
-        .body-card:hover{background:var(--s3)}
-        .body-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity .3s}
-        .body-card:hover::before{opacity:1}
-        .body-card.brain::before{background:var(--gold-l)}
-        .body-card.nervous::before{background:var(--cyan)}
-        .body-card.heart::before{background:var(--green)}
-        .body-card.reflex::before{background:var(--red)}
-        .body-card.memory::before{background:var(--purple)}
-        .body-card.bones::before{background:var(--text-dim)}
-        .bc-icon{font-size:2.5rem;margin-bottom:1.2rem;display:block}
-        .bc-label{font-family:'DM Mono',monospace;font-size:0.625rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.6rem}
-        .bc-name{font-size:1.375rem;font-weight:800;margin-bottom:.6rem}
-        .bc-desc{font-size:1rem;color:var(--text-dim);line-height:1.8;font-weight:400}
-        .bc-desc strong{color:var(--text-mid);font-weight:600}
-        .bc-quote{margin-top:1rem;padding:.8rem 1rem;background:var(--bg);border-left:2px solid var(--gold);font-family:'DM Mono',monospace;font-size:0.812rem;color:var(--text-mid);line-height:1.6}
-
-        /* ─── STATS ────────────────────────────── */
-        .stats-section{background:var(--s1);padding:5rem 2rem}
-        .stats-inner{max-width:1000px;margin:0 auto}
-        .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin:3rem 0}
-        .stat{background:var(--s2);padding:2rem;text-align:center;transition:background .2s}
-        .stat:hover{background:var(--s3)}
-        .stat-num{font-size:3.5rem;font-weight:800;letter-spacing:-.04em;display:block;line-height:1}
-        .stat-num.gold{color:var(--gold-l)}
-        .stat-num.cyan{color:var(--cyan)}
-        .stat-num.green{color:var(--green)}
-        .stat-num.purple{color:var(--purple)}
-        .stat-label{font-family:'DM Mono',monospace;font-size:0.688rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;margin-top:.6rem;display:block}
-        .stat-desc{font-size:0.9rem;color:var(--text-mid);margin-top:.4rem;line-height:1.5}
-
-        /* ─── FLOW ─────────────────────────────── */
-        .flow{padding:6rem 2rem;max-width:1000px;margin:0 auto}
-        .flow-steps{position:relative;margin:3rem 0;padding-left:2rem}
-        .flow-steps::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:1px;background:var(--border2)}
-        .fstep{display:flex;gap:1.5rem;padding:1.8rem 0;position:relative}
-        .fstep:last-child{padding-bottom:0}
-        .fstep-dot{width:28px;height:28px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--bg);position:relative;z-index:1}
-        .fstep-dot.active{border-color:var(--gold);background:var(--gold-dim)}
-        .fstep-dot.active::after{content:'';width:8px;height:8px;background:var(--gold-l);border-radius:50%;animation:blink 1.5s infinite}
-        .fstep-dot span{font-family:'DM Mono',monospace;font-size:0.625rem;color:var(--text-dim)}
-        .fstep-content h3{font-size:1.125rem;font-weight:700;margin-bottom:.3rem;display:flex;align-items:center;gap:.5rem}
-        .fstep-content p{font-size:0.975rem;color:var(--text-dim);line-height:1.8;font-weight:400}
-        .fstep-content .fstep-lang{font-family:'DM Mono',monospace;font-size:0.688rem;color:var(--cyan);background:var(--cyan-dim);padding:.15rem .5rem;display:inline-block;margin-top:.4rem;border:1px solid rgba(62,184,192,.1)}
-
-        /* ─── COMPARISON ───────────────────────── */
-        .compare{background:var(--s1);padding:6rem 2rem}
-        .compare-inner{max-width:1000px;margin:0 auto}
-        .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin:3rem 0}
-        .compare-col{background:var(--s2);padding:2rem}
-        .compare-col h3{font-size:1.062rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
-        .compare-col ul{list-style:none;padding:0}
-        .compare-col li{font-size:0.975rem;color:var(--text-dim);line-height:1.8;padding:.4rem 0;border-bottom:1px solid var(--border);display:flex;align-items:baseline;gap:.6rem}
-        .compare-col li:last-child{border-bottom:none}
-        .compare-col li .icon{font-size:0.875rem;flex-shrink:0}
-        .compare-col.not-yola li{color:var(--text-dim)}
-        .compare-col.yola-col{border-left:2px solid var(--gold)}
-        .compare-col.yola-col li{color:var(--text-mid)}
-        .compare-col.yola-col li strong{color:var(--text);font-weight:600}
-
-        /* ─── TESTIMONIAL STYLE ────────────────── */
-        .voices{padding:6rem 2rem;max-width:800px;margin:0 auto;text-align:center}
-        .voice-big{font-size:clamp(1.625rem, 3.125vw, 2.25rem);font-weight:700;line-height:1.5;color:var(--text-mid);margin:2rem 0;font-style:italic;max-width:650px;margin-left:auto;margin-right:auto}
-        .voice-big strong{color:var(--text);font-style:normal}
-        .voice-attr{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.15em}
-
-        /* ─── GUARDIAN CTA ─────────────────────── */
-        .guardian{padding:8rem 2rem;text-align:center;position:relative;overflow:hidden}
-        .guardian-aura{position:absolute;width:600px;height:400px;background:radial-gradient(ellipse,rgba(184,147,42,.07) 0%,transparent 60%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
-        .guardian h2{font-size:clamp(2.5rem, 5vw, 4.375rem);font-weight:800;letter-spacing:-.03em;margin-bottom:1rem;position:relative}
-        .guardian h2 i{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold-l)}
-        .guardian p{font-size:1.25rem;color:var(--text-mid);line-height:1.8;max-width:500px;margin:0 auto 2.5rem;position:relative}
-        .guardian .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative}
-
-        /* ─── SHARE BAR ────────────────────────── */
-        .share-bar{border-top:1px solid var(--border);padding:1.5rem 2rem;display:flex;justify-content:center;flex-wrap:wrap;gap:.8rem;position:relative;z-index:2}
-        .share-btn{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--text-dim);text-decoration:none;padding:.5rem 1rem;border:1px solid var(--border);transition:all .2s;display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap}
-        .share-btn:hover{border-color:var(--gold);color:var(--gold-l)}
-
-        /* ─── FOOTER ───────────────────────────── */
-
-        /* ─── ANIMATIONS ───────────────────────── */
-        .rvd1{transition-delay:.1s}.rvd2{transition-delay:.2s}.rvd3{transition-delay:.3s}
-
-        /* ─── SCROLL PROGRESS BAR ──────────────── */
-
-        /* ─── SCROLL INDICATOR (HERO) ──────────── */
-        .scroll-hint{position:absolute;bottom:2.5rem;right:3rem;display:flex;flex-direction:column;align-items:center;gap:.75rem;z-index:10;cursor:pointer;transition:transform .2s}
-        .scroll-hint:hover{transform:translateY(-3px)}
-        .scroll-hint-text{font-family:'DM Mono',monospace;font-size:0.875rem;color:var(--gold-l);letter-spacing:.18em;text-transform:uppercase;animation:fadePulse 2.5s ease-in-out infinite;font-weight:500;text-shadow:0 0 20px rgba(184,147,42,.15)}
-        .scroll-hint-arrow{width:26px;height:40px;border:2px solid var(--gold);border-radius:13px;display:flex;justify-content:center;padding-top:8px;background:rgba(184,147,42,.04);box-shadow:0 0 20px rgba(184,147,42,.08)}
-        .scroll-hint-dot{width:4px;height:10px;background:var(--gold-l);border-radius:4px;animation:scrollBounce 2s ease-in-out infinite}
-        @keyframes scrollBounce{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(10px);opacity:.3}}
-        @keyframes fadePulse{0%,100%{opacity:.6}50%{opacity:1}}
-        .section-div{display:flex;justify-content:center;padding:3rem 0;position:relative}
-        .section-div::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:var(--border)}
-        .section-div-icon{width:28px;height:28px;background:var(--bg);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;transition:all .3s}
-        .section-div-icon:hover{border-color:var(--gold);transform:rotate(45deg)}
-        .section-div-icon svg{width:10px;height:10px;stroke:var(--text-dim);fill:none;stroke-width:1.5;transition:stroke .3s}
-        .section-div-icon:hover svg{stroke:var(--gold-l)}
-
-        /* ─── STAGGERED CARD REVEAL ────────────── */
-        .body-card.rv{transition:opacity .5s ease,transform .5s ease}
-        .body-card:nth-child(1).rv{transition-delay:.05s}
-        .body-card:nth-child(2).rv{transition-delay:.1s}
-        .body-card:nth-child(3).rv{transition-delay:.15s}
-        .body-card:nth-child(4).rv{transition-delay:.2s}
-        .body-card:nth-child(5).rv{transition-delay:.25s}
-        .body-card:nth-child(6).rv{transition-delay:.3s}
-
-        /* ─── FLOW STEP STAGGER ────────────────── */
-        .fstep.rv{transition:opacity .45s ease,transform .45s ease}
-        .fstep:nth-child(1).rv{transition-delay:.05s}
-        .fstep:nth-child(2).rv{transition-delay:.1s}
-        .fstep:nth-child(3).rv{transition-delay:.15s}
-        .fstep:nth-child(4).rv{transition-delay:.2s}
-        .fstep:nth-child(5).rv{transition-delay:.25s}
-        .fstep:nth-child(6).rv{transition-delay:.3s}
-
-        /* ─── STAT PULSE ON REVEAL ─────────────── */
-        .stat.rv{transition:opacity .5s ease,transform .5s ease,box-shadow .6s ease .5s}
-        .stat.in{box-shadow:inset 0 0 30px rgba(184,147,42,.02)}
-        .stat:nth-child(1).rv{transition-delay:.05s}
-        .stat:nth-child(2).rv{transition-delay:.1s}
-        .stat:nth-child(3).rv{transition-delay:.15s}
-        .stat:nth-child(4).rv{transition-delay:.2s}
-
-        /* ─── COMPARE ROW STAGGER ──────────────── */
-        .compare-col.yola-col li{opacity:0;transform:translateX(12px);transition:opacity .35s ease,transform .35s ease}
-        .compare-col.yola-col.in li:nth-child(1){opacity:1;transform:none;transition-delay:.05s}
-        .compare-col.yola-col.in li:nth-child(2){opacity:1;transform:none;transition-delay:.1s}
-        .compare-col.yola-col.in li:nth-child(3){opacity:1;transform:none;transition-delay:.15s}
-        .compare-col.yola-col.in li:nth-child(4){opacity:1;transform:none;transition-delay:.2s}
-        .compare-col.yola-col.in li:nth-child(5){opacity:1;transform:none;transition-delay:.25s}
-        .compare-col.yola-col.in li:nth-child(6){opacity:1;transform:none;transition-delay:.3s}
-        .compare-col.yola-col.in li:nth-child(7){opacity:1;transform:none;transition-delay:.35s}
-        .compare-col.yola-col.in li:nth-child(8){opacity:1;transform:none;transition-delay:.4s}
-
-        /* ─── VOICE QUOTE FADE ─────────────────── */
-        .voice-big{opacity:0;transform:translateY(16px) scale(.98);transition:opacity .8s ease,transform .8s ease}
-        .voice-big.in{opacity:1;transform:none}
-
-        /* ─── NAV SCROLL STATE ─────────────────── */
-
-        /* ─── RESPONSIVE ───────────────────────── */
-        @media(max-width:480px){
-            .stats-grid{grid-template-columns:1fr 1fr}
-            .stat-num{font-size:2.5rem}
-        }
-
-    
-        /* ═══ RESPONSIVE ══════════════════════════════ */
-        @media(max-width:900px){
-            .hero{padding:6rem 1.5rem 3rem}
-            .hero-aura2{display:none}
-            .hero-cta{flex-direction:column;align-items:stretch}
-            .hero-cta .btn{justify-content:center}
-            .statement{padding:4rem 1.5rem}
-            .organism{padding:4rem 1.2rem}
-            .body-grid{grid-template-columns:repeat(2,1fr)}
-            .stats-section{padding:3.5rem 1.2rem}
-            .stats-grid{grid-template-columns:repeat(2,1fr)}
-            .flow{padding:4rem 1.2rem}
-            .comparison{padding:3.5rem 1.2rem}
-        }
-        @media(max-width:600px){
-            .hero{padding:5.5rem 1rem 2.5rem}
-            .hero-aura{width:300px;height:250px}
-            .marquee-inner{gap:2.5rem;animation-duration:20s}
-            .mq{font-size:0.625rem}
-            .statement{padding:3rem 1rem}
-            .statement h2{font-size:clamp(1.875rem, 7.5vw, 2.75rem)}
-            .statement p{font-size:1.1rem}
-            .organism{padding:3rem 1rem}
-            .org-title{margin-bottom:2rem}
-            .org-title h2{font-size:clamp(1.625rem, 6.25vw, 2.25rem)}
-            .org-title p{font-size:1.062rem}
-            .body-grid{grid-template-columns:1fr}
-            .body-card{padding:1.5rem 1.2rem}
-            .bc-icon{font-size:1.875rem}
-            .bc-name{font-size:1.188rem}
-            .bc-desc{font-size:0.9rem}
-            .bc-quote{font-size:0.75rem}
-            .stats-section{padding:3rem 1rem}
-            .stats-grid{grid-template-columns:repeat(2,1fr)}
-            .stat{padding:1.2rem}
-            .stat-num{font-size:2.5rem}
-            .stat-desc{font-size:0.812rem}
-            .flow{padding:3rem 1rem}
-            .flow-steps{padding-left:1.5rem}
-            .fstep{gap:1rem;padding:1.2rem 0}
-            .fstep-dot{width:24px;height:24px}
-            .fstep-content h3{font-size:1rem}
-            .fstep-content p{font-size:0.9rem}
-            .comparison{padding:3rem 1rem}
-
-            /* Share bar */
-            .share-bar{padding:1.2rem 1rem;gap:.5rem}
-            .share-btn{font-size:.65rem;padding:.4rem .7rem}
-
-            /* Comparison */
-            .compare{padding:3rem 1rem}
-            .compare-grid{grid-template-columns:1fr}
-            .compare-col.yola-col{border-left:none;border-top:2px solid var(--gold)}
-            .compare-col{padding:1.5rem}
-            .compare-col h3{font-size:0.95rem}
-            .compare-col li{font-size:0.85rem;line-height:1.7}
-        }
+        /* ─── FOOTER ────────────────────────── */
+        footer { text-align:center; padding:3rem 1.5rem; border-top:1px solid var(--border); }
+        .ft-logo { font-weight:700; font-size:1.1rem; margin-bottom:.3rem; }
+        .ft-logo b { color:var(--accent); }
+        .ft-meta { font-size:.75rem; color:var(--text-dim); }
     </style>
 </head>
 <body>
 
-<!-- CURSOR -->
 <div id="c"></div>
 <div id="cr"></div>
+<div id="scrollProgress"></div>
 
-<!-- SCROLL PROGRESS BAR -->
-<div class="scroll-progress" id="scrollProgress"></div>
-
-<!-- NAV -->
+<!-- ==================== NAV ==================== -->
 <nav id="mainNav">
-    <div class="logo">YOLA<b>.</b>ENGINEERING</div>
-    <a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="btn-nav green nav-comunidad"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/></svg> Comunidad</a>
-    <a href="sayri.html" class="btn-nav green nav-comunidad">Quién es Sayri</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <a href="index.html" class="logo">YOLA<b>.</b></a>
     <div class="nav-r">
-        <a href="index.html" class="btn-nav" style="border-color:var(--text);color:var(--text)">Inicio</a>
-        <a href="empresas.html" class="btn-nav red">Empresas</a>
-        <a href="tech.html" class="btn-nav purple active">Arquitectura</a>
-        <a href="feedback.html" class="btn-nav cyan">Feedback</a>
-        <a href="invertir.html" class="btn-nav gold">Invertir</a>
-        <a href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" class="btn-nav green nav-comunidad-mob"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/></svg> Comunidad</a>
-        <a href="sayri.html" class="btn-nav green nav-comunidad-mob">Quién es Sayri</a>
+        <a href="index.html" class="btn-nav">Inicio</a>
+        <a href="download.html" class="btn-nav">Descargar</a>
+        <a href="tech.html" class="btn-nav active">Tecnología</a>
     </div>
+    <button class="nav-toggle" aria-label="Menú">
+        <span></span><span></span><span></span>
+    </button>
 </nav>
-<div class="nav-overlay" id="navOverlay"></div>
+<div class="nav-overlay"></div>
 
-<!-- ═══════════════ HERO ═══════════════ -->
-<div class="z">
-<section class="hero">
-    <div class="hero-grid"></div>
+<!-- ==================== HERO ==================== -->
+<section class="hero-tech">
     <div class="hero-aura"></div>
-    <div class="hero-aura2"></div>
-    <div class="hero-inner">
-        <div class="eyebrow">Arquitectura · Stack técnico · Diseño de sistemas</div>
-        <h1>Arquitectura de un<br>agente local<br><i>de IA.</i></h1>
-        <p class="hero-sub">YOLA es un agente de IA que opera 100% en tu máquina. No es un chatbot cloud ni un plugin de editor — es un <strong>motor autónomo con acceso directo al filesystem, tools de sistema y un loop de decisión propio</strong>. Corre sobre Bun, usa TypeScript en toda la pila, y se conecta a cualquier modelo LLM via AI SDK.</p>
-        <div class="hero-cta">
-            <a href="#como-funciona" class="btn btn-gold">Ver capas técnicas ↓</a>
-            <a href="https://github.com/SayriDevs" target="_blank" rel="noopener" class="btn btn-outline">Código fuente →</a>
-        </div>
-    </div>
-    <!-- Scroll hint -->
-    <div class="scroll-hint" onclick="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'})">
-        <span class="scroll-hint-text">Descubre cómo funciona</span>
-        <div class="scroll-hint-arrow">
-            <div class="scroll-hint-dot"></div>
-        </div>
-    </div>
+    <h1>Arquitectura del <span>ecosistema</span></h1>
+    <p class="sub">Cuatro componentes. Un propósito. <strong>Cero dependencia externa.</strong></p>
+    <a href="#diagrama" class="btn btn-outline hero-cta">Ver diagrama ↓</a>
 </section>
-</div>
 
-<!-- ═══════════════ MARQUEE ═══════════════ -->
-<div class="marquee z">
-    <div class="marquee-inner">
-        <span class="mq">Bun · TypeScript · Tauri v2 · Solid.js</span>
-        <span class="mq">Effect TS · Vercel AI SDK · SQLite</span>
-        <span class="mq">13 packages · Turborepo monorepo</span>
-        <span class="mq">1600+ archivos indexados · code-rag</span>
-        <span class="mq">20+ providers LLM · Multi-modelo</span>
-        <span class="mq">100% local · Cero datos a la nube</span>
-        <span class="mq">Bun · TypeScript · Tauri v2 · Solid.js</span>
-        <span class="mq">Effect TS · Vercel AI SDK · SQLite</span>
-        <span class="mq">Construido en Lima, Perú</span>
-        <span class="mq">Un organismo, no un asistente</span>
-        <span class="mq">Open-core · Privacidad absoluta</span>
-        <span class="mq">100% soberano</span>
-    </div>
-</div>
-
-<!-- ·············· DIVIDER ·············· -->
-<div class="section-div z"><div class="section-div-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
-
-<!-- ═══════════════ BIG STATEMENT ═══════════════ -->
+<!-- ==================== DIAGRAM ==================== -->
 <div class="z">
-<section class="statement rv">
-    <h2>100% local.<br><i>Cero datos a la nube.</i></h2>
-    <p>YOLA opera completamente dentro de tu máquina. El motor de agente, la memoria RAG, el index de código, las sesiones — todo corre en tu hardware. No hay servidores remotos procesando tu información. No hay telemetría. No hay vendor lock-in. Es arquitectura local por diseño, no por marketing.</p>
-</section>
-</div>
+<section class="arch" id="diagrama">
+    <h2>Diagrama de <span>conexión</span></h2>
+    <p class="sub">Así se comunican los componentes del ecosistema YOLA. Todo en tu red local.</p>
+    <div class="arch-diagram">
+<pre>
+<span class="dim">┌──────────────────┐                    ┌──────────────────────┐</span>
+<span class="cy">│</span> <span class="hl">YolaVigila</span>    <span class="cy">│</span> ◄───────────────► <span class="cy">│</span> <span class="hl">YOLA Engine</span>      <span class="cy">│</span>
+<span class="cy">│</span> Node.js       <span class="cy">│</span>                   <span class="cy">│</span> Go · SQLite         <span class="cy">│</span>
+<span class="cy">│</span> Monitoreo     <span class="cy">│</span>                   <span class="cy">│</span> WebSocket           <span class="cy">│</span>
+<span class="cy">└──────────────┘</span>     <span class="gl">◄──────────►</span>   <span class="cy">│</span> vanilla JS + API    <span class="cy">│</span>
+     <span class="dim">│</span>                      <span class="gl">HTTP API</span>    <span class="cy">└──────────┬──────────┘</span>
+     <span class="dim">│</span>                                              <span class="dim">│</span>
+     <span class="dim">│</span> <span class="gl">WebSocket</span>                                     <span class="dim">│</span> <span class="gl">REST</span>
+     <span class="dim">│</span>                                              <span class="dim">│</span>
+     <span class="dim">▼</span>                                              <span class="dim">▼</span>
+<span class="cy">┌──────────────────┐                    ┌──────────────────────┐</span>
+<span class="cy">│</span> <span class="hl">YolaAvisa</span>     <span class="cy">│</span>                    <span class="cy">│</span> <span class="hl">YolaPanel</span>        <span class="cy">│</span>
+<span class="cy">│</span> Kotlin         <span class="cy">│</span>                    <span class="cy">│</span> Next.js            <span class="cy">│</span>
+<span class="cy">│</span> Room · Retrofit<span class="cy">│</span>                    <span class="cy">│</span> TypeScript · Chart  <span class="cy">│</span>
+<span class="cy">└──────────────────┘</span>                    <span class="cy">└──────────────────────┘</span>
 
-<!-- ·············· DIVIDER ·············· -->
-<div class="section-div z"><div class="section-div-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
-
-<!-- ═══════════════ ORGANISM ═══════════════ -->
-<div class="z">
-<section class="organism" id="como-funciona">
-    <div class="org-title rv">
-        <h2>Arquitectura <i>por capas.</i></h2>
-        <p>YOLA está organizado en 5 capas que van del storage al UI. Cada capa tiene responsabilidades claras, interfaces definidas y un propósito específico. Así es por dentro.</p>
-    </div>
-    <div class="body-grid rv">
-        <div class="body-card brain">
-            <span class="bc-icon">💾</span>
-            <div class="bc-label">Capa 0</div>
-            <div class="bc-name">Filesystem — Verdad Absoluta</div>
-            <div class="bc-desc">El disco no miente. YOLA <strong>verifica cada operación contra el filesystem</strong> antes de actuar. No asume — lee, escribe, confirma. Es la fuente de verdad de todo el sistema. Cada archivo, cada cambio, cada resultado se valida contra lo que realmente está en disco.</div>
-            <div class="bc-quote">"El código en disco no puede ser falseado."</div>
-        </div>
-        <div class="body-card nervous">
-            <span class="bc-icon">⚙️</span>
-            <div class="bc-label">Capa 1</div>
-            <div class="bc-name">Motor de Agente</div>
-            <div class="bc-desc">El <strong>loop de decisión</strong> que gobierna a YOLA. Recibe contexto del LLM, elige qué tool ejecutar (code_rag, edit, bash, grep, etc.), verifica el resultado, y decide el siguiente paso. Incluye protocolo de evidencia (V/L/?) y memoria automática (RAG inyectada en cada turno).</div>
-            <div class="bc-quote">"Decide. Ejecuta. Verifica. Repite."</div>
-        </div>
-        <div class="body-card heart">
-            <span class="bc-icon">🧠</span>
-            <div class="bc-label">Capa 2</div>
-            <div class="bc-name">LLM Provider</div>
-            <div class="bc-desc">Capa de abstracción sobre modelos de lenguaje usando <strong>Vercel AI SDK</strong> (@ai-sdk/*). Soporta 20+ providers: OpenAI, Anthropic, Google Gemini, AWS Bedrock, Azure, y modelos locales via Ollama. Provee streaming, tool calling nativo, y manejo de contexto hasta 1M tokens.</div>
-            <div class="bc-quote">"Un solo agente, cualquier modelo."</div>
-        </div>
-        <div class="body-card reflex">
-            <span class="bc-icon">🖥️</span>
-            <div class="bc-label">Capa 3</div>
-            <div class="bc-name">Desktop Shell — YolaDesktop</div>
-            <div class="bc-desc">Interfaz de escritorio construida con <strong>Tauri v2</strong> (Rust + web frontend). Incluye Taskbar, ventanas nativas con drag, notificaciones del sistema, y panel de propuestas. El frontend usa <strong>Solid.js + Tailwind CSS</strong> con tema oscuro y glassmorphism.</div>
-            <div class="bc-quote">"Nativo, no una web disfrazada."</div>
-        </div>
-        <div class="body-card memory">
-            <span class="bc-icon">🌐</span>
-            <div class="bc-label">Capa 4</div>
-            <div class="bc-name">Server API & MCP</div>
-            <div class="bc-desc">Servidor <strong>HTTP en :4096</strong> que maneja sesiones de agente, plugins MCP (Model Context Protocol), y un bridge opcional de Telegram en :4098. Permite extender YOLA con herramientas externas y comunicación remota controlada vía API REST.</div>
-            <div class="bc-quote">"Extensible por diseño, segura por arquitectura."</div>
-        </div>
-        <div class="body-card bones">
-            <span class="bc-icon">🔧</span>
-            <div class="bc-label">Stack</div>
-            <div class="bc-name">Tecnologías Base</div>
-            <div class="bc-desc"><strong>Bun</strong> (runtime) · <strong>TypeScript</strong> · <strong>Tauri v2</strong> (Rust + web) · <strong>Solid.js</strong> + Tailwind · <strong>Vercel AI SDK</strong> · <strong>Effect TS</strong> · <strong>SQLite</strong> (drizzle-orm) · <strong>Turborepo</strong> · Motor YOLA (fork de OpenCode)</div>
-            <div class="bc-quote">"Tecnología moderna, pila completa."</div>
-        </div>
+<span class="dim"> Todos los componentes comparten: filesystem local · SQLite · sin telemetría</span>
+</pre>
     </div>
 </section>
 </div>
 
-<!-- ═══════════════ HOW IT WORKS ═══════════════ -->
-<div class="z">
-<section class="flow" id="flow">
-    <div class="org-title rv">
-        <h2>Secuencia <i>de arranque</i></h2>
-        <p>Cada vez que iniciás YOLA, las 5 capas se activan en orden. Cada una depende de la anterior. Así es el boot sequence real del sistema.</p>
+<!-- ==================== DIVIDER ==================== -->
+<div class="section-div"><div class="section-div-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+
+<!-- ==================== STACK ==================== -->
+<section class="stack" id="stack">
+    <h2>Stack técnico por <span>componente</span></h2>
+    <p class="section-sub">Cada servicio usa el lenguaje y las herramientas óptimas para su función. Sin sobreingeniería.</p>
+    <div class="stack-grid">
+
+        <!-- YOLA Engine -->
+        <div class="stack-card">
+            <div class="stack-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+            </div>
+            <h3 class="stack-name">YOLA Engine</h3>
+            <div class="stack-sub">Núcleo del ecosistema</div>
+            <p class="stack-desc">Motor autónomo de agente IA. Loop de decisión, tools de sistema, conexión a LLMs. Daemon persistente con API REST y WebSocket.</p>
+            <div class="stack-techs">
+                <span class="stack-tech">Go</span>
+                <span class="stack-tech">SQLite</span>
+                <span class="stack-tech">WebSocket</span>
+                <span class="stack-tech">Vanilla JS</span>
+            </div>
+        </div>
+
+        <!-- YolaAvisa -->
+        <div class="stack-card">
+            <div class="stack-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3z"/><path d="M15 21v-1a3 3 0 0 0-6 0v1"/>
+                </svg>
+            </div>
+            <h3 class="stack-name">YolaAvisa</h3>
+            <div class="stack-sub">App Android</div>
+            <p class="stack-desc">Cliente móvil para captura de notificaciones. Base de datos local con Room, sincronización vía Retrofit, parsers extensibles.</p>
+            <div class="stack-techs">
+                <span class="stack-tech">Kotlin</span>
+                <span class="stack-tech">Compose</span>
+                <span class="stack-tech">Room</span>
+                <span class="stack-tech">Retrofit</span>
+            </div>
+        </div>
+
+        <!-- YolaPanel -->
+        <div class="stack-card">
+            <div class="stack-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+                </svg>
+            </div>
+            <h3 class="stack-name">YolaPanel</h3>
+            <div class="stack-sub">Dashboard web</div>
+            <p class="stack-desc">Panel de administración y monitoreo. Visualización de métricas, logs y estado del ecosistema. Static generated, zero runtime deps.</p>
+            <div class="stack-techs">
+                <span class="stack-tech">Next.js</span>
+                <span class="stack-tech">TypeScript</span>
+                <span class="stack-tech">Chart.js</span>
+                <span class="stack-tech">Tailwind</span>
+            </div>
+        </div>
+
+        <!-- YolaVigila -->
+        <div class="stack-card">
+            <div class="stack-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                </svg>
+            </div>
+            <h3 class="stack-name">YolaVigila</h3>
+            <div class="stack-sub">Agente de monitoreo</div>
+            <p class="stack-desc">Proceso ligero que vigila recursos del sistema, procesos y eventos. Envía alertas vía WebSocket al Engine y notifica a YolaAvisa.</p>
+            <div class="stack-techs">
+                <span class="stack-tech">Node.js</span>
+                <span class="stack-tech">Express</span>
+                <span class="stack-tech">WebSocket</span>
+                <span class="stack-tech">systeminformation</span>
+            </div>
+        </div>
+
     </div>
-    <div class="flow-steps rv">
-        <div class="fstep">
-            <div class="fstep-dot active"><span>1</span></div>
-            <div class="fstep-content">
-                <h3>💾 Capa 0: Filesystem</h3>
-                <p>Verifica el workspace, monta los directorios del proyecto, y confirma que el índice <strong>code-rag</strong> existe y está actualizado. El índice contiene 1600+ archivos y 10500+ chunks listos para búsqueda semántica. Si falta, se reconstruye automáticamente.</p>
-                <span class="fstep-lang">code-rag · Indexación semántica local</span>
-            </div>
+</section>
+
+<!-- ==================== DIVIDER ==================== -->
+<div class="section-div"><div class="section-div-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+
+<!-- ==================== PRINCIPLES ==================== -->
+<section class="principles" id="principios">
+    <h2>Principios de <span>diseño</span></h2>
+    <p class="sub">No son features. Son compromisos arquitectónicos que definen cada línea de código.</p>
+    <div class="princ-grid">
+        <div class="princ-card">
+            <div class="princ-num">01</div>
+            <h3 class="princ-name">Soberanía</h3>
+            <p class="princ-desc">Tu máquina, tus datos, tus decisiones. YOLA no reporta a ningún servidor externo. No hay telemetría, no hay phone home, no hay puerta trasera.</p>
         </div>
-        <div class="fstep">
-            <div class="fstep-dot active"><span>2</span></div>
-            <div class="fstep-content">
-                <h3>🧠 Capa 2: LLM Provider</h3>
-                <p>Se conecta al modelo de lenguaje configurado via <strong>Vercel AI SDK</strong>. Soporta 20+ providers: OpenAI, Anthropic, Google Gemini, AWS Bedrock, Azure, Ollama (local). El modelo elegido define la capacidad de razonamiento y el tamaño de contexto disponible.</p>
-                <span class="fstep-lang">AI SDK · Provider agnóstico</span>
-            </div>
+        <div class="princ-card">
+            <div class="princ-num">02</div>
+            <h3 class="princ-name">Mínimo</h3>
+            <p class="princ-desc">Cada componente hace una cosa y la hace bien. Sin frameworks opinados, sin capas de abstracción innecesarias. El código es el contrato.</p>
         </div>
-        <div class="fstep">
-            <div class="fstep-dot"><span>3</span></div>
-            <div class="fstep-content">
-                <h3>⚙️ Capa 1: Motor de Agente</h3>
-                <p>Arranca el <strong>loop de decisión</strong>: recibe el contexto del LLM, elige la siguiente tool a ejecutar, verifica el resultado contra el filesystem, y decide el próximo paso. Es el cerebro operativo del sistema.</p>
-                <span class="fstep-lang">xterm.js + node-pty · Terminal nativa</span>
-            </div>
+        <div class="princ-card">
+            <div class="princ-num">03</div>
+            <h3 class="princ-name">Local-first</h3>
+            <p class="princ-desc">Todo funciona sin internet. El engine, la base de datos, el monitoreo, las notificaciones. La nube es opcional, nunca un requisito.</p>
         </div>
-        <div class="fstep">
-            <div class="fstep-dot"><span>4</span></div>
-            <div class="fstep-content">
-                <h3>🖥️ Capa 3: Desktop Shell</h3>
-                <p>Se levanta la interfaz de escritorio con <strong>Tauri v2</strong>. Aparecen las ventanas nativas, la Taskbar, y el panel de propuestas. El frontend Solid.js se monta sobre el webview de Tauri con tema oscuro y glassmorphism.</p>
-                <span class="fstep-lang">Tauri v2 · Solid.js · Tailwind CSS</span>
-            </div>
+        <div class="princ-card">
+            <div class="princ-num">04</div>
+            <h3 class="princ-name">Modular</h3>
+            <p class="princ-desc">Puedes usar YOLA Engine solo, o sumar Vigila, Avisa y Panel. Cada componente es independiente, con API claras y contratos definidos.</p>
         </div>
-        <div class="fstep">
-            <div class="fstep-dot active"><span>5</span></div>
-            <div class="fstep-content">
-                <h3>🌐 Capa 4: Server API</h3>
-                <p>Inicia el servidor HTTP en <strong>:4096</strong> que expone la API REST de YOLA. Maneja sesiones de agente, plugins MCP, y el bridge opcional de Telegram en <strong>:4098</strong>. También arranca la memoria persistente vía SQLite (drizzle-orm).</p>
-                <span class="fstep-lang">HTTP :4096 · MCP · SQLite</span>
-            </div>
+        <div class="princ-card">
+            <div class="princ-num">05</div>
+            <h3 class="princ-name">Auditable</h3>
+            <p class="princ-desc">Código abierto, sin binarios cerrados. Cada decisión del agente se loggea. Cada transacción se registra. No hay opacidad.</p>
         </div>
-        <div class="fstep">
-            <div class="fstep-dot"><span>6</span></div>
-            <div class="fstep-content">
-                <h3>✅ Sistema listo</h3>
-                <p>Todas las capas están operativas. El motor de agente tiene contexto fresco del code-rag, el LLM provider está conectado, la desktop shell muestra la interfaz, y la API sirve requests. YOLA está funcionando.</p>
-                <span class="fstep-lang">Next.js 16 · React 19 · Zustand</span>
-            </div>
+        <div class="princ-card">
+            <div class="princ-num">06</div>
+            <h3 class="princ-name">Eficiente</h3>
+            <p class="princ-desc">17 MB para el Engine. ~8 MB para Vigila. APK de 4 MB para Avisa. Sin Electron, sin runtime pesado, sin contenedores.</p>
         </div>
     </div>
 </section>
-</div>
 
-<!-- ═══════════════ STATS ═══════════════ -->
-<div class="stats-section z">
-    <div class="stats-inner">
-        <div class="org-title rv">
-            <h2>El proyecto <i>en números.</i></h2>
-            <p>Datos reales del repositorio, el indexador y la arquitectura. No estimaciones — son métricas verificadas del código fuente.</p>
-        </div>
-        <div class="stats-grid rv">
-            <div class="stat">
-                <span class="stat-num gold">1600+</span>
-                <span class="stat-label">Archivos indexados</span>
-                <span class="stat-desc">En el índice code-rag del repositorio</span>
-            </div>
-            <div class="stat">
-                <span class="stat-num cyan">13</span>
-                <span class="stat-label">Packages</span>
-                <span class="stat-desc">En el monorepo con Turborepo</span>
-            </div>
-            <div class="stat">
-                <span class="stat-num green">20+</span>
-                <span class="stat-label">Providers LLM</span>
-                <span class="stat-desc">Abstraídos via Vercel AI SDK</span>
-            </div>
-            <div class="stat">
-                <span class="stat-num purple">0</span>
-                <span class="stat-label">Datos a la nube</span>
-                <span class="stat-desc">Todo corre 100% local</span>
-            </div>
-        </div>
-        <div class="stats-grid rv">
-            <div class="stat">
-                <span class="stat-num gold">5</span>
-                <span class="stat-label">Capas de arquitectura</span>
-                <span class="stat-desc">Filesystem → Motor → LLM → Desktop → API</span>
-            </div>
-            <div class="stat">
-                <span class="stat-num cyan">2</span>
-                <span class="stat-label">Plataformas</span>
-                <span class="stat-desc">Linux hoy · macOS/Windows en progreso</span>
-            </div>
-            <div class="stat">
-                <span class="stat-num green">10500+</span>
-                <span class="stat-label">Chunks RAG</span>
-                <span class="stat-desc">Fragmentos de código indexados semánticamente</span>
-            </div>
-            <div class="stat">
-                <span class="stat-num purple">MIT</span>
-                <span class="stat-label">Licencia</span>
-                <span class="stat-desc">Open source · Código abierto</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ·············· DIVIDER ·············· -->
-<div class="section-div z"><div class="section-div-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div></div>
-
-<!-- ═══════════════ COMPARISON ═══════════════ -->
-<div class="compare z">
-    <div class="compare-inner">
-        <div class="org-title rv">
-            <h2>YOLA vs. <i>alternativas.</i></h2>
-            <p>No competimos con asistentes cloud ni plugins de editor. Somos una categoría diferente: agente local autónomo.</p>
-        </div>
-        <div class="compare-grid rv">
-            <div class="compare-col not-yola">
-                <h3><span style="color:var(--text-dim)">✕</span> Cursor / ChatGPT / Copilot</h3>
-                <ul>
-                    <li><span class="icon">☁</span> Requieren conexión a servidores remotos</li>
-                    <li><span class="icon">👁</span> No ven tu sistema completo — solo el editor o el chat</li>
-                    <li><span class="icon">⏱</span> Existen solo cuando los abrís (sin daemon persistente)</li>
-                    <li><span class="icon">🔁</span> Sin memoria entre sesiones (o memoria limitada a chat)</li>
-                    <li><span class="icon">🧩</span> Propietarios · Código cerrado · Vendor lock-in</li>
-                    <li><span class="icon">💰</span> Suscripción mensual ($10–20/mes)</li>
-                    <li><span class="icon">🔒</span> Sin acceso a tools de sistema (edit, bash, filesystem)</li>
-                    <li><span class="icon">🏢</span> Controlados por corporaciones (OpenAI, Microsoft, Anthropic)</li>
-                </ul>
-            </div>
-            <div class="compare-col yola-col">
-                <h3><span style="color:var(--gold-l)">★</span> YOLA</h3>
-                <ul>
-                    <li><span class="icon">🏠</span> <strong>100% local</strong> — nada sale de tu máquina</li>
-                    <li><span class="icon">👁</span> <strong>Acceso directo al filesystem</strong> — lee y modifica archivos reales</li>
-                    <li><span class="icon">⚙️</span> <strong>Motor autónomo</strong> con loop de decisión y tools de sistema</li>
-                    <li><span class="icon">📈</span> <strong>Memoria persistente</strong> via RAG + SQLite — aprende de cada sesión</li>
-                    <li><span class="icon">🧬</span> <strong>Multi-modelo</strong> (20+ providers) — sin vendor lock-in</li>
-                    <li><span class="icon">🌍</span> <strong>Open source</strong> (MIT) — código en GitHub</li>
-                    <li><span class="icon">🆓</span> <strong>Siempre gratis</strong> — sin suscripción, sin tiers</li>
-                    <li><span class="icon">🔓</span> <strong>Tu control</strong> — corre en tu hardware, nadie puede quitártelo</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ═══════════════ VOICES ═══════════════ -->
-<div class="z">
-<section class="voices rv">
-    <div class="section-tag" style="justify-content:center"><span style="color:var(--gold-l);font-family:'DM Mono',monospace;font-size:0.75rem;letter-spacing:.25em;text-transform:uppercase">Lo que esto significa</span></div>
-    <p class="voice-big">"YOLA es <strong>local por arquitectura, no por preferencia</strong>. El filesystem es la fuente de verdad, el motor de agente decide sin depender de un cloud, y cada capa está diseñada para operar sin conexión. No es filosofía — es ingeniería."</p>
-    <p class="voice-attr">Principio de diseño · <a href="https://github.com/SayriDevs" target="_blank" style="color:var(--gold-l);text-decoration:none">SayriDevs</a>, Lima 2026</p>
-</section>
-</div>
-
-<!-- ═══════════════ GUARDIAN CTA ═══════════════ -->
-<div class="z">
-<section class="guardian" id="guardian">
-    <div class="guardian-aura"></div>
-    <h2>Explorá el código<br><i>y construí con nosotros.</i></h2>
-    <p>YOLA es open source (MIT). Podés leer el código, contribuir, forkear, o simplemente entender cómo funciona un agente local de IA por dentro. El repositorio está en GitHub, vivo y en desarrollo activo.</p>
-    <div class="cta-row">
-        <a href="https://github.com/SayriDevs" target="_blank" rel="noopener" class="btn btn-gold">GitHub →</a>
-        <a href="index.html" class="btn btn-outline">Conocer el manifiesto</a>
+<!-- ==================== CTA ==================== -->
+<section class="tech-cta">
+    <h3>¿Listo para <span>construir</span>?</h3>
+    <p>El código fuente está abierto. Los binarios, listos para descargar. La arquitectura, documentada. No hay nada entre vos y tu agente de IA.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="download.html" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" width="16" height="16" style="vertical-align:middle;margin-right:.4rem" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Descargar
+        </a>
+        <a href="https://github.com/SayriDevs" target="_blank" rel="noopener" class="btn btn-outline">Código fuente →</a>
     </div>
 </section>
-</div>
 
-<!-- ═══════════════ SHARE ═══════════════ -->
-<div class="share-bar z">
-    <span class="share-btn" onclick="copyLink()">🔗 Copiar enlace</span>
-    <a class="share-btn" href="https://twitter.com/intent/tweet?text=Arquitectura%20de%20YOLA%3A%20un%20agente%20local%20de%20IA%20con%20filesystem%20como%20verdad%20absoluta%2C%20motor%20aut%C3%B3nomo%20y%2020%2B%20providers%20LLM%20%E2%80%94%20conoc%C3%A9%20el%20stack%20t%C3%A9cnico%200datos.%20Se%20llama%20YOLA%20%F0%9F%A7%A0%F0%9F%94%B5" target="_blank">𝕏 Tweetear</a>
-    <a class="share-btn" href="https://wa.me/?text=Encontr%C3%A9%20una%20IA%20soberana%20que%20vive%20en%20tu%20m%C3%A1quina.%20Sin%20nube%2C%20sin%20permisos%2C%20sin%20corporaciones.%20Se%20llama%20YOLA" target="_blank">💬 WhatsApp</a>
-    <span class="share-btn" onclick="shareNative()">📤 Compartir</span>
-    <a class="share-btn" href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" style="border-color:rgba(37,211,102,.3);color:#25d366"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/></svg> Comunidad</a>
-    <a class="share-btn" href="https://www.youtube.com/@sayridev1920" target="_blank" style="border-color:rgba(255,0,0,.2);color:#ff0000">🎬 Novedades</a>
-</div>
-
-<!-- ═══════════════ FOOTER ═══════════════ -->
-<footer class="z">
-    <div class="ft-logo">YOLA<b>.</b>INSIDE</div>
-    <p class="ft-meta">SAYRIDEVS · Lima, Perú · 2026</p>
-    <p class="ft-meta">Esta página fue generada por YOLA auditándose a sí misma.</p>
+<!-- ==================== FOOTER ==================== -->
+<footer>
+    <div class="ft-logo">YOLA<b>.</b></div>
+    <div class="ft-meta">Soberanía digital · Código abierto · Perú</div>
 </footer>
 
 <script src="js/main.js"></script>
-<script>
-// ─── Hide Scroll Hint After Scroll ───────────────────────────
-(function() {
-    const hint = document.querySelector('.scroll-hint');
-    if (!hint) return;
-    let hidden = false;
-    window.addEventListener('scroll', function() {
-        if (!hidden && window.scrollY > 120) {
-            hint.style.opacity = '0';
-            hint.style.transform = 'translateX(-50%) translateY(8px)';
-            hint.style.transition = 'opacity .4s ease, transform .4s ease';
-            hidden = true;
-        } else if (hidden && window.scrollY < 60) {
-            hint.style.opacity = '1';
-            hint.style.transform = 'none';
-            hidden = false;
-        }
-    }, { passive: true });
-})();
-
-// ─── Scroll Reveal ──────────────────────────────────────────
-const obs = new IntersectionObserver(es => {
-    es.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
-    });
-}, { threshold: 0.08 });
-document.querySelectorAll('.rv').forEach(el => obs.observe(el));
-
-// ─── Share ──────────────────────────────────────────────────
-function copyLink() {
-    navigator.clipboard?.writeText(window.location.href).then(() => {
-        const el = event.target;
-        const orig = el.textContent;
-        el.textContent = '✓ Copiado';
-        setTimeout(() => el.textContent = orig, 2000);
-    });
-}
-function shareNative() {
-    if (navigator.share) {
-        navigator.share({
-            title: 'YOLA — Arquitectura de un agente local de IA',
-            text: 'Arquitectura técnica de YOLA: filesystem, motor de agente, 20+ providers LLM, desktop shell en Tauri, server API. Stack: Bun, TypeScript, Solid.js, Effect TS.',
-            url: window.location.href
-        }).catch(() => {});
-    }
-}
-
-// ─── Body card hover glow ────────────────────────────────────
-document.querySelectorAll('.body-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.boxShadow = 'inset 0 0 40px rgba(184,147,42,.03)';
-    });
-    card.addEventListener('mouseleave', function() {
-        this.style.boxShadow = 'none';
-    });
-});
-
-// ─── Stat counter animation ──────────────────────────────────
-const counters = document.querySelectorAll('.stat-num');
-const counterObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.animation = 'fadeUp .6s ease forwards';
-            counterObs.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-counters.forEach(c => counterObs.observe(c));
-
-// ─── Compare column stagger reveal ───────────────────────────
-(function() {
-    const yolaCol = document.querySelector('.compare-col.yola-col');
-    if (!yolaCol) return;
-    const colObs = new IntersectionObserver(es => {
-        es.forEach(e => {
-            if (e.isIntersecting) { e.target.classList.add('in'); colObs.unobserve(e.target); }
-        });
-    }, { threshold: 0.3 });
-    colObs.observe(yolaCol);
-})();
-
-// ─── Voice quote reveal ──────────────────────────────────────
-(function() {
-    const voice = document.querySelector('.voice-big');
-    if (!voice) return;
-    const vObs = new IntersectionObserver(es => {
-        es.forEach(e => {
-            if (e.isIntersecting) { e.target.classList.add('in'); vObs.unobserve(e.target); }
-        });
-    }, { threshold: 0.2 });
-    vObs.observe(voice);
-})();
-
-// ─── Section divider hover feedback ──────────────────────────
-document.querySelectorAll('.section-div-icon').forEach(icon => {
-    icon.addEventListener('click', function() {
-        const next = this.closest('.section-div')?.nextElementSibling;
-        if (next) next.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-});
-
-// ─── Console signature ───────────────────────────────────────
-console.log('%c YOLA %c Lo que hay dentro ',
-    'background:#b8932a;color:#050505;font-weight:bold;padding:4px 8px;font-family:monospace;',
-    'background:#111;color:#d4ab47;padding:4px 8px;font-family:monospace;'
-);
-console.log('%cEsta página fue generada por YOLA auditándose a sí misma. No hay datos inflados. No hay promesas vacías. Solo código real.');
-
-// ─── Dynamic stat numbers (count up) ─────────────────────────
-function animateStats() {
-    document.querySelectorAll('.stat').forEach(stat => {
-        const num = stat.querySelector('.stat-num');
-        if (!num || num.dataset.animated) return;
-        const text = num.textContent.trim();
-        // Only animate pure numbers
-        const val = parseInt(text);
-        if (isNaN(val) || val === 0) { num.dataset.animated = '1'; return; }
-        let current = 0;
-        const step = Math.ceil(val / 30);
-        const timer = setInterval(() => {
-            current += step;
-            if (current >= val) { current = val; clearInterval(timer); }
-            num.textContent = current;
-        }, 30);
-        num.dataset.animated = '1';
-    });
-}
-const statObs = new IntersectionObserver(es => {
-    es.forEach(e => { if (e.isIntersecting) { animateStats(); statObs.disconnect(); } });
-}, { threshold: 0.3 });
-document.querySelector('.stats-grid') && statObs.observe(document.querySelector('.stats-grid'));
-</script>
-<!-- FLOAT GROUP -->
-<div class="float-group">
-    <a href="countdown.html" class="float-btn origin-float">Origin ×3.75</a>
-</div>
-
 </body>
 </html>
