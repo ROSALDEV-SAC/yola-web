@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YOLA CLI — Primer cuerpo propio</title>
+<meta name="description" content="YOLA CLI es la primera entidad autónoma que YOLA generó por sí misma. Un hito: la IA construyendo su propio cuerpo.">
+<meta property="og:title" content="YOLA CLI — Primer cuerpo propio">
+<meta property="og:description" content="YOLA CLI es la primera entidad autónoma que YOLA generó por sí misma. Un hito: la IA construyendo su propio cuerpo.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yolabysayri.com">
+<meta property="og:image" content="https://yolabysayri.com/og-image.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #0a0a0f;
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(600px circle at 50% 30%, rgba(108,92,231,0.08) 0%, transparent 70%),
+    radial-gradient(400px circle at 80% 80%, rgba(108,92,231,0.05) 0%, transparent 60%),
+    radial-gradient(300px circle at 20% 60%, rgba(108,92,231,0.04) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; padding: 2rem 1.5rem; width: 100%; max-width: 720px; }
+.badge {
+  position: fixed;
+  top: 1.5rem;
+  left: 2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.5);
+  z-index: 2;
+  user-select: none;
+}
+.video-wrapper {
+  width: 100%;
+  max-width: 640px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(108,92,231,0.2);
+  box-shadow: 0 0 40px rgba(108,92,231,0.12), 0 0 80px rgba(108,92,231,0.06);
+}
+.video-wrapper video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.title { margin-top: 1.75rem; text-align: center; }
+.title h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.title p {
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.06em;
+}
+.downloads {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  width: 100%;
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  color: #c0c0c0;
+  font-size: 0.85rem;
+  font-family: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.download-btn:hover {
+  background: rgba(108,92,231,0.12);
+  border-color: rgba(108,92,231,0.35);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(108,92,231,0.15);
+}
+.download-btn .icon { font-size: 1rem; line-height: 1; }
+.footer {
+  margin-top: 2.5rem;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  .title h1 { font-size: 1.7rem; }
+  .title p { font-size: 0.85rem; }
+  .downloads { gap: 0.5rem; }
+  .download-btn { padding: 0.55rem 0.85rem; font-size: 0.8rem; }
+  .badge { top: 1rem; left: 1rem; font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+<div class="badge">YOLA</div>
+<main class="hero">
+  <div class="video-wrapper">
+    <video autoplay loop muted playsinline poster="">
+      <source src="media/yola-cli-demo.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="title">
+    <h1>YOLA CLI</h1>
+    <p>Primer cuerpo propio — beta</p>
+  </div>
+  <div class="downloads">
+    <a class="download-btn" href="downloads/yola-cli/linux-amd64/yola-cli" download><span class="icon">🐧</span> Linux x64</a>
+    <a class="download-btn" href="downloads/yola-cli/linux-arm64/yola-cli" download><span class="icon">🐧</span> Linux ARM64</a>
+    <a class="download-btn" href="downloads/yola-cli/macos-amd64/yola-cli" download><span class="icon">🍎</span> macOS Intel</a>
+    <a class="download-btn" href="downloads/yola-cli/macos-arm64/yola-cli" download><span class="icon">🍎</span> macOS ARM</a>
+    <a class="download-btn" href="downloads/yola-cli/windows-amd64/yola-cli.exe" download><span class="icon">🪟</span> Windows</a>
+  </div>
+  <div class="footer">YOLA by Sayri · Perú · Beta</div>
+</main>
+</body>
+</html>
