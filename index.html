@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YOLA CLI — Primer cuerpo propio</title>
-<meta name="description" content="YOLA CLI es la primera entidad autónoma que YOLA generó por sí misma. Un hito: la IA construyendo su propio cuerpo.">
+<meta name="description" content="YOLA CLI es la primera entidad autónoma que YOLA generó por sí misma. La IA construyendo su propio cuerpo.">
 <meta property="og:title" content="YOLA CLI — Primer cuerpo propio">
 <meta property="og:description" content="YOLA CLI es la primera entidad autónoma que YOLA generó por sí misma. Un hito: la IA construyendo su propio cuerpo.">
 <meta property="og:type" content="website">
@@ -12,114 +12,165 @@
 <meta property="og:image" content="https://yolabysayri.com/og-image.png">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { height: 100%; }
-body {
-  font-family: system-ui, -apple-system, sans-serif;
-  background: #0a0a0f;
-  color: #e0e0e0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  overflow-x: hidden;
-  position: relative;
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family:system-ui,-apple-system,sans-serif;
+  background:#0a0a0f;
+  color:#e0e0e0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  overflow-x:hidden;
+  position:relative;
 }
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
   background:
-    radial-gradient(600px circle at 50% 30%, rgba(108,92,231,0.08) 0%, transparent 70%),
-    radial-gradient(400px circle at 80% 80%, rgba(108,92,231,0.05) 0%, transparent 60%),
-    radial-gradient(300px circle at 20% 60%, rgba(108,92,231,0.04) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 0;
+    radial-gradient(800px circle at 50% 25%, rgba(108,92,231,0.10) 0%, transparent 65%),
+    radial-gradient(500px circle at 85% 80%, rgba(108,92,231,0.06) 0%, transparent 55%),
+    radial-gradient(400px circle at 15% 70%, rgba(108,92,231,0.04) 0%, transparent 50%);
+  pointer-events:none;
+  z-index:0;
 }
-.hero { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; padding: 2rem 1.5rem; width: 100%; max-width: 720px; }
-.badge {
-  position: fixed;
-  top: 1.5rem;
-  left: 2rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  color: rgba(255,255,255,0.5);
-  z-index: 2;
-  user-select: none;
+.hero{
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:2rem 1.5rem;
+  width:100%;
+  max-width:640px;
 }
-.video-wrapper {
-  width: 100%;
-  max-width: 640px;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(108,92,231,0.2);
-  box-shadow: 0 0 40px rgba(108,92,231,0.12), 0 0 80px rgba(108,92,231,0.06);
+.badge{
+  position:fixed;
+  top:1.5rem;
+  left:2rem;
+  font-size:0.8rem;
+  font-weight:600;
+  letter-spacing:0.12em;
+  color:rgba(255,255,255,0.35);
+  z-index:2;
+  user-select:none;
+  text-transform:uppercase;
 }
-.video-wrapper video {
-  display: block;
-  width: 100%;
-  height: auto;
+.video-wrapper{
+  width:100%;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(108,92,231,0.15);
+  box-shadow:0 0 60px rgba(108,92,231,0.08), 0 0 120px rgba(108,92,231,0.04);
+  transition:box-shadow 0.4s ease, border-color 0.4s ease;
 }
-.title { margin-top: 1.75rem; text-align: center; }
-.title h1 {
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+.video-wrapper:hover{
+  box-shadow:0 0 80px rgba(108,92,231,0.18), 0 0 160px rgba(108,92,231,0.08);
+  border-color:rgba(108,92,231,0.3);
 }
-.title p {
-  margin-top: 0.4rem;
-  font-size: 1rem;
-  font-weight: 400;
-  color: rgba(255,255,255,0.5);
-  letter-spacing: 0.06em;
+.video-wrapper video{display:block;width:100%;height:auto}
+.title{margin-top:2rem;text-align:center}
+.title h1{
+  font-size:2.5rem;
+  font-weight:700;
+  color:#fff;
+  letter-spacing:-0.03em;
+  line-height:1.1;
 }
-.downloads {
-  margin-top: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  justify-content: center;
-  width: 100%;
+.title .beta-badge{
+  display:inline-block;
+  margin-top:0.5rem;
+  padding:0.2rem 0.75rem;
+  border-radius:20px;
+  font-size:0.7rem;
+  font-weight:500;
+  letter-spacing:0.06em;
+  color:rgba(162,155,254,0.9);
+  border:1px solid rgba(108,92,231,0.25);
+  background:rgba(108,92,231,0.08);
+  text-transform:uppercase;
 }
-.download-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.65rem 1rem;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 8px;
-  color: #c0c0c0;
-  font-size: 0.85rem;
-  font-family: inherit;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  white-space: nowrap;
+.desc{
+  margin-top:1.25rem;
+  font-size:0.95rem;
+  line-height:1.6;
+  color:rgba(255,255,255,0.5);
+  text-align:center;
+  max-width:480px;
 }
-.download-btn:hover {
-  background: rgba(108,92,231,0.12);
-  border-color: rgba(108,92,231,0.35);
-  color: #fff;
-  box-shadow: 0 0 20px rgba(108,92,231,0.15);
+.desc strong{color:rgba(255,255,255,0.7);font-weight:500}
+.usage{
+  margin-top:1.25rem;
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:0.5rem 1rem;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:8px;
+  font-family:ui-monospace,SFMono-Regular,monospace;
+  font-size:0.8rem;
+  color:rgba(255,255,255,0.5);
+  user-select:all;
 }
-.download-btn .icon { font-size: 1rem; line-height: 1; }
-.footer {
-  margin-top: 2.5rem;
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.25);
-  letter-spacing: 0.04em;
-  text-align: center;
+.usage .prompt{color:rgba(108,92,231,0.7)}
+.usage .cmd{color:#e0e0e0}
+.downloads{
+  margin-top:2rem;
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.5rem;
+  justify-content:center;
+  width:100%;
 }
-@media (max-width: 480px) {
-  .title h1 { font-size: 1.7rem; }
-  .title p { font-size: 0.85rem; }
-  .downloads { gap: 0.5rem; }
-  .download-btn { padding: 0.55rem 0.85rem; font-size: 0.8rem; }
-  .badge { top: 1rem; left: 1rem; font-size: 0.75rem; }
+.download-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:0.4rem;
+  padding:0.6rem 0.9rem;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:8px;
+  color:#b0b0b0;
+  font-size:0.82rem;
+  font-family:inherit;
+  text-decoration:none;
+  transition:all 0.25s ease;
+  white-space:nowrap;
+}
+.download-btn:hover{
+  background:rgba(108,92,231,0.12);
+  border-color:rgba(108,92,231,0.35);
+  color:#fff;
+  box-shadow:0 0 24px rgba(108,92,231,0.12);
+  transform:translateY(-1px);
+}
+.download-btn .icon{font-size:1rem;line-height:1}
+.footer{
+  margin-top:2.5rem;
+  display:flex;
+  gap:1rem;
+  font-size:0.7rem;
+  color:rgba(255,255,255,0.2);
+  letter-spacing:0.04em;
+  text-align:center;
+}
+.footer a{
+  color:rgba(255,255,255,0.25);
+  text-decoration:none;
+  transition:color 0.2s;
+}
+.footer a:hover{color:rgba(162,155,254,0.6)}
+@media(max-width:480px){
+  .title h1{font-size:1.8rem}
+  .desc{font-size:0.85rem}
+  .badge{top:1rem;left:1rem;font-size:0.7rem}
+  .hero{padding:1.5rem 1rem}
+  .download-btn{padding:0.5rem 0.75rem;font-size:0.78rem}
+  .usage{font-size:0.72rem;padding:0.4rem 0.75rem}
 }
 </style>
 </head>
@@ -133,7 +184,15 @@ body::before {
   </div>
   <div class="title">
     <h1>YOLA CLI</h1>
-    <p>Primer cuerpo propio — beta</p>
+    <div class="beta-badge">Primer cuerpo propio · Beta</div>
+  </div>
+  <p class="desc">
+    YOLA CLI es la primera entidad autónoma que <strong>YOLA</strong> generó por sí misma. 
+    Un binario. Sin servidores. Sin nube. Solo tu máquina y el agente.
+  </p>
+  <div class="usage">
+    <span class="prompt">$</span>
+    <span class="cmd">./yola &quot;hola&quot;</span>
   </div>
   <div class="downloads">
     <a class="download-btn" href="downloads/yola-cli/linux-amd64/yola-cli" download><span class="icon">🐧</span> Linux x64</a>
@@ -142,7 +201,13 @@ body::before {
     <a class="download-btn" href="downloads/yola-cli/macos-arm64/yola-cli" download><span class="icon">🍎</span> macOS ARM</a>
     <a class="download-btn" href="downloads/yola-cli/windows-amd64/yola-cli.exe" download><span class="icon">🪟</span> Windows</a>
   </div>
-  <div class="footer">YOLA by Sayri · Perú · Beta</div>
+  <div class="footer">
+    <span>YOLA by Sayri</span>
+    <span>·</span>
+    <a href="https://github.com/SayriDevs" target="_blank" rel="noopener">GitHub</a>
+    <span>·</span>
+    <span>Perú</span>
+  </div>
 </main>
 </body>
 </html>
