@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOLA — Ecosistema de productos de IA</title>
-    <meta name="description" content="YOLA es la inteligencia que vive en tu máquina. Engine, Avisa, Panel, Vigila — productos que construye la IA.">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; frame-src 'none';">
+    <title>YOLA — La inteligencia que vive en tu máquina</title>
+    <meta name="description" content="YOLA es un ecosistema de IA local. Engine, CLI, Vigila, Frontend, Avisa — productos que construye la inteligencia. Sin nube, sin suscripción.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; frame-src 'none';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" href="favicon.ico">
-    <meta property="og:title" content="YOLA — Ecosistema de productos de IA">
-    <meta property="og:description" content="La inteligencia que vive en tu máquina. Engine, Avisa, Panel, Vigila.">
+    <meta property="og:title" content="YOLA — La inteligencia que vive en tu máquina">
+    <meta property="og:description" content="Ecosistema de IA local. Engine, CLI, Vigila, Frontend, Avisa.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yolabysayri.com">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="css/base.css">
     <style>
-        /* ─── PRODUCT CARDS ──────────────────────────── */
+        /* ─── PRODUCT CARDS (simplified) ──────────────── */
         .pro-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -26,38 +26,41 @@
             border: 1px solid var(--border);
             margin-top: 3rem;
         }
+        @media (max-width: 640px) {
+            .pro-grid { grid-template-columns: 1fr; }
+        }
         .pro-card {
             background: var(--bg);
-            padding: 2.5rem 2rem;
+            padding: 2rem 1.75rem;
             position: relative;
             transition: background .3s;
         }
         .pro-card:hover { background: var(--s1); }
         .pro-icon {
-            width: 40px; height: 40px;
+            width: 36px; height: 36px;
             border: 1px solid var(--border2);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
             border-radius: 2px;
         }
-        .pro-icon svg { width: 20px; height: 20px; }
+        .pro-icon svg { width: 18px; height: 18px; }
         .pro-card h3 {
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-weight: 800;
             letter-spacing: -.02em;
-            margin-bottom: .5rem;
+            margin-bottom: .4rem;
         }
         .pro-card p {
-            font-size: 0.875rem;
+            font-size: 0.812rem;
             color: var(--text-mid);
             line-height: 1.7;
-            margin-bottom: 1.2rem;
+            margin-bottom: .8rem;
             font-weight: 400;
         }
         .pro-link {
-            font-family: 'DM Mono', monospace;
+            font-family: var(--font-mono);
             font-size: 0.688rem;
             color: var(--text-dim);
             text-decoration: none;
@@ -66,7 +69,7 @@
             gap: .4rem;
             transition: color .2s;
         }
-        .pro-link:hover { color: var(--gold-l); }
+        .pro-link:hover { color: var(--accent); }
         .pro-link svg { width: 12px; height: 12px; transition: transform .2s; }
         .pro-link:hover svg { transform: translateX(3px); }
 
@@ -97,333 +100,48 @@
         .manifesto cite {
             display: block;
             margin-top: 2rem;
-            font-family: 'DM Mono', monospace;
+            font-family: var(--font-mono);
             font-size: 0.75rem;
             color: var(--text-dim);
             font-style: normal;
             letter-spacing: .1em;
         }
 
-        /* ─── STATS ───────────────────────────────────── */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-            background: var(--border);
-            border: 1px solid var(--border);
+        /* ─── VIDEO HERO ─────────────────────────────── */
+        .hero-video-wrapper {
+            width: 100%;
             max-width: 800px;
-            margin: 3rem auto 0;
-        }
-        .stat-item {
-            background: var(--bg);
-            padding: 2rem 1.5rem;
-            text-align: center;
-        }
-        .stat-num {
-            font-size: 2.25rem;
-            font-weight: 800;
-            letter-spacing: -.04em;
-            color: var(--text);
-            line-height: 1;
-        }
-        .stat-num b { color: var(--gold-l); }
-        .stat-label {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.688rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: .1em;
-            margin-top: .6rem;
-            display: block;
-        }
-
-        /* ─── HERO SPECIFIC ──────────────────────────── */
-        .hero-ecosystem {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--text-dim);
-            letter-spacing: .25em;
-            text-transform: uppercase;
-            margin-top: 2rem;
-        }
-        .hero-ecosystem b { color: var(--gold-l); }
-
-        /* ─── FOOTER LINKS ──────────────────────────── */
-        .ft-links {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .ft-link {
-            color: var(--text-dim);
-            text-decoration: none;
-            font-family: 'DM Mono', monospace;
-            font-size: 0.625rem;
-            transition: color .2s;
-        }
-        .ft-link:hover { color: var(--gold-l); }
-
-        /* ─── RESPONSIVE ─────────────────────────────── */
-        @media(max-width:900px){
-            .pro-grid { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .manifesto { padding: 4rem 1.2rem; }
-        }
-        /* ─── AMBIENT BACKGROUND ───────────────────────── */
-        body::before {
-            content: '';
-            position: fixed; inset: 0;
-            background:
-                radial-gradient(ellipse at 15% 30%, rgba(108,92,231,0.08) 0%, transparent 55%),
-                radial-gradient(ellipse at 85% 20%, rgba(184,147,42,0.04) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 80%, rgba(108,92,231,0.03) 0%, transparent 45%);
-            pointer-events: none;
-            z-index: 0;
-        }
-        body::after {
-            content: '';
-            position: fixed; inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* ─── HERO BADGE ──────────────────────────────── */
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.4rem 1rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-full);
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--text2);
-            margin-bottom: 1.5rem;
-            animation: fadeUp 0.8s ease 0.1s both;
-        }
-        .hero-badge-dot {
-            width: 7px; height: 7px;
-            border-radius: 50%;
-            background: var(--green, #00e676);
-            box-shadow: 0 0 8px rgba(0,230,118,0.4);
-        }
-
-        /* ─── INSTALL COMMAND ─────────────────────────── */
-        .hero-cta {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 2rem;
-            animation: fadeUp 0.8s ease 0.3s both;
-        }
-        .install-command {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 1.5rem;
-            background: var(--surface-glass, #0e0e16);
-            border: 1px solid var(--border2);
-            border-radius: var(--radius);
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--text2);
-            cursor: pointer;
-            transition: var(--transition);
-            user-select: all;
-            position: relative;
+            margin: 2.5rem auto 0;
+            border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 60px var(--accent-glow);
+            border: 1px solid rgba(108,92,231,0.2);
+            position: relative;
         }
-        .install-command::before {
-            content: '$';
-            color: var(--accent2, #a29bfe);
-            font-weight: 700;
-            opacity: 0.6;
-        }
-        .install-command:hover {
-            border-color: var(--accent);
-            background: var(--surface);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 20px var(--accent-glow);
-        }
-        .install-command .copy-hint {
-            font-family: var(--font);
-            font-size: 0.7rem;
-            color: var(--text3);
-            background: var(--surface);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            border: 1px solid var(--border);
-            margin-left: 0.25rem;
-            transition: var(--transition);
-        }
-        .install-command:hover .copy-hint {
-            background: var(--accent-dim);
-            color: var(--accent2, #a29bfe);
-            border-color: rgba(108,92,231,0.3);
-        }
-        .install-alt {
-            font-size: 0.8rem;
-            color: var(--text3);
-        }
-        .install-alt code {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--text2);
-            background: var(--surface);
-            padding: 0.15rem 0.4rem;
-            border-radius: 4px;
-        }
-        .hero-cta-sub {
-            font-size: 0.8rem;
-            color: var(--text3);
-        }
-        .hero-cta-sub a {
-            color: var(--accent2, #a29bfe);
-            text-decoration: none;
-        }
-        .hero-cta-sub a:hover {
-            color: var(--accent);
-        }
-
-        /* ─── SCROLL INDICATOR ────────────────────────── */
-        .scroll-indicator {
+        .hero-btns {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 3rem;
-            animation: fadeUp 0.8s ease 0.5s both;
-        }
-        .scroll-indicator span {
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            color: var(--text3);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-        }
-        .scroll-line {
-            width: 1px;
-            height: 40px;
-            background: linear-gradient(to bottom, var(--border2), transparent);
-            animation: scrollPulse 2s ease-in-out infinite;
-        }
-        @keyframes scrollPulse {
-            0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
-            50% { opacity: 1; transform: scaleY(1); }
-        }
-
-        /* ─── SECTION NUMBERS ─────────────────────────── */
-        .section-number {
-            display: inline-flex;
-            align-items: center;
+            gap: 1rem;
             justify-content: center;
-            width: 2rem;
-            height: 2rem;
-            border-radius: 50%;
-            background: var(--accent-dim);
-            color: var(--accent2, #a29bfe);
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(108,92,231,0.15);
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .hero-btns .btn {
+            padding: 0.85rem 2rem;
+            font-size: 0.9rem;
         }
 
-        /* ─── ENHANCED PRO-CARD HOVER ────────────────── */
-        .pro-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            opacity: 0;
-            transition: var(--transition);
-        }
-        .pro-card:hover::before { opacity: 0.5; }
-        .pro-card:hover {
-            background: var(--surface, #0e0e16) !important;
-            transform: translateY(-2px);
-        }
-        .pro-card {
-            transition: background .3s, transform .3s, border-color .3s;
-        }
-        .pro-card:hover .pro-icon {
-            background: rgba(108,92,231,0.18);
-            border-color: rgba(108,92,231,0.25) !important;
-        }
-        .pro-icon { transition: background .3s, border-color .3s; }
-
-        /* ─── CTA INSTALL BANNER ──────────────────────── */
-        .cta-install-cmd {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 1.5rem;
-            background: var(--surface-glass, #0e0e16);
-            border: 1px solid var(--border2);
-            border-radius: var(--radius);
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--text2);
-            cursor: pointer;
-            transition: var(--transition);
-            user-select: all;
-            margin-top: 1rem;
-        }
-        .cta-install-cmd::before {
-            content: '$';
-            color: var(--accent2, #a29bfe);
-            font-weight: 700;
-            opacity: 0.6;
-        }
-        .cta-install-cmd:hover {
-            border-color: var(--accent);
-            background: var(--surface);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 20px var(--accent-glow);
+        @media (max-width: 600px) {
+            .hero-video-wrapper { margin-top: 1.5rem; border-radius: 8px; }
+            .hero-btns .btn { width: 100%; text-align: center; }
         }
 
-        @media(max-width:600px){
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .stat-item { padding: 1.5rem 1rem; }
-            .stat-num { font-size: 1.75rem; }
-        }
-        /* ─── DEMO SECTION ────────────────────────── */
-        .demo-section { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:var(--transition); }
-        .demo-section:hover { border-color:var(--border2); }
-        .demo-preview { position:relative; width:100%; aspect-ratio:16/10; background:var(--bg3); overflow:hidden; display:flex; align-items:center; justify-content:center; }
-        .demo-screen { position:relative; width:92%; height:85%; background:var(--bg2); border-radius:var(--radius-sm); border:1px solid var(--border); overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,0.4); }
-        .demo-taskbar { position:absolute; bottom:0; left:0; right:0; height:36px; background:rgba(10,10,15,0.85); backdrop-filter:blur(20px); border-top:1px solid var(--border); display:flex; align-items:center; padding:0 8px; gap:4px; }
-        .demo-tb-logo { width:28px; height:28px; border-radius:6px; background:rgba(108,92,231,0.15); color:var(--accent2); font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-        .demo-tb-item { height:28px; padding:0 10px; border-radius:6px; background:var(--surface); font-size:0.7rem; color:var(--text2); display:flex; align-items:center; gap:4px; }
-        .demo-tb-item.active { background:rgba(108,92,231,0.12); color:var(--accent2); }
-        .demo-tb-time { margin-left:auto; font-size:0.65rem; color:var(--text3); padding-right:8px; }
-        .demo-icons { position:absolute; top:12px; right:12px; display:flex; flex-direction:column; gap:6px; }
-        .demo-icon { width:44px; height:44px; border-radius:8px; background:var(--surface); border:1px solid var(--border); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; font-size:0.5rem; color:var(--text3); }
-        .demo-icon svg { width:18px; height:18px; opacity:0.6; }
-        .demo-window { position:absolute; border-radius:var(--radius-sm); border:1px solid var(--border); background:var(--bg2); overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.3); }
-        .demo-window-header { height:28px; background:var(--surface); display:flex; align-items:center; padding:0 8px; gap:6px; border-bottom:1px solid var(--border); }
-        .demo-window-dot { width:8px; height:8px; border-radius:50%; background:var(--text3); opacity:0.3; }
-        .demo-window-content { padding:10px 12px; font-family:var(--font-mono); font-size:0.65rem; color:var(--text2); line-height:1.8; }
-        .demo-window-content .prompt { color:var(--green); }
-        .demo-window-content .cmd { color:var(--text); }
-        .demo-window-content .output { color:var(--text2); }
-        .demo-window-content .accent-text { color:var(--accent2); }
-        .window-terminal { left:8%; top:10%; width:52%; height:60%; }
-        .window-chat { right:6%; top:18%; width:32%; height:45%; }
-        .demo-caption { padding:1.5rem 2rem; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
-        .demo-caption-text h4 { font-size:0.95rem; font-weight:600; margin-bottom:0.2rem; }
-        .demo-caption-text p { font-size:0.85rem; color:var(--text2); }
-        .demo-caption-link { display:inline-flex; align-items:center; gap:0.4rem; color:var(--accent2); text-decoration:none; font-size:0.875rem; font-weight:500; transition:var(--transition); white-space:nowrap; }
-        .demo-caption-link:hover { gap:0.6rem; color:var(--accent); }
-        .demo-caption-link svg { transition:var(--transition); }
-        .demo-caption-link:hover svg { transform:translateX(3px); }
+        /* ─── NO MORE SCROLL INDICATOR ────────────────── */
+        /* (intentionally removed — video is the scroll stopper) */
     </style>
 </head>
 <body>
+
+<!-- ═══ PROGRESS + CURSOR ═════════════════════ -->
 <div class="scroll-progress" id="scrollProgress"></div>
 <div id="c"></div>
 <div id="cr"></div>
@@ -431,14 +149,13 @@
 <!-- ═══ NAV ═══════════════════════════════════════ -->
 <nav id="mainNav">
     <div class="logo"><b>YOLA</b></div>
-    <button class="nav-toggle" id="navToggle" aria-label="Menú"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-r">
         <a href="/" class="btn-nav" style="border-color:var(--text);color:var(--text)">Inicio</a>
         <a href="#productos" class="btn-nav">Productos</a>
         <a href="#filosofia" class="btn-nav">Filosofía</a>
-        <a href="#descargas" class="btn-nav">Descargas</a>
-        <a href="docs/DOCUMENTACION.md" class="nav-pill">Docs</a>
-        <a href="https://github.com/sayridev" target="_blank" class="nav-pill gold">GitHub</a>
+        <a href="download.html" class="nav-pill gold">Descargar</a>
+        <a href="https://github.com/sayridev" target="_blank" class="nav-pill">GitHub</a>
     </div>
 </nav>
 <div class="nav-overlay" id="navOverlay"></div>
@@ -449,41 +166,27 @@
     <div class="hero-aura"></div>
     <div class="z">
         <div class="rv">
-            <span class="eyebrow">Ecosistema</span>
-            <div class="hero-badge">
-                <span class="hero-badge-dot"></span>
-                YOLA Engine · Go · 17MB · Sin dependencias
-            </div>
             <h1>YOLA</h1>
             <p class="hero-sub">
                 La inteligencia que vive en tu máquina.<br>
                 Y los productos que <strong>construye</strong>.
             </p>
-            <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-                <a href="#descargas" class="btn btn-gold">Descargar</a>
-                <a href="#productos" class="btn btn-outline">Explorar</a>
+
+            <!-- VIDEO: 9s demo de yola-cli respondiendo -->
+            <div class="hero-video-wrapper">
+                <video controls playsinline muted
+                       style="width:100%;display:block;background:#000"
+                       poster="">
+                    <source src="media/yola-cli-demo.mp4" type="video/mp4">
+                </video>
             </div>
-            <div class="hero-ecosystem">
-                <b>Engine</b> · <b>Avisa</b> · <b>Panel</b> · <b>Vigila</b>
-            </div>
-            <div class="hero-cta">
-                <code class="install-command" onclick="navigator.clipboard?.writeText('curl -fsSL https://yola.dev/install.sh | bash')">
-                    curl -fsSL https://yola.dev/install.sh | bash
-                    <span class="copy-hint">Copiar</span>
-                </code>
-                <div class="install-alt">
-                    o compila localmente: <code>go build -o yola-engine ./cmd/yola-engine/</code>
-                </div>
-                <p class="hero-cta-sub">
-                    También disponible en <a href="https://github.com/sayridev" target="_blank">GitHub</a>
-                    · <a href="#productos">Explorar productos →</a>
-                </p>
+
+            <!-- CTA buttons -->
+            <div class="hero-btns">
+                <a href="download.html" class="btn btn-gold">Descargar yola-cli</a>
+                <a href="https://sayridevs.github.io/yola-frontend/" target="_blank" class="btn btn-outline">Probar online</a>
             </div>
         </div>
-    </div>
-    <div class="scroll-indicator">
-        <span>Desplázate</span>
-        <div class="scroll-line"></div>
     </div>
 </section>
 
@@ -494,7 +197,7 @@
         <span class="eyebrow">Productos</span>
         <h2>El ecosistema <i>YOLA</i></h2>
         <p style="color:var(--text-mid);font-size:1.125rem;line-height:1.8;max-width:560px;font-weight:400">
-            Cuatro productos, una inteligencia. Cada uno resuelve un problema real con la mínima superficie posible.
+            Cinco productos, una inteligencia. Cada uno resuelve un problema real con la mínima superficie posible.
         </p>
     </div>
 
@@ -506,8 +209,44 @@
             </div>
             <h3 style="color:var(--cyan)">YOLA Engine</h3>
             <p>Motor de agente LLM autónomo. Un binario Go de 17MB. OS de escritorio en el navegador. Corre local, piensa solo.</p>
-            <a href="#" class="pro-link">
-                Saber más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <a href="download.html" class="pro-link">
+                Descargar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+        </div>
+
+        <!-- CLI -->
+        <div class="pro-card">
+            <div class="pro-icon" style="border-color:rgba(184,147,42,.2)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+            </div>
+            <h3 style="color:var(--gold)">YOLA CLI</h3>
+            <p>Interfaz de terminal para el Engine. Conversaciones, automation y scripting de agente desde tu shell.</p>
+            <a href="download.html" class="pro-link">
+                Descargar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+        </div>
+
+        <!-- VIGILA -->
+        <div class="pro-card">
+            <div class="pro-icon" style="border-color:rgba(192,64,64,.2)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 style="color:var(--red)">YolaVigila</h3>
+            <p>Agente de monitoreo de infraestructura. Vigila servidores, contenedores y servicios. Te alerta cuando algo falla.</p>
+            <a href="download.html" class="pro-link">
+                Descargar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+        </div>
+
+        <!-- FRONTEND -->
+        <div class="pro-card">
+            <div class="pro-icon" style="border-color:rgba(139,92,246,.2)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3 style="color:var(--purple)">YolaFrontend</h3>
+            <p>Web app para interactuar con el Engine desde el navegador. Panel, chat, exploracion de archivos y mas.</p>
+            <a href="https://sayridevs.github.io/yola-frontend/" target="_blank" class="pro-link">
+                Probar online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
         </div>
 
@@ -517,70 +256,18 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
             </div>
             <h3 style="color:var(--green)">YolaAvisa</h3>
-            <p>App Android que captura notificaciones bancarias y las envía a Google Sheets. Controla tus finanzas en tiempo real sin esfuerzo.</p>
-            <a href="#" class="pro-link">
-                Saber más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-        </div>
-
-        <!-- PANEL -->
-        <div class="pro-card">
-            <div class="pro-icon" style="border-color:rgba(139,92,246,.2)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-            </div>
-            <h3 style="color:var(--purple)">YolaPanel</h3>
-            <p>Dashboard web para visualizar datos financieros en tiempo real. Conecta tus fuentes y ve lo que importa.</p>
-            <a href="#" class="pro-link">
-                Saber más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-        </div>
-
-        <!-- VIGILA -->
-        <div class="pro-card">
-            <div class="pro-icon" style="border-color:rgba(212,171,71,.2)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-l)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-            </div>
-            <h3 style="color:var(--gold-l)">YolaVigila</h3>
-            <p>Monitor de servidores con dashboard y webhooks. Alertas inteligentes cuando algo necesita tu atención.</p>
-            <a href="#" class="pro-link">
-                Saber más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <p>App Android que captura notificaciones bancarias y las envia a Google Sheets. Controla tus finanzas en tiempo real.</p>
+            <a href="download.html" class="pro-link">
+                Descargar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
         </div>
     </div>
 </section>
 
-<!-- ═══ DEMO ════════════════════════════════════ -->
-<section class="section" id="demo">
-    <div class="rv">
-        <div class="section-number">02</div>
-        <h2>Así se ve <i>YOLA</i></h2>
-        <p style="color:var(--text-mid);font-size:1.125rem;line-height:1.8;max-width:560px;font-weight:400">
-            YOLA respondiendo desde tu terminal. Sin servidores, sin nube — solo tu máquina y el agente.
-        </p>
-    </div>
-
-    <div class="demo-video" style="margin-top:2.5rem;max-width:720px;margin-left:auto;margin-right:auto;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.4);border:1px solid rgba(108,92,231,0.15)">
-        <video src="media/yola-cli-demo.mp4" controls playsinline style="width:100%;display:block;background:#000">
-            Tu navegador no soporta video.
-        </video>
-    </div>
-
-    <div class="demo-caption">
-        <div class="demo-caption-text">
-            <h4>YOLA en tu terminal</h4>
-            <p>9 segundos. Sin editar. Directo desde yola-cli respondiendo en local.</p>
-        </div>
-        <a href="download.html" class="demo-caption-link">
-            Descargar yola-cli
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-    </div>
-</section>
-
-<!-- ═══ FILOSOFÍA ════════════════════════════════ -->
+<!-- ═══ FILOSOFIA ════════════════════════════════ -->
 <section id="filosofia" style="border-top:1px solid var(--border)">
     <div class="manifesto rv">
-        <div class="section-number">03</div>
+        <div class="section-number">02</div>
         <blockquote>
             YOLA no es una app.<br>
             YOLA es la <strong>inteligencia</strong> que las <em>construye</em>.
@@ -588,52 +275,7 @@
         <p style="color:var(--text-mid);font-size:1rem;line-height:1.8;margin-top:2rem;max-width:480px;margin-left:auto;margin-right:auto;font-weight:400">
             Cada producto es un experto. Cada experto vive en tu máquina. No hay nube, no hay suscripción, no hay límites artificiales. Solo código que resuelve problemas.
         </p>
-        <cite>— Sayri, creador de YOLA</cite>
-    </div>
-</section>
-
-<!-- ═══ STATS ════════════════════════════════════ -->
-<section class="section" id="stats">
-    <div class="rv" style="text-align:center">
-        <div class="section-number">04</div>
-        <span class="eyebrow">Trayectoria</span>
-        <h2>Hecho en <i>Perú</i></h2>
-    </div>
-    <div class="stats-grid rv">
-        <div class="stat-item">
-            <span class="stat-num"><b>17</b>MB</span>
-            <span class="stat-label">Tamaño del Engine</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-num"><b>4</b></span>
-            <span class="stat-label">Productos activos</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-num"><b>1</b></span>
-            <span class="stat-label">Inteligencia</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-num"><b>0</b></span>
-            <span class="stat-label">Dependencia externa</span>
-        </div>
-    </div>
-</section>
-
-<!-- ═══ DESCARGAS / CTA ═════════════════════════ -->
-<section class="cta-final" id="descargas">
-    <div class="cta-bg"></div>
-    <div class="rv">
-        <div class="section-number">05</div>
-        <h2>Empieza con <i>YOLA</i></h2>
-        <p>Sin registro. Sin nube. Sin suscripción.<br>La inteligencia corre en tu máquina.</p>
-        <div class="cta-row">
-            <a href="download.html" class="btn btn-gold">Descargar Engine</a>
-            <a href="docs/DOCUMENTACION.md" class="btn btn-outline">Leer docs</a>
-        </div>
-        <code class="cta-install-cmd" onclick="navigator.clipboard?.writeText('curl -fsSL https://yola.dev/install.sh | bash')">
-            curl -fsSL https://yola.dev/install.sh | bash
-            <span class="copy-hint">Copiar</span>
-        </code>
+        <cite>&mdash; Sayri, creador de YOLA</cite>
     </div>
 </section>
 
@@ -646,12 +288,12 @@
         <a href="privacy.html" class="ft-link">Privacidad</a>
         <a href="terms.html" class="ft-link">Términos</a>
     </div>
-    <span class="ft-meta">© 2026 YOLA by Sayri</span>
+    <span class="ft-meta">&copy; 2026 YOLA by Sayri</span>
 </footer>
 
 <script src="js/main.js"></script>
 <script>
-/* ─── SCROLL PROGRESS (ya en main.js pero por si acaso) ─── */
+/* ─── SCROLL PROGRESS ─── */
 (function(){
     var bar = document.getElementById('scrollProgress');
     if(!bar) return;
@@ -661,31 +303,6 @@
     }
     window.addEventListener('scroll', update, {passive: true});
     update();
-})();
-
-/* ─── CLIPBOARD COPY (install commands) ─── */
-(function(){
-    var cmds = document.querySelectorAll('.install-command, .cta-install-cmd');
-    cmds.forEach(function(el){
-        el.addEventListener('click', async function(e){
-            var text = this.textContent.replace('Copiar', '').trim();
-            try {
-                await navigator.clipboard.writeText(text);
-                var hint = this.querySelector('.copy-hint');
-                if (hint) {
-                    var orig = hint.textContent;
-                    hint.textContent = '✅ Copiado';
-                    setTimeout(function(){ hint.textContent = orig; }, 2000);
-                }
-            } catch (e) {
-                var range = document.createRange();
-                range.selectNodeContents(this);
-                var sel = window.getSelection();
-                sel.removeAllRanges();
-                sel.addRange(range);
-            }
-        });
-    });
 })();
 </script>
 </body>
