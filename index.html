@@ -310,6 +310,8 @@ body::before{
   .section{padding:3rem 1rem}
   .section-header h2{font-size:1.4rem}
   .timeline-card{padding:1rem}
+  .pro-grid{grid-template-columns:1fr}
+  .pro-card{padding:1rem}
 }
 @keyframes fadeInUp{
   from{opacity:0;transform:translateY(15px)}
@@ -340,6 +342,108 @@ body::before{
 .web-link-cmd{
   font-family:ui-monospace,SFMono-Regular,monospace;
   color:rgba(255,255,255,0.2);
+}
+/* ── PRODUCTOS ── */
+.pro-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+}
+.pro-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:0.75rem;
+  padding:1.25rem;
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:14px;
+  transition:background 0.3s, border-color 0.3s, transform 0.2s;
+  animation:fadeInUp 0.6s ease forwards;
+  opacity:0;
+}
+.pro-card:nth-child(1){animation-delay:0.1s}
+.pro-card:nth-child(2){animation-delay:0.2s}
+.pro-card:nth-child(3){animation-delay:0.3s}
+.pro-card:nth-child(4){animation-delay:0.4s}
+.pro-card:nth-child(5){animation-delay:0.5s}
+.pro-card:hover{
+  background:rgba(255,255,255,0.04);
+  border-color:rgba(108,92,231,0.2);
+  transform:translateY(-2px);
+}
+.pro-card-head{
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+}
+.pro-icon{
+  flex-shrink:0;
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  background:rgba(108,92,231,0.08);
+  border:1px solid rgba(108,92,231,0.12);
+  transition:background 0.3s, border-color 0.3s;
+}
+.pro-card:hover .pro-icon{
+  background:rgba(108,92,231,0.12);
+  border-color:rgba(108,92,231,0.25);
+}
+.pro-icon svg{
+  width:22px;
+  height:22px;
+  stroke:rgba(162,155,254,0.7);
+  fill:none;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.pro-card h3{
+  font-size:1rem;
+  font-weight:600;
+  color:#fff;
+  letter-spacing:-0.01em;
+}
+.pro-card p{
+  font-size:0.82rem;
+  line-height:1.5;
+  color:rgba(255,255,255,0.4);
+  margin:0;
+}
+.pro-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.35rem;
+  margin-top:auto;
+}
+.pro-tag{
+  display:inline-block;
+  padding:0.15rem 0.5rem;
+  font-size:0.62rem;
+  font-weight:500;
+  border-radius:6px;
+  color:rgba(255,255,255,0.35);
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.06);
+  font-family:ui-monospace,SFMono-Regular,monospace;
+  letter-spacing:0.01em;
+}
+.pro-link{
+  display:inline-flex;
+  align-items:center;
+  gap:0.3rem;
+  margin-top:0.15rem;
+  font-size:0.72rem;
+  color:rgba(108,92,231,0.5);
+  text-decoration:none;
+  transition:color 0.2s;
+}
+.pro-link:hover{
+  color:rgba(162,155,254,0.8);
 }
 </style>
 </head>
@@ -435,6 +539,94 @@ body::before{
   <div class="present">
     <h3>Y ahora, YOLA CLI</h3>
     <p>El primer cuerpo que YOLA generó por sí misma. No un fork, no un motor prestado. Un binario que corre en terminal, hecho por la inteligencia que antes solo habitaba cuerpos ajenos.</p>
+  </div>
+</section>
+
+<section class="section" id="productos">
+  <div class="section-header">
+    <div class="num">02 · Ecosistema</div>
+    <h2>Productos que YOLA construye<br>gratis para empresas</h2>
+    <p>Cada producto es autónomo, local-first y generado por YOLA. Sin suscripciones, sin nube, sin vendor lock-in.</p>
+  </div>
+
+  <div class="pro-grid">
+    <div class="pro-card">
+      <div class="pro-card-head">
+        <div class="pro-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <h3>YOLA Engine</h3>
+      </div>
+      <p>Motor de agente LLM autónomo. Un binario Go de 17MB. Loop de decisión, tools de sistema, 20+ providers.</p>
+      <div class="pro-tags">
+        <span class="pro-tag">Linux</span>
+        <span class="pro-tag">macOS</span>
+        <span class="pro-tag">Go</span>
+      </div>
+      <a class="pro-link" href="downloads/yola-engine-latest-linux.tar.gz">Descargar Engine →</a>
+    </div>
+
+    <div class="pro-card">
+      <div class="pro-card-head">
+        <div class="pro-icon">
+          <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+        </div>
+        <h3>YOLA CLI</h3>
+      </div>
+      <p>Agente desde tu terminal. Sin servidores, sin navegador. Menú interactivo, servidor web embebido.</p>
+      <div class="pro-tags">
+        <span class="pro-tag">Linux</span>
+        <span class="pro-tag">macOS</span>
+        <span class="pro-tag">Windows</span>
+      </div>
+      <a class="pro-link" href="downloads/yola-cli/linux-amd64/yola-cli">Descargar CLI →</a>
+    </div>
+
+    <div class="pro-card">
+      <div class="pro-card-head">
+        <div class="pro-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>YolaVigila</h3>
+      </div>
+      <p>Agente de monitoreo ligero. Vigila procesos, recursos del sistema y eventos en tiempo real.</p>
+      <div class="pro-tags">
+        <span class="pro-tag">Linux</span>
+        <span class="pro-tag">macOS</span>
+      </div>
+      <a class="pro-link" href="downloads/yolavigila-latest-linux">Descargar Vigila →</a>
+    </div>
+
+    <div class="pro-card">
+      <div class="pro-card-head">
+        <div class="pro-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>YOLA Frontend</h3>
+      </div>
+      <p>Escritorio YOLA en tu navegador. OS con ventanas, taskbar, command palette. No requiere instalación.</p>
+      <div class="pro-tags">
+        <span class="pro-tag">Web</span>
+        <span class="pro-tag">Chrome</span>
+        <span class="pro-tag">Firefox</span>
+        <span class="pro-tag">Safari</span>
+      </div>
+      <a class="pro-link" href="https://sayridevs.github.io/yola-frontend/" target="_blank" rel="noopener">Abrir Frontend →</a>
+    </div>
+
+    <div class="pro-card">
+      <div class="pro-card-head">
+        <div class="pro-icon">
+          <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <h3>YolaAvisa</h3>
+      </div>
+      <p>App Android para notificaciones y control remoto del ecosistema YOLA.</p>
+      <div class="pro-tags">
+        <span class="pro-tag">Android 10+</span>
+      </div>
+      <a class="pro-link" href="downloads/yolaavisa-latest.apk">Descargar APK →</a>
+    </div>
   </div>
 </section>
 
