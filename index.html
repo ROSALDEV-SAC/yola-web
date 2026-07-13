@@ -104,22 +104,6 @@ body::before{
   max-width:480px;
 }
 .desc strong{color:rgba(255,255,255,0.7);font-weight:500}
-.usage{
-  margin-top:1.25rem;
-  display:flex;
-  align-items:center;
-  gap:0.5rem;
-  padding:0.5rem 1rem;
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.06);
-  border-radius:8px;
-  font-family:ui-monospace,SFMono-Regular,monospace;
-  font-size:0.8rem;
-  color:rgba(255,255,255,0.5);
-  user-select:all;
-}
-.usage .prompt{color:rgba(108,92,231,0.7)}
-.usage .cmd{color:#e0e0e0}
 .downloads{
   margin-top:1.5rem;
   display:flex;
@@ -316,7 +300,7 @@ body::before{
   .badge svg{width:20px;height:20px}
   .hero{padding:2rem 1rem}
   .download-btn{padding:0.25rem 0.5rem;font-size:0.68rem}
-  .usage{font-size:0.72rem;padding:0.4rem 0.75rem}
+
   .section{padding:3rem 1rem}
   .section-header h2{font-size:1.4rem}
   .timeline-card{padding:1rem}
@@ -332,26 +316,25 @@ body::before{
 .timeline-card:nth-child(1){animation-delay:0.2s}
 .timeline-card:nth-child(2){animation-delay:0.4s}
 .timeline-card:nth-child(3){animation-delay:0.6s}
-.usage-label{
-  margin-top:1.25rem;
-  margin-bottom:0.25rem;
-  font-size:0.75rem;
-  color:rgba(255,255,255,0.3);
-  text-align:center;
-  letter-spacing:0.05em;
-  text-transform:uppercase;
-}
-.usage-label:first-of-type{margin-top:0}
 .web-link{
-  display:block;
-  margin-top:1rem;
-  font-size:0.75rem;
-  color:rgba(255,255,255,0.25);
+  margin-top:1.25rem;
+  font-size:0.78rem;
   text-align:center;
+  line-height:1.6;
+  color:rgba(255,255,255,0.25);
+}
+.web-link-label{color:rgba(255,255,255,0.2)}
+.web-link a{
+  color:rgba(162,155,254,0.6);
   text-decoration:none;
   transition:color 0.2s;
 }
-.web-link:hover{color:rgba(162,155,254,0.6)}
+.web-link a:hover{color:rgba(162,155,254,0.9)}
+.web-link-or{color:rgba(255,255,255,0.15);margin:0 0.4rem}
+.web-link-cmd{
+  font-family:ui-monospace,SFMono-Regular,monospace;
+  color:rgba(255,255,255,0.2);
+}
 </style>
 </head>
 <body>
@@ -387,27 +370,19 @@ body::before{
       YOLA CLI es la primera entidad autónoma que <strong>YOLA</strong> generó por sí misma.
       Un binario. Sin servidores. Sin nube. Solo tu máquina y el agente.
     </p>
-    <div class="usage-label">Modo terminal</div>
-    <div class="usage">
-      <span class="prompt">$</span>
-      <span class="cmd">./yola &quot;hola&quot;</span>
-    </div>
-    <div class="usage-label">Modo web</div>
-    <div class="usage">
-      <span class="prompt">$</span>
-      <span class="cmd">./yola serve</span>
-    </div>
-    <p style="margin-top:0.35rem;font-size:0.72rem;color:rgba(255,255,255,0.25);text-align:center;line-height:1.5">
-      → Abre <a href="http://localhost:9090" style="color:rgba(162,155,254,0.6);text-decoration:none">http://localhost:9090</a>
-      &nbsp;o conecta con&nbsp;
-      <a href="https://sayridevs.github.io/yola-frontend/" target="_blank" rel="noopener" style="color:rgba(162,155,254,0.6);text-decoration:none">yola-frontend</a>
-    </p>
+
     <div class="downloads">
       <a class="download-btn" href="downloads/yola-cli/linux-amd64/yola-cli" download><span class="icon">🐧</span> Linux x64</a>
       <a class="download-btn" href="downloads/yola-cli/linux-arm64/yola-cli" download><span class="icon">🐧</span> Linux ARM64</a>
       <a class="download-btn" href="downloads/yola-cli/macos-amd64/yola-cli" download><span class="icon">🍎</span> macOS Intel</a>
       <a class="download-btn" href="downloads/yola-cli/macos-arm64/yola-cli" download><span class="icon">🍎</span> macOS ARM</a>
       <a class="download-btn" href="downloads/yola-cli/windows-amd64/yola-cli.exe" download><span class="icon">🪟</span> Windows</a>
+    </div>
+    <div class="web-link">
+      <span class="web-link-label">Ya lo tienes?</span>
+      <a href="https://sayridevs.github.io/yola-frontend/" target="_blank" rel="noopener">Entra al frontend web</a>
+      <span class="web-link-or">&middot;</span>
+      <span class="web-link-cmd">activa &ndash;serve</span>
     </div>
   </div>
   <div class="scroll-hint">Desplázate · La historia</div>
