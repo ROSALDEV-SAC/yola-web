@@ -3,13 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YOLA CLI — Primer cuerpo propio</title>
-<meta name="description" content="YOLA CLI es la primera entidad autónoma que YOLA generó por sí misma. La IA construyendo su propio cuerpo.">
-<meta property="og:title" content="YOLA CLI — Primer cuerpo propio">
-<meta property="og:description" content="YOLA CLI es la primera entidad autónoma que YOLA generó por sí misma. Un hito: la IA construyendo su propio cuerpo.">
+<title>YOLA CLI — Primer cuerpo propio | yolabysayri.com</title>
+<meta name="description" content="YOLA CLI es el primer cuerpo propio que YOLA generó por sí misma. Un binario autónomo de terminal — sin servidores, sin nube, sin dependencias externas. La inteligencia construyendo su propio cuerpo.">
+<meta property="og:title" content="YOLA CLI — Primer cuerpo propio · Beta">
+<meta property="og:description" content="YOLA CLI es la primera entidad autónoma que YOLA generó por sí misma. Un hito: la inteligencia artificial construyendo su propio cuerpo binario, sin servidores ni nube.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yolabysayri.com">
-<meta property="og:image" content="https://yolabysayri.com/og-image.png">
+<meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect fill='%230a0a0f' width='1200' height='630'/%3E%3Ctext x='600' y='315' text-anchor='middle' dominant-baseline='middle' font-family='system-ui,sans-serif' font-size='96' font-weight='700' fill='%23a09bfe'%3EYOLA CLI%3C/text%3E%3C/svg%3E">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="YOLA CLI — Primer cuerpo propio · Beta">
+<meta name="twitter:description" content="YOLA CLI es la primera entidad autónoma que YOLA generó por sí misma. Un hito: la IA construyendo su propio cuerpo binario.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -200,6 +203,10 @@ body::before{
   flex-direction:column;
   gap:1.25rem;
 }
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
 .timeline-card{
   display:flex;
   align-items:flex-start;
@@ -209,7 +216,12 @@ body::before{
   border:1px solid rgba(255,255,255,0.05);
   border-radius:12px;
   transition:background 0.3s, border-color 0.3s;
+  animation:fadeUp 0.5s ease forwards;
+  opacity:0;
 }
+.timeline-card:nth-child(1){animation-delay:0.1s}
+.timeline-card:nth-child(2){animation-delay:0.25s}
+.timeline-card:nth-child(3){animation-delay:0.4s}
 .timeline-card:hover{
   background:rgba(255,255,255,0.04);
   border-color:rgba(108,92,231,0.15);
@@ -305,6 +317,37 @@ body::before{
   .section-header h2{font-size:1.4rem}
   .timeline-card{padding:1rem}
 }
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(15px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.timeline-card{
+  opacity:0;
+  animation:fadeInUp 0.6s ease forwards;
+}
+.timeline-card:nth-child(1){animation-delay:0.2s}
+.timeline-card:nth-child(2){animation-delay:0.4s}
+.timeline-card:nth-child(3){animation-delay:0.6s}
+.usage-label{
+  margin-top:1.25rem;
+  margin-bottom:0.25rem;
+  font-size:0.75rem;
+  color:rgba(255,255,255,0.3);
+  text-align:center;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+}
+.usage-label:first-of-type{margin-top:0}
+.web-link{
+  display:block;
+  margin-top:1rem;
+  font-size:0.75rem;
+  color:rgba(255,255,255,0.25);
+  text-align:center;
+  text-decoration:none;
+  transition:color 0.2s;
+}
+.web-link:hover{color:rgba(162,155,254,0.6)}
 </style>
 </head>
 <body>
@@ -325,10 +368,21 @@ body::before{
       YOLA CLI es la primera entidad autónoma que <strong>YOLA</strong> generó por sí misma.
       Un binario. Sin servidores. Sin nube. Solo tu máquina y el agente.
     </p>
+    <div class="usage-label">Modo terminal</div>
     <div class="usage">
       <span class="prompt">$</span>
       <span class="cmd">./yola &quot;hola&quot;</span>
     </div>
+    <div class="usage-label">Modo web</div>
+    <div class="usage">
+      <span class="prompt">$</span>
+      <span class="cmd">./yola serve</span>
+    </div>
+    <p style="margin-top:0.35rem;font-size:0.72rem;color:rgba(255,255,255,0.25);text-align:center;line-height:1.5">
+      → Abre <a href="http://localhost:9090" style="color:rgba(162,155,254,0.6);text-decoration:none">http://localhost:9090</a>
+      &nbsp;o conecta con&nbsp;
+      <a href="https://sayridevs.github.io/yola-frontend/" target="_blank" rel="noopener" style="color:rgba(162,155,254,0.6);text-decoration:none">yola-frontend</a>
+    </p>
     <div class="downloads">
       <a class="download-btn" href="downloads/yola-cli/linux-amd64/yola-cli" download><span class="icon">🐧</span> Linux x64</a>
       <a class="download-btn" href="downloads/yola-cli/linux-arm64/yola-cli" download><span class="icon">🐧</span> Linux ARM64</a>
@@ -386,6 +440,8 @@ body::before{
   <span>YOLA by Sayri</span>
   <span>·</span>
   <a href="https://github.com/SayriDevs" target="_blank" rel="noopener">GitHub</a>
+  <span>·</span>
+  <a href="https://github.com/SayriDevs/yola-cli" target="_blank" rel="noopener">yola-cli repo</a>
   <span>·</span>
   <span>Perú</span>
 </div>
