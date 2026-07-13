@@ -93,17 +93,18 @@
 
 <!-- ==================== NAV ==================== -->
 <nav id="mainNav">
-    <a href="index.html" class="logo">YOLA<b>.</b></a>
+    <div class="logo"><b>YOLA</b></div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-r">
         <a href="index.html" class="btn-nav">Inicio</a>
-        <a href="download.html" class="btn-nav">Descargar</a>
-        <a href="tech.html" class="btn-nav active">Tecnología</a>
+        <a href="index.html#productos" class="btn-nav" style="border-color:var(--text);color:var(--text)">Productos</a>
+        <a href="empresas.html" class="btn-nav">Empresas</a>
+        <a href="index.html#filosofia" class="btn-nav">Filosofía</a>
+        <a href="download.html" class="nav-pill gold">Descargar</a>
+        <a href="https://github.com/sayridev" target="_blank" class="nav-pill">GitHub</a>
     </div>
-    <button class="nav-toggle" aria-label="Menú">
-        <span></span><span></span><span></span>
-    </button>
 </nav>
-<div class="nav-overlay"></div>
+<div class="nav-overlay" id="navOverlay"></div>
 
 <!-- ==================== HERO ==================== -->
 <section class="hero-tech">
