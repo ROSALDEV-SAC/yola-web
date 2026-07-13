@@ -436,14 +436,19 @@ body::before{
   display:inline-flex;
   align-items:center;
   gap:0.3rem;
-  margin-top:0.15rem;
-  font-size:0.72rem;
-  color:rgba(108,92,231,0.5);
+  padding:0.2rem 0.5rem;
+  font-size:0.65rem;
+  color:rgba(162,155,254,0.55);
+  background:rgba(108,92,231,0.06);
+  border:1px solid rgba(108,92,231,0.12);
+  border-radius:5px;
   text-decoration:none;
-  transition:color 0.2s;
+  transition:all 0.2s;
 }
 .pro-link:hover{
-  color:rgba(162,155,254,0.8);
+  color:rgba(162,155,254,0.9);
+  background:rgba(108,92,231,0.12);
+  border-color:rgba(108,92,231,0.25);
 }
 </style>
 </head>
@@ -574,12 +579,20 @@ body::before{
         <h3>YOLA CLI</h3>
       </div>
       <p>Agente desde tu terminal. Sin servidores, sin navegador. Menú interactivo, servidor web embebido.</p>
-      <div class="pro-tags">
-        <span class="pro-tag">Linux</span>
-        <span class="pro-tag">macOS</span>
+      <div class="pro-tags" style="margin-bottom:0.5rem">
+        <span class="pro-tag">Linux x64</span>
+        <span class="pro-tag">Linux ARM64</span>
+        <span class="pro-tag">macOS Intel</span>
+        <span class="pro-tag">macOS ARM</span>
         <span class="pro-tag">Windows</span>
       </div>
-      <a class="pro-link" href="downloads/yola-cli/linux-amd64/yola-cli">Descargar CLI →</a>
+      <div style="display:flex;flex-wrap:wrap;gap:0.35rem">
+        <a class="pro-link" href="downloads/yola-cli/linux-amd64/yola-cli">Linux x64</a>
+        <a class="pro-link" href="downloads/yola-cli/linux-arm64/yola-cli">Linux ARM64</a>
+        <a class="pro-link" href="downloads/yola-cli/macos-amd64/yola-cli">macOS Intel</a>
+        <a class="pro-link" href="downloads/yola-cli/macos-arm64/yola-cli">macOS ARM</a>
+        <a class="pro-link" href="downloads/yola-cli/windows-amd64/yola-cli.exe">Windows</a>
+      </div>
     </div>
 
     <div class="pro-card">
@@ -590,11 +603,17 @@ body::before{
         <h3>YolaVigila</h3>
       </div>
       <p>Agente de monitoreo ligero. Vigila procesos, recursos del sistema y eventos en tiempo real.</p>
-      <div class="pro-tags">
+      <div class="pro-tags" style="margin-bottom:0.5rem">
         <span class="pro-tag">Linux</span>
         <span class="pro-tag">macOS</span>
+        <span class="pro-tag">Windows</span>
       </div>
-      <a class="pro-link" href="downloads/yolavigila-latest-linux">Descargar Vigila →</a>
+      <div style="display:flex;flex-wrap:wrap;gap:0.35rem">
+        <a class="pro-link" href="downloads/yolavigila/yolavigila-linux-x64">Linux x64</a>
+        <a class="pro-link" href="downloads/yolavigila/yolavigila-darwin-x64">macOS Intel</a>
+        <a class="pro-link" href="downloads/yolavigila/yolavigila-darwin-arm64">macOS ARM</a>
+        <a class="pro-link" href="downloads/yolavigila/yolavigila-windows-x64.exe">Windows</a>
+      </div>
     </div>
 
     <div class="pro-card">
