@@ -520,11 +520,26 @@ body::before{
   word-break:break-all;
   line-height:1.4;
 }
-.support-sub{
-  margin-top:0.25rem;
-  font-size:0.65rem;
-  color:rgba(255,255,255,0.2);
-  font-family:ui-monospace,SFMono-Regular,monospace;
+.support-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.4rem;
+}
+.support-link{
+  display:inline-block;
+  padding:0.2rem 0.5rem;
+  font-size:0.68rem;
+  color:rgba(162,155,254,0.6);
+  background:rgba(108,92,231,0.06);
+  border:1px solid rgba(108,92,231,0.12);
+  border-radius:5px;
+  text-decoration:none;
+  transition:all 0.2s;
+}
+.support-link:hover{
+  color:rgba(162,155,254,0.9);
+  background:rgba(108,92,231,0.12);
+  border-color:rgba(108,92,231,0.25);
 }
 @media(max-width:480px){
   .support-grid{grid-template-columns:1fr}
@@ -776,14 +791,17 @@ body::before{
     </div>
 
     <div class="support-card">
-      <div class="support-label">Crypto / Consultas</div>
-      <div class="support-value">rosaldev.public@gmail.com</div>
-      <div class="support-sub">WhatsApp también disponible</div>
+      <div class="support-label">Comunidad</div>
+      <div class="support-links">
+        <a class="support-link" href="https://chat.whatsapp.com/IrDtmPl1qwHL9dGqrhqKCr" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="support-link" href="https://www.youtube.com/@sayridev1920" target="_blank" rel="noopener">YouTube</a>
+        <a class="support-link" href="mailto:rosaldev.public@gmail.com">Email</a>
+      </div>
     </div>
   </div>
 
   <p style="margin-top:1.5rem;font-size:0.78rem;color:rgba(255,255,255,0.2);text-align:center">
-    Titular: Sayri · Perú · Cada aporte va directo a infraestructura y desarrollo.
+    Titular: Jorge Sayri Rosas Asalde · Perú · Cada aporte va directo a infraestructura y desarrollo.
   </p>
 </section>
 
