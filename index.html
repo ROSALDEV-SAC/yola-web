@@ -488,6 +488,47 @@ body::before{
   transition:color 0.2s;
 }
 .sayri-links a:hover{color:rgba(162,155,254,0.8)}
+.support-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:0.75rem;
+  margin-top:2rem;
+}
+.support-card{
+  padding:1.25rem;
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.05);
+  border-radius:10px;
+  transition:background 0.3s, border-color 0.3s;
+}
+.support-card:hover{
+  background:rgba(255,255,255,0.04);
+  border-color:rgba(108,92,231,0.15);
+}
+.support-label{
+  font-size:0.7rem;
+  font-weight:500;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.25);
+  margin-bottom:0.35rem;
+}
+.support-value{
+  font-family:ui-monospace,SFMono-Regular,monospace;
+  font-size:0.85rem;
+  color:rgba(162,155,254,0.7);
+  word-break:break-all;
+  line-height:1.4;
+}
+.support-sub{
+  margin-top:0.25rem;
+  font-size:0.65rem;
+  color:rgba(255,255,255,0.2);
+  font-family:ui-monospace,SFMono-Regular,monospace;
+}
+@media(max-width:480px){
+  .support-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -707,6 +748,43 @@ body::before{
     <span>·</span>
     <span>Lima, Perú</span>
   </div>
+</section>
+
+<section class="section" id="apoyar">
+  <div class="section-header">
+    <div class="num">04 · Apoyar</div>
+    <h2>Formas de ayudar<br>a que YOLA crezca</h2>
+    <p>Sin inversores, sin aceleradoras, sin deuda. YOLA existe porque la gente que cree en la soberanía digital elige sostenerla.</p>
+  </div>
+
+  <div class="support-grid">
+    <div class="support-card">
+      <div class="support-label">Yape (Perú)</div>
+      <div class="support-value">965 759 124</div>
+    </div>
+
+    <div class="support-card">
+      <div class="support-label">Interbank</div>
+      <div class="support-value">898-3201606030</div>
+      <div class="support-sub">CCI: 0038-9801-3201-6060-3044</div>
+    </div>
+
+    <div class="support-card">
+      <div class="support-label">BCP</div>
+      <div class="support-value">1911-1453-5310-22</div>
+      <div class="support-sub">Interbancaria: 0021-9111-1453-5310-2259</div>
+    </div>
+
+    <div class="support-card">
+      <div class="support-label">Crypto / Consultas</div>
+      <div class="support-value">rosaldev.public@gmail.com</div>
+      <div class="support-sub">WhatsApp también disponible</div>
+    </div>
+  </div>
+
+  <p style="margin-top:1.5rem;font-size:0.78rem;color:rgba(255,255,255,0.2);text-align:center">
+    Titular: Sayri · Perú · Cada aporte va directo a infraestructura y desarrollo.
+  </p>
 </section>
 
 <div class="footer">
