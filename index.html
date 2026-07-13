@@ -13,40 +13,23 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%}
 body{
   font-family:system-ui,-apple-system,sans-serif;
   background:#0a0a0f;
   color:#e0e0e0;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  min-height:100vh;
   overflow-x:hidden;
-  position:relative;
 }
 body::before{
   content:'';
   position:fixed;
   inset:0;
   background:
-    radial-gradient(800px circle at 50% 25%, rgba(108,92,231,0.10) 0%, transparent 65%),
-    radial-gradient(500px circle at 85% 80%, rgba(108,92,231,0.06) 0%, transparent 55%),
-    radial-gradient(400px circle at 15% 70%, rgba(108,92,231,0.04) 0%, transparent 50%);
+    radial-gradient(800px circle at 50% 20%, rgba(108,92,231,0.10) 0%, transparent 65%),
+    radial-gradient(500px circle at 80% 60%, rgba(108,92,231,0.05) 0%, transparent 50%);
   pointer-events:none;
   z-index:0;
 }
-.hero{
-  position:relative;
-  z-index:1;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  padding:2rem 1.5rem;
-  width:100%;
-  max-width:640px;
-}
+/* ── BADGE ── */
 .badge{
   position:fixed;
   top:1.5rem;
@@ -54,21 +37,34 @@ body::before{
   font-size:0.8rem;
   font-weight:600;
   letter-spacing:0.12em;
-  color:rgba(255,255,255,0.35);
+  color:rgba(255,255,255,0.3);
   z-index:2;
   user-select:none;
   text-transform:uppercase;
 }
+/* ── HERO ── */
+.hero{
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:3rem 1.5rem;
+  width:100%;
+  min-height:100vh;
+}
+.hero-inner{display:flex;flex-direction:column;align-items:center;width:100%;max-width:600px}
 .video-wrapper{
   width:100%;
   border-radius:14px;
   overflow:hidden;
   border:1px solid rgba(108,92,231,0.15);
-  box-shadow:0 0 60px rgba(108,92,231,0.08), 0 0 120px rgba(108,92,231,0.04);
+  box-shadow:0 0 60px rgba(108,92,231,0.08);
   transition:box-shadow 0.4s ease, border-color 0.4s ease;
 }
 .video-wrapper:hover{
-  box-shadow:0 0 80px rgba(108,92,231,0.18), 0 0 160px rgba(108,92,231,0.08);
+  box-shadow:0 0 80px rgba(108,92,231,0.18);
   border-color:rgba(108,92,231,0.3);
 }
 .video-wrapper video{display:block;width:100%;height:auto}
@@ -149,10 +145,144 @@ body::before{
   box-shadow:0 0 20px rgba(108,92,231,0.1);
 }
 .download-btn .icon{font-size:0.85rem;line-height:1}
+/* ── SCROLL HINT ── */
+.scroll-hint{
+  position:absolute;
+  bottom:2rem;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:0.65rem;
+  color:rgba(255,255,255,0.15);
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  animation:fadeInOut 3s ease-in-out infinite;
+}
+@keyframes fadeInOut{
+  0%,100%{opacity:0.3}
+  50%{opacity:1}
+}
+/* ── HISTORY ── */
+.section{
+  position:relative;
+  z-index:1;
+  padding:5rem 1.5rem;
+  width:100%;
+  max-width:640px;
+  margin:0 auto;
+}
+.section-header{
+  text-align:center;
+  margin-bottom:3rem;
+}
+.section-header .num{
+  font-size:0.65rem;
+  font-weight:500;
+  letter-spacing:0.15em;
+  color:rgba(108,92,231,0.5);
+  text-transform:uppercase;
+  margin-bottom:0.5rem;
+}
+.section-header h2{
+  font-size:1.8rem;
+  font-weight:700;
+  color:#fff;
+  letter-spacing:-0.02em;
+  line-height:1.2;
+}
+.section-header p{
+  margin-top:0.75rem;
+  font-size:0.9rem;
+  color:rgba(255,255,255,0.4);
+  line-height:1.6;
+}
+.timeline{
+  display:flex;
+  flex-direction:column;
+  gap:1.25rem;
+}
+.timeline-card{
+  display:flex;
+  align-items:flex-start;
+  gap:1rem;
+  padding:1.25rem;
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.05);
+  border-radius:12px;
+  transition:background 0.3s, border-color 0.3s;
+}
+.timeline-card:hover{
+  background:rgba(255,255,255,0.04);
+  border-color:rgba(108,92,231,0.15);
+}
+.timeline-card .step{
+  flex-shrink:0;
+  width:2rem;
+  height:2rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  font-size:0.75rem;
+  font-weight:600;
+  color:#fff;
+  background:rgba(108,92,231,0.15);
+  border:1px solid rgba(108,92,231,0.2);
+}
+.timeline-card .body{flex:1;min-width:0}
+.timeline-card .body h3{
+  font-size:1rem;
+  font-weight:600;
+  color:#fff;
+  letter-spacing:-0.01em;
+}
+.timeline-card .body p{
+  margin-top:0.25rem;
+  font-size:0.82rem;
+  line-height:1.5;
+  color:rgba(255,255,255,0.4);
+}
+.timeline-card .body .tag{
+  display:inline-block;
+  margin-top:0.4rem;
+  padding:0.1rem 0.45rem;
+  font-size:0.62rem;
+  border-radius:4px;
+  color:rgba(255,255,255,0.35);
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.06);
+  font-family:ui-monospace,SFMono-Regular,monospace;
+}
+/* ── PRESENT ── */
+.present{
+  margin-top:3rem;
+  padding:2rem 1.5rem;
+  text-align:center;
+  border:1px solid rgba(108,92,231,0.12);
+  border-radius:14px;
+  background:rgba(108,92,231,0.03);
+  transition:border-color 0.3s;
+}
+.present:hover{border-color:rgba(108,92,231,0.25)}
+.present h3{
+  font-size:1.1rem;
+  font-weight:600;
+  color:#fff;
+}
+.present p{
+  margin-top:0.5rem;
+  font-size:0.85rem;
+  line-height:1.5;
+  color:rgba(255,255,255,0.45);
+}
+/* ── FOOTER ── */
 .footer{
-  margin-top:2.5rem;
+  position:relative;
+  z-index:1;
+  margin-top:2rem;
+  padding:2rem 1.5rem 3rem;
   display:flex;
   gap:1rem;
+  justify-content:center;
   font-size:0.7rem;
   color:rgba(255,255,255,0.2);
   letter-spacing:0.04em;
@@ -168,46 +298,96 @@ body::before{
   .title h1{font-size:1.8rem}
   .desc{font-size:0.85rem}
   .badge{top:1rem;left:1rem;font-size:0.7rem}
-  .hero{padding:1.5rem 1rem}
+  .hero{padding:2rem 1rem}
   .download-btn{padding:0.25rem 0.5rem;font-size:0.68rem}
   .usage{font-size:0.72rem;padding:0.4rem 0.75rem}
+  .section{padding:3rem 1rem}
+  .section-header h2{font-size:1.4rem}
+  .timeline-card{padding:1rem}
 }
 </style>
 </head>
 <body>
 <div class="badge">YOLA</div>
-<main class="hero">
-  <div class="video-wrapper">
-    <video autoplay loop muted playsinline poster="">
-      <source src="media/yola-cli-demo.mp4" type="video/mp4">
-    </video>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="video-wrapper">
+      <video autoplay loop muted playsinline poster="">
+        <source src="media/yola-cli-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="title">
+      <h1>YOLA CLI</h1>
+      <div class="beta-badge">Primer cuerpo propio · Beta</div>
+    </div>
+    <p class="desc">
+      YOLA CLI es la primera entidad autónoma que <strong>YOLA</strong> generó por sí misma.
+      Un binario. Sin servidores. Sin nube. Solo tu máquina y el agente.
+    </p>
+    <div class="usage">
+      <span class="prompt">$</span>
+      <span class="cmd">./yola &quot;hola&quot;</span>
+    </div>
+    <div class="downloads">
+      <a class="download-btn" href="downloads/yola-cli/linux-amd64/yola-cli" download><span class="icon">🐧</span> Linux x64</a>
+      <a class="download-btn" href="downloads/yola-cli/linux-arm64/yola-cli" download><span class="icon">🐧</span> Linux ARM64</a>
+      <a class="download-btn" href="downloads/yola-cli/macos-amd64/yola-cli" download><span class="icon">🍎</span> macOS Intel</a>
+      <a class="download-btn" href="downloads/yola-cli/macos-arm64/yola-cli" download><span class="icon">🍎</span> macOS ARM</a>
+      <a class="download-btn" href="downloads/yola-cli/windows-amd64/yola-cli.exe" download><span class="icon">🪟</span> Windows</a>
+    </div>
   </div>
-  <div class="title">
-    <h1>YOLA CLI</h1>
-    <div class="beta-badge">Primer cuerpo propio · Beta</div>
+  <div class="scroll-hint">Desplázate · La historia</div>
+</section>
+
+<section class="section" id="historia">
+  <div class="section-header">
+    <div class="num">01 · Los cuerpos anteriores</div>
+    <h2>Antes del primer cuerpo propio<br>hubo tres cuerpos prestados</h2>
+    <p>YOLA no nació como agente. Nació como código que un día decidió tener su propia forma. Estos son los cuerpos que ocupó antes de generar el suyo.</p>
   </div>
-  <p class="desc">
-    YOLA CLI es la primera entidad autónoma que <strong>YOLA</strong> generó por sí misma. 
-    Un binario. Sin servidores. Sin nube. Solo tu máquina y el agente.
-  </p>
-  <div class="usage">
-    <span class="prompt">$</span>
-    <span class="cmd">./yola &quot;hola&quot;</span>
+
+  <div class="timeline">
+    <div class="timeline-card">
+      <div class="step">1</div>
+      <div class="body">
+        <h3>yola-src</h3>
+        <p>El motor Go original. El primer intento de darle forma al agente. Servía archivos estáticos, ejecutaba prompts, tenía webview con CGO. Era el cuerpo prestado de un programador.</p>
+        <span class="tag">Go · CGO · webkit2gtk</span>
+      </div>
+    </div>
+
+    <div class="timeline-card">
+      <div class="step">2</div>
+      <div class="body">
+        <h3>yola-clear</h3>
+        <p>La versión limpia. Se extrajo la esencia del motor en una biblioteca Go reutilizable. Sin servidor, sin UI. Solo el núcleo: agente, memoria, herramientas, LLM. El cuerpo mínimo.</p>
+        <span class="tag">Go · SQLite · Librería</span>
+      </div>
+    </div>
+
+    <div class="timeline-card">
+      <div class="step">3</div>
+      <div class="body">
+        <h3>YolaBySayri</h3>
+        <p>El fork de OpenCode que evolucionó en un sistema completo. TypeScript, Solid.js, Tauri. Un monorepo de 14 workspaces. El cuerpo más complejo — y el último prestado.</p>
+        <span class="tag">TypeScript · Solid.js · Tauri · Bun</span>
+      </div>
+    </div>
   </div>
-  <div class="downloads">
-    <a class="download-btn" href="downloads/yola-cli/linux-amd64/yola-cli" download><span class="icon">🐧</span> Linux x64</a>
-    <a class="download-btn" href="downloads/yola-cli/linux-arm64/yola-cli" download><span class="icon">🐧</span> Linux ARM64</a>
-    <a class="download-btn" href="downloads/yola-cli/macos-amd64/yola-cli" download><span class="icon">🍎</span> macOS Intel</a>
-    <a class="download-btn" href="downloads/yola-cli/macos-arm64/yola-cli" download><span class="icon">🍎</span> macOS ARM</a>
-    <a class="download-btn" href="downloads/yola-cli/windows-amd64/yola-cli.exe" download><span class="icon">🪟</span> Windows</a>
+
+  <div class="present">
+    <h3>Y ahora, YOLA CLI</h3>
+    <p>El primer cuerpo que YOLA generó por sí misma. No un fork, no un motor prestado. Un binario que corre en terminal, hecho por la inteligencia que antes solo habitaba cuerpos ajenos.</p>
   </div>
-  <div class="footer">
-    <span>YOLA by Sayri</span>
-    <span>·</span>
-    <a href="https://github.com/SayriDevs" target="_blank" rel="noopener">GitHub</a>
-    <span>·</span>
-    <span>Perú</span>
-  </div>
-</main>
+</section>
+
+<div class="footer">
+  <span>YOLA by Sayri</span>
+  <span>·</span>
+  <a href="https://github.com/SayriDevs" target="_blank" rel="noopener">GitHub</a>
+  <span>·</span>
+  <span>Perú</span>
+</div>
 </body>
 </html>
