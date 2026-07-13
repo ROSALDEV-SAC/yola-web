@@ -206,13 +206,14 @@
                 <span class="prod-badge plat">🪟 Windows</span>
             </div>
             <div class="prod-actions">
-                <a href="downloads/yola-cli/yola-cli-v0.1.0-linux-amd64" class="prod-btn primary" download>
+                <a href="downloads/yola-cli/linux-amd64/yola-cli" class="prod-btn primary" download>
                     <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    Linux
+                    Linux x64
                 </a>
-                <a href="downloads/yola-cli/yola-cli-v0.1.0-macos-amd64" class="prod-btn" download>macOS Intel</a>
-                <a href="downloads/yola-cli/yola-cli-v0.1.0-macos-arm64" class="prod-btn" download>macOS ARM</a>
-                <a href="downloads/yola-cli/yola-cli-v0.1.0-windows-amd64.exe" class="prod-btn" download>Windows</a>
+                <a href="downloads/yola-cli/linux-arm64/yola-cli" class="prod-btn" download>Linux ARM64</a>
+                <a href="downloads/yola-cli/macos-amd64/yola-cli" class="prod-btn" download>macOS Intel</a>
+                <a href="downloads/yola-cli/macos-arm64/yola-cli" class="prod-btn" download>macOS ARM</a>
+                <a href="downloads/yola-cli/windows-amd64/yola-cli.exe" class="prod-btn" download>Windows</a>
             </div>
             <div class="prod-install">
                 <div class="code">
@@ -248,9 +249,35 @@
             </div>
         </div>
 
+        <!-- YOLA Frontend -->
+        <div class="prod-card">
+            <span class="prod-icon">🖥️</span>
+            <h3 class="prod-name">YOLA Frontend</h3>
+            <p class="prod-desc">El escritorio de YOLA en tu navegador. Interfaz tipo OS con ventanas, taskbar, command palette y apps. No requiere instalación — abrí la URL y conectá con tu backend.</p>
+            <div class="prod-meta">
+                <span class="prod-badge web">Web</span>
+                <span class="prod-badge size">~600 KB</span>
+                <span class="prod-badge plat">🌐 Chrome</span>
+                <span class="prod-badge plat">🦊 Firefox</span>
+                <span class="prod-badge plat">🧭 Safari</span>
+            </div>
+            <div class="prod-actions">
+                <a href="https://sayridevs.github.io/yola-frontend/" class="prod-btn primary" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Abrir Frontend
+                </a>
+            </div>
+            <div class="prod-install">
+                <div class="code">
+                    <span class="prompt">$</span>
+                    <span class="text">yola serve → http://localhost:9090 → abrir frontend con ?backend=</span>
+                </div>
+            </div>
+        </div>
+
         <!-- YolaAvisa -->
         <div class="prod-card">
-            <span class="prod-icon">📱</span>
+            <span class="prod-icon">📡</span>
             <h3 class="prod-name">YolaAvisa</h3>
             <p class="prod-desc">App Android para notificaciones y control remoto. Recibe alertas del ecosistema, revisa logs y ejecuta comandos desde tu teléfono.</p>
             <div class="prod-meta">
