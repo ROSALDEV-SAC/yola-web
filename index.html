@@ -555,90 +555,25 @@
         <div class="section-number">02</div>
         <h2>Así se ve <i>YOLA</i></h2>
         <p style="color:var(--text-mid);font-size:1.125rem;line-height:1.8;max-width:560px;font-weight:400">
-            Un escritorio completo con ventanas, terminal, chat y herramientas — todo comunicándose en tiempo real via WebSocket.
+            YOLA respondiendo desde tu terminal. Sin servidores, sin nube — solo tu máquina y el agente.
         </p>
     </div>
 
-    <div class="demo-section" style="margin-top:2.5rem">
-        <div class="demo-preview">
-            <div class="demo-screen">
+    <div class="demo-video" style="margin-top:2.5rem;max-width:720px;margin-left:auto;margin-right:auto;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.4);border:1px solid rgba(108,92,231,0.15)">
+        <video src="media/yola-cli-demo.mp4" controls playsinline style="width:100%;display:block;background:#000">
+            Tu navegador no soporta video.
+        </video>
+    </div>
 
-                <!-- Ventana: Terminal -->
-                <div class="demo-window window-terminal">
-                    <div class="demo-window-header">
-                        <span class="demo-window-dot"></span>
-                        <span class="demo-window-dot"></span>
-                        <span class="demo-window-dot"></span>
-                        <span style="margin-left:auto;font-size:0.6rem;color:var(--text3)">terminal</span>
-                    </div>
-                    <div class="demo-window-content">
-                        <span class="prompt">yola@desktop:~$</span> <span class="cmd">ls -la</span><br>
-                        <span class="output">drwxr-xr-x  12 yola  yola   408 Jul 11 15:23 .</span><br>
-                        <span class="output">drwxr-xr-x   3 yola  yola   102 Jul 11 15:22 ..</span><br>
-                        <span class="output">-rw-r--r--   1 yola  yola  1.2K Jul 11 15:22 <span class="accent-text">AGENTS.md</span></span><br>
-                        <span class="output">-rw-r--r--   1 yola  yola   287 Jul 11 15:22 <span class="accent-text">bun.lock</span></span><br>
-                        <span class="output">drwxr-xr-x   4 yola  yola   136 Jul 11 15:23 <span class="accent-text">packages/</span></span><br>
-                        <span class="prompt">yola@desktop:~$</span> <span style="animation:blink 1s infinite">▊</span>
-                    </div>
-                </div>
-
-                <!-- Ventana: Chat -->
-                <div class="demo-window window-chat">
-                    <div class="demo-window-header">
-                        <span class="demo-window-dot"></span>
-                        <span class="demo-window-dot"></span>
-                        <span class="demo-window-dot"></span>
-                        <span style="margin-left:auto;font-size:0.6rem;color:var(--text3)">chat</span>
-                    </div>
-                    <div class="demo-window-content">
-                        <span style="color:var(--accent2);font-weight:600;">YOLA</span><br>
-                        <span class="output">He analizado el código. La causa raíz está en el manejador de eventos. ¿Procedo con el fix?</span><br><br>
-                        <span style="color:var(--text);font-weight:500;">Tú</span><br>
-                        <span class="output">Sí, aplica el cambio mínimo.</span><br><br>
-                        <span style="color:var(--accent2);font-weight:600;">YOLA</span><br>
-                        <span class="output" style="color:var(--green)">✅ Fix aplicado. Tests: 3 pasando, 0 fallando.</span>
-                    </div>
-                </div>
-
-                <!-- Desktop Icons -->
-                <div class="demo-icons">
-                    <div class="demo-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                        PC
-                    </div>
-                    <div class="demo-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        Docs
-                    </div>
-                </div>
-
-                <!-- Taskbar -->
-                <div class="demo-taskbar">
-                    <div class="demo-tb-logo">Y</div>
-                    <div class="demo-tb-item active">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-                        terminal
-                    </div>
-                    <div class="demo-tb-item">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                        chat
-                    </div>
-                    <div class="demo-tb-time">15:23</div>
-                </div>
-
-            </div>
+    <div class="demo-caption">
+        <div class="demo-caption-text">
+            <h4>YOLA en tu terminal</h4>
+            <p>9 segundos. Sin editar. Directo desde yola-cli respondiendo en local.</p>
         </div>
-
-        <div class="demo-caption">
-            <div class="demo-caption-text">
-                <h4>Captura del escritorio YOLA</h4>
-                <p>Ventanas flotantes, terminal real, chat con IA contextual. Todo actualizado en tiempo real.</p>
-            </div>
-            <a href="https://yolabysayri.com" class="demo-caption-link">
-                Probar ahora
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-        </div>
+        <a href="download.html" class="demo-caption-link">
+            Descargar yola-cli
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
     </div>
 </section>
 
